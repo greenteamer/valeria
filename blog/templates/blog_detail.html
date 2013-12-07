@@ -1,6 +1,12 @@
 {% extends 'base.html' %}
 {% load thumbnail %}
 
+{% block meta %}
+    <title>Создание сайтов | {{ post.title }}</title>
+    <meta name="description" content="{{ post.description }}" >
+    <meta name ="keywords" content="{{ post.keywords }}">
+{% endblock %}
+
 {% block slogan %}
 {% endblock %}
 

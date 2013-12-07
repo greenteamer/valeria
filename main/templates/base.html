@@ -1,12 +1,16 @@
 {% load staticfiles %}
 {#{% load bootstrap_toolkit %}#}
-{#{% load flatblock_tags %}#}
-{#{% load thumbnail %}#}
+{% load flatblock_tags %}
+{% load thumbnail %}
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Спортивные ставки</title>
+        {% block meta %}
+            <title>Создание сайтов</title>
+            <meta name="description" content="Forward - Создание высококачественных сайтов в Томске, Новосибирске, Москве, продвижение сайтов, поисковая сео оптимизация, качественное продвижение сайта в топ." >
+            <meta name ="keywords" content="Создание сайтов, продвижение сайтов">
+        {% endblock %}
         <link href="{% static 'theme/css/global.css' %}" rel="stylesheet">
         <link href="{% static 'libraries/calendar/fullcalendar.css' %}" rel="stylesheet">
         <link href="{% static 'bootstrap/css/bootstrap.css' %}" rel="stylesheet">
@@ -24,31 +28,7 @@
         <script type="text/javascript" src="{% static 'libraries/calendar/fullcalendar.js' %}"></script>
         <link rel="stylesheet" href="{% static 'libraries/fancybox/source/jquery.fancybox.css' %}" type="text/css" media="screen" />
         <script type="text/javascript" src="{% static 'libraries/fancybox/source/jquery.fancybox.pack.js' %}"></script>
-        <script type="text/javascript">
-            $(document).ready(function() {
-                $(".fancybox").fancybox();
 
-                $("a.fc-event").fancybox({
-                    'padding'           : 50,
-                    'width'             : '650px',
-                    'height'            : '700px',
-                    'autoScale'     	: false,
-                    'transitionIn'		: 'none',
-                    'transitionOut'		: 'none',
-                    'type'				: 'iframe'
-                });
-
-                $("a.popup").fancybox({
-                    'padding'           : 50,
-                    'width'             : '650px',
-                    'height'            : '700px',
-                    'autoScale'     	: false,
-                    'transitionIn'		: 'none',
-                    'transitionOut'		: 'none',
-                    'type'				: 'iframe'
-                });
-            });
-        </script>
         {% block calendar_js %}
         {% endblock %}
     </head>
@@ -67,7 +47,7 @@
                             </ul>
                         </div>
                         <div class="content">
-                            <h1>We are <strong>MINETT</strong></h1>
+                            <h1>We are <strong>FORWARD</strong></h1>
                             <div class="head-info">Magna in pulvinar tempor montes pulvinar habitasse parturient? Elementum facilisis sit et, dolor placerat, turpis auctor.
                             <p>Lundium ultricies augue urna arcu aliquet velit?</p>
                             </div>
@@ -82,27 +62,17 @@
             <div class="header">
                 <div class="container">
                     <div class="row">
-                        <div class="span4">
-                            <div class="ic-1"><i class="icon-lightbulb"></i></div>
-                            <div class="title-1"><h4>Powerful clean design</h4></div>
-                            <div class="text-1">
-                                On sait depuis longake apple pie. Gingerbread cotton candy icing ice cream applicake wafetemps nnaire de plus de 200 mots pluskan rlatin
-                            </div>
-                        </div>
-                        <div class="span4">
-                            <div class="ic-1"><i class="icon-resize-small"></i></div>
-                            <div class="title-1"><h4>Fully responsive</h4></div>
-                            <div class="text-1">
-                                Iil utilise un dictionnaire de plus de 200 mots kan rlarem as Ipsumtiotins, en combiake apple pie. Gingerbread icing ice cream applicake wafenaison.
-                            </div>
-                        </div>
-                        <div class="span4">
-                            <div class="ic-1"><i class="icon-eye-open"></i></div>
-                            <div class="title-1"><h4>Retina Ready</h4></div>
-                            <div class="text-1">
-                                Contrairement à une opinion répandue, Lorem as Ipsumtionnaire de plus n'est pas simplake apple pie. Gingerbread cotton  ice cream applicake wafeement.
-                            </div>
-                        </div>
+                        {% for post in posts %}
+                            {% if post.post_in_blue %}
+                                <div class="span4">
+                                    {% thumbnail post.image_blue "32x32" crop="center" as im %}
+                                        <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="Иконка" align="left" vspace="5" hspace="5"/>
+                                    {% endthumbnail %}
+                                    <div class="middle_title">{{ post.name }}</div>
+                                    <div class="middle_text">{{ post.text|removetags:"img"|truncatewords:"40"|safe }}</div>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
                     </div>
                 </div>
             </div>
@@ -118,16 +88,18 @@
                                 <div class="span5">
                                     <div class="games_list">
                                         {% for post in posts %}
-                                            <div class="game_in_list{% if post == post|first %} first{% endif %}">
-                                                <div class="game_left">
-                                                    <span class="sport_name">{{post.name}}</span>
-                                                    <div class="sport_command">{{  post.text|removetags:"img"|truncatewords:"50"|safe }}</div>
+                                            {% if post.post_in_main %}
+                                                <div>
+                                                    <div>
+                                                        <span>{{post.name}}</span>
+                                                        <div>{{  post.text|removetags:"img"|truncatewords:"50"|safe }}</div>
+                                                    </div>
+                                                    <div>
+                                                        <span>{{ post.date }}</span>
+                                                        <a href="/blog/{{ post.slug }}">подробнее</a>
+                                                    </div>
                                                 </div>
-                                                <div class="game_right">
-                                                    <span class="sport_date">{{ post.date }}</span>
-                                                    <a href="/blog/{{ post.slug }}">подробнее</a>
-                                                </div>
-                                            </div>
+                                            {% endif %}
                                         {% endfor %}
                                     </div>
                                 </div>

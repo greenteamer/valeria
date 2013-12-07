@@ -101,11 +101,13 @@ INSTALLED_APPS = (
     'autoslug',
     'south',
     'sorl.thumbnail',
+    'flatblocks',
 )
 
 LOCAL_APPS = (
     'blog',
     'main',
+    'slider',
 )
 
 # A sample logging configuration. The only tangible logging
