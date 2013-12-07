@@ -1,0 +1,177 @@
+{% load staticfiles %}
+{#{% load bootstrap_toolkit %}#}
+{#{% load flatblock_tags %}#}
+{#{% load thumbnail %}#}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Спортивные ставки</title>
+        <link href="{% static 'theme/css/global.css' %}" rel="stylesheet">
+        <link href="{% static 'libraries/calendar/fullcalendar.css' %}" rel="stylesheet">
+        <link href="{% static 'bootstrap/css/bootstrap.css' %}" rel="stylesheet">
+        <link href="{% static 'bootstrap/css/bootstrap-responsive.css' %}" rel="stylesheet">
+
+        <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        <script type="text/javascript" src="{% static 'libraries/jquery-2.0.3.min.js' %}"></script>
+        <script src="{% static 'bootstrap/js/bootstrap.min.js' %}" type="text/javascript"></script>
+
+        {% block chart %}
+        {% endblock %}
+        <script type="text/javascript" src="{% static 'libraries/calendar/jquery-ui.custom.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'libraries/calendar/fullcalendar.js' %}"></script>
+        <link rel="stylesheet" href="{% static 'libraries/fancybox/source/jquery.fancybox.css' %}" type="text/css" media="screen" />
+        <script type="text/javascript" src="{% static 'libraries/fancybox/source/jquery.fancybox.pack.js' %}"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $(".fancybox").fancybox();
+
+                $("a.fc-event").fancybox({
+                    'padding'           : 50,
+                    'width'             : '650px',
+                    'height'            : '700px',
+                    'autoScale'     	: false,
+                    'transitionIn'		: 'none',
+                    'transitionOut'		: 'none',
+                    'type'				: 'iframe'
+                });
+
+                $("a.popup").fancybox({
+                    'padding'           : 50,
+                    'width'             : '650px',
+                    'height'            : '700px',
+                    'autoScale'     	: false,
+                    'transitionIn'		: 'none',
+                    'transitionOut'		: 'none',
+                    'type'				: 'iframe'
+                });
+            });
+        </script>
+        {% block calendar_js %}
+        {% endblock %}
+    </head>
+    <body>
+
+        <!-- меню -->
+        {% block menu %}
+            <div class="navbar navbar-inverse navbar-static-top">
+                <div class="navbar-inner my_navbar_inner">
+                    <div class="container">
+                        <div class="brand my_brand"><a href="/">Forward70.ru</a></div>
+                        <div class="main_menu">
+                            <ul class="nav my_nav">
+                                <li><a href="/">Главная</a></li>
+                                <li><a href="/blog">Статьи</a></li>
+                            </ul>
+                        </div>
+                        <div class="content">
+                            <h1>We are <strong>MINETT</strong></h1>
+                            <div class="head-info">Magna in pulvinar tempor montes pulvinar habitasse parturient? Elementum facilisis sit et, dolor placerat, turpis auctor.
+                            <p>Lundium ultricies augue urna arcu aliquet velit?</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endblock %}
+
+        <!-- header -->
+        {% block header %}
+            <div class="header">
+                <div class="container">
+                    <div class="row">
+                        <div class="span4">
+                            <div class="ic-1"><i class="icon-lightbulb"></i></div>
+                            <div class="title-1"><h4>Powerful clean design</h4></div>
+                            <div class="text-1">
+                                On sait depuis longake apple pie. Gingerbread cotton candy icing ice cream applicake wafetemps nnaire de plus de 200 mots pluskan rlatin
+                            </div>
+                        </div>
+                        <div class="span4">
+                            <div class="ic-1"><i class="icon-resize-small"></i></div>
+                            <div class="title-1"><h4>Fully responsive</h4></div>
+                            <div class="text-1">
+                                Iil utilise un dictionnaire de plus de 200 mots kan rlarem as Ipsumtiotins, en combiake apple pie. Gingerbread icing ice cream applicake wafenaison.
+                            </div>
+                        </div>
+                        <div class="span4">
+                            <div class="ic-1"><i class="icon-eye-open"></i></div>
+                            <div class="title-1"><h4>Retina Ready</h4></div>
+                            <div class="text-1">
+                                Contrairement à une opinion répandue, Lorem as Ipsumtionnaire de plus n'est pas simplake apple pie. Gingerbread cotton  ice cream applicake wafeement.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endblock %}
+
+        <!--middle content-->
+        <div class="middle_content">
+            <div class="container">
+                <div class="row">
+                    <div class="span12">
+                        {% block content %}
+                            <div class="row">
+                                <div class="span5">
+                                    <div class="games_list">
+                                        {% for post in posts %}
+                                            <div class="game_in_list{% if post == post|first %} first{% endif %}">
+                                                <div class="game_left">
+                                                    <span class="sport_name">{{post.name}}</span>
+                                                    <div class="sport_command">{{  post.text|removetags:"img"|truncatewords:"50"|safe }}</div>
+                                                </div>
+                                                <div class="game_right">
+                                                    <span class="sport_date">{{ post.date }}</span>
+                                                    <a href="/blog/{{ post.slug }}">подробнее</a>
+                                                </div>
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                <div class="span4 statist_main">
+
+                                </div>
+                            {% block sidebar_menu %}
+                                <div class="span3 baner">
+                                    <div class="menu_right">
+                                        <h3>Меню</h3>
+
+                                    </div>
+                                </div>
+                            {% endblock %}
+                            </div>
+                        {% endblock %}
+                    </div>
+                    <div class="span12">
+                        {% block calendar %}
+                        {% endblock %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--footer-->
+        {% block footer %}
+            <div class="footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="span12">
+                            <div class="row">
+                                <div class="span9">
+                                    <p>Все права защищены @2013</p>
+                                </div>
+                                <div class="span3 forward">
+                                    <a href="http://forward70.ru"> Создание сайтов Forward</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endblock %}
+
+    </body>
+</html>

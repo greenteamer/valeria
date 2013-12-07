@@ -44,6 +44,14 @@ MEDIA_URL = '/media/'
 STATICFILES_DIRS = ()
 TEMPLATE_DIRS = ()
 
+CKEDITOR_UPLOAD_PATH = "media/uploads"
+CKEDITOR_UPLOAD_PREFIX = "/media/uploads"
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'Full',
+    },
+}
+
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
@@ -89,10 +97,15 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
+    'ckeditor',
+    'autoslug',
+    'south',
+    'sorl.thumbnail',
 )
 
 LOCAL_APPS = (
     'blog',
+    'main',
 )
 
 # A sample logging configuration. The only tangible logging
