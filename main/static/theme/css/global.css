@@ -69,6 +69,15 @@ ul.nav.my_nav {
     background: #fff;
 }
 
+.middle_title {
+    color: #fff;
+    font-weight: bold;
+}
+
+.middle_text {
+    color: #83adff;
+}
+
 .top_analitic {
     background: url("../img/block_bg.gif");
     padding: 20px 0;
@@ -132,6 +141,7 @@ a._news_all_link:hover {
 
 .header {
     background: #365eab;
+    padding: 30px;
 }
 
 .block_about {
