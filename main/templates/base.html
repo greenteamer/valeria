@@ -54,8 +54,8 @@
                                     <div class="main_menu">
                                         <ul class="nav my_nav">
                                             <li><a href="/">Главная</a></li>
-                                            <li><a href="/sozdanie-saitov">Создание сайтов</a></li>
-                                            <li><a href="/mobilnie-prilojeniya">Мобильные приложения</a></li>
+                                            <li><a href="/sozdanie-saitov/">Создание сайтов</a></li>
+                                            <li><a href="/mobilnie-prilojeniya/">Мобильные приложения</a></li>
                                             <li><a href="/blog/">Статьи</a></li>
                                             <li><a href="/blog/third/">Контакты</a></li>
                                         </ul>
@@ -70,15 +70,11 @@
                             <div class="head-info">Magna in pulvinar tempor montes pulvinar habitasse parturient? Elementum facilisis sit et, dolor placerat, turpis auctor.
                             <p>Lundium ultricies augue urna arcu aliquet velit?</p>
                             </div>
-                            {% block review_main %}
-                                {% for review in reviews %}
-                                    {% if review.review_in_main %}
-                                        <h1>{{ review.name }}</h1>
-{#                                        <h2>{{ review.company }}</h2>#}
-                                        {{ review.text|removetags:"img"|truncatewords:"20"|safe }}
-                                    {% endif %}
-                                {% endfor %}
+                            {% block review_slider %}
+                                {% include 'review_slider.html' %}
                             {% endblock %}
+{#                            {% block review_main %}#}
+{#                            {% endblock %}#}
                         </div>
                     </div>
                 </div>

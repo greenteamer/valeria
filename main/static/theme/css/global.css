@@ -309,7 +309,7 @@ a.my_btn:hover {
 
 .top_text {
     margin-top: 30px;
-    margin-bottom: 60px;
+    /*margin-bottom: 60px;*/
 }
 
 .phone {
@@ -364,4 +364,45 @@ a.my_btn:hover {
 
 .apps_text p {
     color: #848484;
+}
+
+/*review_slider*/
+.top_text .item {
+    min-height: 200px;
+}
+.top_text .carousel-control {
+    top: 80%;
+}
+.top_text .carousel-control.right {
+    right: 0px;
+    left: auto;
+}
+.top_text .carousel-control.left {
+    right: 50px;
+    left: auto;
+}
+p.review {
+    border: 1px solid #3d3d3d;
+}
+.main_review {
+    position: absolute;
+    width: 100%;
+}
+.main_review .popover {
+    display: block;
+    max-width: 100%;
+    left: 112px;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    padding: 0px;
+}
+.main_review .popover-title {
+    border-bottom: 0px;
+}
+.slider_review {
+    margin-top: 60px;
 }
