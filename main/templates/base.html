@@ -1,5 +1,4 @@
 {% load staticfiles %}
-{#{% load bootstrap_toolkit %}#}
 {% load flatblock_tags %}
 {% load thumbnail %}
 <!DOCTYPE html>
@@ -28,29 +27,58 @@
         <script type="text/javascript" src="{% static 'libraries/calendar/fullcalendar.js' %}"></script>
         <link rel="stylesheet" href="{% static 'libraries/fancybox/source/jquery.fancybox.css' %}" type="text/css" media="screen" />
         <script type="text/javascript" src="{% static 'libraries/fancybox/source/jquery.fancybox.pack.js' %}"></script>
+        <script type="text/javascript" src="{% static 'libraries/scripts.js' %}"></script>
 
         {% block calendar_js %}
         {% endblock %}
     </head>
     <body>
 
-        <!-- меню -->
-        {% block menu %}
-            <div class="navbar navbar-inverse navbar-static-top">
-                <div class="navbar-inner my_navbar_inner">
-                    <div class="container">
-                        <div class="brand my_brand"><a href="/">Forward70.ru</a></div>
-                        <div class="main_menu">
-                            <ul class="nav my_nav">
-                                <li><a href="/">Главная</a></li>
-                                <li><a href="/blog">Статьи</a></li>
-                            </ul>
+        {% block top %}
+            <div class="container">
+                <div class="row">
+                    <div class="span5">
+                        <div class="background"><img src="{% static 'theme/img/background.png' %}" alt=""/></div>
+                        <div class="brand my_brand"><a href="/"><img src="{% static 'theme/img/logo.jpg' %}" width="300" alt=""/></a></div>
+                    </div>
+                    <div class="span7">
+                        <div class="phone_wrapper">
+                            <div class="phone">
+                                <p><span>тел.(3822)</span> 94-20-19</p>
+                                <p class="adress">г.Томск ул.Кирова 58 стр.55 оф.61</p>
+                            </div>
                         </div>
+                        <div class="navbar navbar-inverse navbar-static">
+                            <div class="navbar-inner my_navbar_inner">
+                                <div class="container">
+                                    <div class="main_menu">
+                                        <ul class="nav my_nav">
+                                            <li><a href="/">Главная</a></li>
+                                            <li><a href="/sozdanie-saitov">Создание сайтов</a></li>
+                                            <li><a href="/mobilnie-prilojeniya">Мобильные приложения</a></li>
+                                            <li><a href="/blog/">Статьи</a></li>
+                                            <li><a href="/blog/third/">Контакты</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="span7 top_text">
                         <div class="content">
-                            <h1>We are <strong>FORWARD</strong></h1>
+                            <h1><strong>FORWARD</strong> - сайт будет продавать</h1>
                             <div class="head-info">Magna in pulvinar tempor montes pulvinar habitasse parturient? Elementum facilisis sit et, dolor placerat, turpis auctor.
                             <p>Lundium ultricies augue urna arcu aliquet velit?</p>
                             </div>
+                            {% block review_main %}
+                                {% for review in reviews %}
+                                    {% if review.review_in_main %}
+                                        <h1>{{ review.name }}</h1>
+{#                                        <h2>{{ review.company }}</h2>#}
+                                        {{ review.text|removetags:"img"|truncatewords:"20"|safe }}
+                                    {% endif %}
+                                {% endfor %}
+                            {% endblock %}
                         </div>
                     </div>
                 </div>
@@ -58,72 +86,128 @@
         {% endblock %}
 
         <!-- header -->
-        {% block header %}
+        {% block first_content %}
             <div class="header">
                 <div class="container">
                     <div class="row">
-                        {% for post in posts %}
-                            {% if post.post_in_blue %}
-                                <div class="span4">
-                                    {% thumbnail post.image_blue "32x32" crop="center" as im %}
-                                        <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="Иконка" align="left" vspace="5" hspace="5"/>
-                                    {% endthumbnail %}
-                                    <div class="middle_title">{{ post.name }}</div>
-                                    <div class="middle_text">{{ post.text|removetags:"img"|truncatewords:"40"|safe }}</div>
-                                </div>
-                            {% endif %}
-                        {% endfor %}
+                        <div class="span12">
+                            <div class="header_title">
+                                <h2>Forward - сайты которые приносят доход</h2>
+                            </div>
+                        </div>
+                        <div class="span12 post_in_blue">
+                            <div class="row">
+                                {% for post in posts %}
+                                    {% if post.post_in_blue %}
+                                        <div class="span4">
+                                            <div class="row">
+                                                <div class="span1">
+                                                    <img width="32" src="/media/{{ post.image_blue }}" align="left" hspace="10" alt=""/>
+                                                </div>
+                                                <div class="span3">
+                                                    <h4>{{ post.name }}</h4>
+                                                    <div class="middle_text">{{ post.text|removetags:"img"|truncatewords:"20"|safe }}</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="span12">
+                            <div class="header_title">
+                                <h2>
+                                    Мобильный интернет - мобильные сайты
+                                </h2>
+
+                            </div>
+                        </div>
+                        <div class="span8">
+                            <img src="{% static 'theme/img/devices.png' %}" alt=""/>
+                        </div>
+                        <div class="span3 offset1 resp_list">
+                            <h4>Полная мобильная версия</h4>
+                            <p><i class="icon-ok icon-black"></i> Планшетные ПК Apple</p>
+                            <p><i class="icon-ok icon-black"></i> Смартфоны Apple</p>
+                            <p><i class="icon-ok icon-black"></i> Планшетные ПК Android</p>
+                            <p><i class="icon-ok icon-black"></i> Смартфоны Android</p>
+                            <p><i class="icon-ok icon-black"></i> Планшетные ПК Windows</p>
+                            <p><i class="icon-ok icon-black"></i> Смартфоны Windows</p>
+                        </div>
                     </div>
                 </div>
             </div>
         {% endblock %}
 
         <!--middle content-->
+        {% block second_content %}
         <div class="middle_content">
             <div class="container">
                 <div class="row">
                     <div class="span12">
                         {% block content %}
-                            <div class="row">
-                                <div class="span5">
-                                    <div class="games_list">
-                                        {% for post in posts %}
-                                            {% if post.post_in_main %}
-                                                <div>
-                                                    <div>
-                                                        <span>{{post.name}}</span>
-                                                        <div>{{  post.text|removetags:"img"|truncatewords:"50"|safe }}</div>
-                                                    </div>
-                                                    <div>
-                                                        <span>{{ post.date }}</span>
-                                                        <a href="/blog/{{ post.slug }}">подробнее</a>
-                                                    </div>
+                            <div class="row apps">
+                                <div class="span12">
+                                    <h4>Мобильное прилоежение на широкую ногу</h4>
+                                </div>
+                                <div class="span8">
+                                    <div class="row apps_text">
+                                        <div class="span8">
+                                            <div class="row">
+                                                <div class="span1">
+                                                    <img width="40" src="{% static 'theme/img/target.png' %}" alt=""/>
                                                 </div>
-                                            {% endif %}
-                                        {% endfor %}
+                                                <div class="span7">
+                                                    <h5>Определение бизнесс цели</h5>
+                                                    <p>Donec rutrum gravida ligula, ac adipiscing enim aliquet non. Sed consequat convallis lorem non feugiat. Curabitur nec orci eu lacus iaculis tempus volutpat non nulla. Mauris vehicula rhoncus risus, quis accumsan metus porta a. Sed rutrum condimentum ligula eu malesuada. Ut non erat mattis velit ullamcorper ultricies vel vitae dolor. Vivamus ornare feugiat auctor. </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="span8">
+                                            <div class="row">
+                                                <div class="span1">
+                                                    <img width="40" src="{% static 'theme/img/koleso.png' %}" alt=""/>
+                                                </div>
+                                                <div class="span7">
+                                                    <h5>Создание мобильного приложения</h5>
+                                                    <p>Donec rutrum gravida ligula, ac adipiscing enim aliquet non. Sed consequat convallis lorem non feugiat. Curabitur nec orci eu lacus iaculis tempus volutpat non nulla. Mauris vehicula rhoncus risus, quis accumsan metus porta a. Sed rutrum condimentum ligula eu malesuada. Ut non erat mattis velit ullamcorper ultricies vel vitae dolor. Vivamus ornare feugiat auctor. </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="span8">
+                                            <div class="row">
+                                                <div class="span1">
+                                                    <img width="40" src="{% static 'theme/img/smile.png' %}" alt=""/>
+                                                </div>
+                                                <div class="span7">
+                                                    <h5>Тестирование и сопровождение</h5>
+                                                    <p>Donec rutrum gravida ligula, ac adipiscing enim aliquet non. Sed consequat convallis lorem non feugiat. Curabitur nec orci eu lacus iaculis tempus volutpat non nulla. Mauris vehicula rhoncus risus, quis accumsan metus porta a. Sed rutrum condimentum ligula eu malesuada. Ut non erat mattis velit ullamcorper ultricies vel vitae dolor. Vivamus ornare feugiat auctor. </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="span8">
+                                            <div class="row">
+                                                <div class="span1">
+                                                    <img width="40" src="{% static 'theme/img/globe.png' %}" alt=""/>
+                                                </div>
+                                                <div class="span7">
+                                                    <h5>Продвижение мобильного приложения</h5>
+                                                    <p>Donec rutrum gravida ligula, ac adipiscing enim aliquet non. Sed consequat convallis lorem non feugiat. Curabitur nec orci eu lacus iaculis tempus volutpat non nulla. Mauris vehicula rhoncus risus, quis accumsan metus porta a. Sed rutrum condimentum ligula eu malesuada. Ut non erat mattis velit ullamcorper ultricies vel vitae dolor. Vivamus ornare feugiat auctor. </p>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="span4 statist_main">
-
+                                <div class="span4 app_image">
+                                    <img width="300" src="{% static 'theme/img/app.png' %}" alt=""/>
                                 </div>
-                            {% block sidebar_menu %}
-                                <div class="span3 baner">
-                                    <div class="menu_right">
-                                        <h3>Меню</h3>
-
-                                    </div>
-                                </div>
-                            {% endblock %}
                             </div>
-                        {% endblock %}
-                    </div>
-                    <div class="span12">
-                        {% block calendar %}
                         {% endblock %}
                     </div>
                 </div>
             </div>
         </div>
+        {% endblock %}
 
         <!--footer-->
         {% block footer %}
@@ -132,8 +216,18 @@
                     <div class="row">
                         <div class="span12">
                             <div class="row">
+                                <div class="span12">
+                                    <h1></h1>
+                                </div>
+                                <div class="span12">
+                                    <div class="row">
+                                        <div class="span6">
+
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="span9">
-                                    <p>Все права защищены @2013</p>
+{#                                    <p>Все права защищены @2013</p>#}
                                 </div>
                                 <div class="span3 forward">
                                     <a href="http://forward70.ru"> Создание сайтов Forward</a>
