@@ -108,6 +108,7 @@ LOCAL_APPS = (
     'blog',
     'main',
     'slider',
+    'review',
 )
 
 # A sample logging configuration. The only tangible logging
