@@ -268,7 +268,8 @@ a.my_btn:hover {
     float: right;
 }
 
-.header h2 {
+.header h2,
+.bottom_content h2 {
     color: #fff;
     font-family: 'eurofurence light';
     font-size: 40px;
@@ -287,7 +288,8 @@ a.my_btn:hover {
     list-style: none;
 }
 
-.header h4 {
+.header h4,
+.bottom_content h4{
     color: #fff;
     font-family: 'eurofurence light';
     font-size: 20px;
@@ -371,7 +373,13 @@ a.my_btn:hover {
     min-height: 200px;
 }
 .top_text .carousel-control {
-    top: 80%;
+    top: -15%;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+    width: 35px;
+    height: 35px;
+    line-height: 25px;
 }
 .top_text .carousel-control.right {
     right: 0px;
@@ -404,5 +412,18 @@ p.review {
     border-bottom: 0px;
 }
 .slider_review {
+    /*margin-top: 60px;*/
+}
+.my_title {
     margin-top: 60px;
 }
+
+/*bottom_content*/
+.bottom_content {
+    background: #3b3b3b;
+    padding: 60px;
+}
+.bottom_content p {
+    color: #787878;
+}
+
