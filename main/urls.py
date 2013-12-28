@@ -6,5 +6,6 @@ from main.views import *
 urlpatterns = patterns('',
     url(r'^$', MainView.as_view(), name='main'),
     url(r'^sozdanie-saitov/$', SaitView.as_view(), name='sait'),
-    url(r'^mobilnie-prilojeniya/$', MobileView.as_view(), name='mobile')
+    url(r'^mobilnie-prilojeniya/$', MobileView.as_view(), name='mobile'),
+    url(r'^kontakty/$', 'feedback.views.contact'),
 )
