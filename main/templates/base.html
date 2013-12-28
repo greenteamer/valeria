@@ -138,6 +138,30 @@
             </div>
         {% endblock %}
 
+        {% block portfolio %}
+            <div class="portfolio">
+                <div class="container">
+                    <div class="row">
+                        <div class="span12">
+                            <div class="row">
+                                <div class="span12">
+                                    <h4>Наши последние работы</h4>
+                                </div>
+                                {% for folio in portfolios %}
+                                    <div class="span4">
+                                        <img src="/media/{{ folio.image }}" alt=""/>
+                                        <h6>{{ folio.company }}</h6>
+                                        <p>{{ folio.text|removetags:"img"|truncatewords:"50"|safe }}</p>
+                                        <a href="http://{{ folio.link }}">перейти на сайт</a>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endblock %}
+
         {% block bottom_content %}
             <div class="bottom_content">
                 <div class="container">

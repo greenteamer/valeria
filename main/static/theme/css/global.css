@@ -424,6 +424,41 @@ p.review {
     padding: 60px;
 }
 .bottom_content p {
-    color: #787878;
+    color: #8C8C8C;
 }
 
+/*portfolio*/
+.portfolio {
+    padding: 60px;
+}
+.portfolio h4 {
+    font-family: 'eurofurence light';
+    font-size: 40px;
+    margin-bottom: 60px;
+}
+.portfolio a {
+    background: #5c5c5c;
+    border-radius: 2px;
+    color: #fff;
+    margin-left: 4px;
+    text-decoration: none;
+    padding: 10px 15px 10px;
+    float: right;
+}
+.portfolio a:hover {
+    background: #3b3b3b;
+    color: #fff;
+    text-decoration: none;
+}
+.portfolio h5 {
+    font-family: 'eurofurence light';
+    font-size: 30px;
+}
+.portfolio h6 {
+    font-family: 'eurofurence light';
+    font-size: 25px;
+    margin: 30px 0;
+}
+.portfolio p {
+    color: #797979;
+}
