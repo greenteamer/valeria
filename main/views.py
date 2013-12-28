@@ -33,6 +33,20 @@ class SaitView(TemplateView):
         # context['supernumeraries'] = Supernumerary.objects.all()
         return context
 
+class ProdvijenieView(TemplateView):
+    template_name = 'prodvijenie.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(ProdvijenieView, self).get_context_data()
+        context['posts'] = Post.objects.all()
+        context['reviews'] = Review.objects.all()
+        # context['slides'] = Slider.objects.all()
+        # context['games'] = Game.objects.all()
+        # context['supernumeraries'] = Supernumerary.objects.all()
+        return context
+
+
+
 class MobileView(TemplateView):
     template_name = 'mobile.html'
 

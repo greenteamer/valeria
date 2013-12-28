@@ -269,7 +269,7 @@ a.my_btn:hover {
 }
 
 .header h2,
-.bottom_content h2 {
+.bottom_content h2{
     color: #fff;
     font-family: 'eurofurence light';
     font-size: 40px;
@@ -431,7 +431,9 @@ p.review {
 .portfolio {
     padding: 60px;
 }
-.portfolio h4 {
+.portfolio h4,
+.sait_create h2,
+.prodvijenie h2 {
     font-family: 'eurofurence light';
     font-size: 40px;
     margin-bottom: 60px;
@@ -462,3 +464,220 @@ p.review {
 .portfolio p {
     color: #797979;
 }
+
+
+
+
+
+
+/* страница Создание сайтов */
+
+
+.sait_create hr {
+width: 84%;
+margin: 60px auto 45px;
+}
+
+
+.sait_create .span3{
+position: relative;
+text-align: center;
+-webkit-box-shadow: 0px 0px 1px rgba(27, 48, 87, 0.19);
+-moz-box-shadow: 0px 0px 1px rgba(27, 48, 87, 0.19);
+box-shadow: 0px 0px 1px rgba(27, 48, 87, 0.19);
+-webkit-transition: margin .25s linear;
+-moz-transition: margin .25s linear;
+-ms-transition: margin .25s linear;
+-o-transition: margin .25s linear;
+transition: margin .25s linear;
+margin-bottom: 10px;
+}
+
+.headerrow .title{
+margin: 0;
+padding: 30px 0;
+background-color: #f6f6f6;
+text-transform: uppercase;
+background: #365EAB;
+font-family: 'Open Sans',sans-serif;
+font-weight: 200;
+font-size: 20px;
+line-height: 30px;
+color: #fff;
+}
+
+.sait_create .featured .headerrow .title {
+padding-top: 37px;
+padding-bottom: 37px;
+background: #1b3057;
+}
+.sait_create .span3.featured {
+z-index: 3;
+margin-top: -14px;
+-webkit-box-shadow: 0 0 10px rgba(0,0,0,.2);
+-moz-box-shadow: 0 0 10px rgba(0,0,0,.2);
+box-shadow: 0 0 10px rgba(0,0,0,.2);
+}
+
+.headerrow .price {
+background-color: #373737;
+padding: 18px 0 15px;
+}
+.headerrow .price h3{
+color: #fff;
+}
+.headerrow .description {
+text-transform: uppercase;
+font-size: 12px;
+color: #f6f6f6;
+font-family: "Open Sans", Arial;
+}
+.sait_create .features {
+border-top: 1px solid #d7d7d7;
+border-bottom: 1px solid #d7d7d7;
+}
+.sait_create ul {
+list-style: none outside;
+margin: 0;
+}
+.sait_create .features li {
+position: relative;
+padding: 10px 20px;
+border-top-width: 1px;
+border-top-style: solid;
+border-top-color: #e6e6e6;
+background-color: #f6f6f6;
+font-family: 'Open Sans', sans-serif;
+color: rgb(124, 126, 126);
+font-size: 15px;
+line-height: 20px;
+padding-bottom: 15px;
+padding-left: 20px;
+padding-right: 20px;
+padding-top: 15px;
+text-align: center;
+vertical-align: middle;
+font-weight: 100;
+}
+.sait_create .features li:first-child {
+border-top: none;
+}
+
+.sait_create .footerrow {
+padding: 0px;
+background-color: #e6e6e6;
+}
+
+.sait_create .button {
+display: inline-block;
+outline: medium none;
+border: none;
+color: #fff;
+vertical-align: baseline;
+text-align: center;
+text-decoration: none;
+font-family: 'Open Sans', sans-serif;
+font-size: 18px;
+/*-webkit-transition: all 0.2s linear 0s;
+-moz-transition: all 0.2s linear 0s;
+-ms-transition: all 0.2s linear 0s;
+-o-transition: all 0.2s linear 0s;
+transition: all 0.2s linear 0s;*/
+background-color: #365EAB;
+margin: 0;
+width: 100%;
+height: 50px;
+padding-top: 30px;
+}
+.sait_create .featured .button {
+height: 60px;
+padding-top: 40px;
+background: #1b3057;
+}
+.sait_create .button:hover {
+    opacity: 0.87;
+}
+
+.sait_create p {
+color: #797979;
+}
+
+
+
+
+
+/* страница Продвижение сайтов */
+.prodvijenie {
+margin-bottom: 60px;
+}
+.prodvijenie .span12 h2 {
+border-left: 3px solid #fff;
+margin: 0 0 0 -23px;
+padding-bottom: 60px;
+}
+
+
+.prodvijenie .span12 {
+border-left: 3px solid #323232;
+padding-left: 20px;
+}
+.prodvijenie .span12 h3 {
+background: #323232;
+margin-left: -20px;
+color: #fff;
+padding: 20px;
+margin-top: 0;
+}
+
+.prodvijenie .description {
+background: #323232;
+margin: -31px 0px 10px -20px;
+color: #B1B1B1;
+font-size: 13px;
+padding-left: 20px;
+padding-bottom: 10px;
+}
+
+.prodvijenie .span12 .price {
+border: 1px solid #323232;
+margin-left: -21px;
+margin-bottom: 45px;
+border-right: 0;
+padding: 10px 0px 10px 20px;
+}
+.prodvijenie .span12 .price.last{
+margin-bottom: 0;
+}
+.prodvijenie .button a {
+border: none;
+color: #fff;
+float: right;
+text-align: center;
+text-decoration: none;
+font-family: 'Open Sans', sans-serif;
+font-size: 16px;
+background-color: #5c5c5c;
+padding: 10px 73px;
+margin-top: -10px;
+}
+.prodvijenie .button a:hover {
+background: #3b3b3b;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
