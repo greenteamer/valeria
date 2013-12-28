@@ -2,6 +2,7 @@
 from django.views.generic import TemplateView, DetailView
 from blog.models import Post
 from review.models import *
+from portfolio.models import *
 # from slider.models import Slider
 # from game.models import Game
 # from user_profile.models import Supernumerary
@@ -14,6 +15,7 @@ class MainView(TemplateView):
         context = super(MainView, self).get_context_data()
         context['posts'] = Post.objects.all()
         context['reviews'] = Review.objects.all()
+        context['portfolios'] = Portfolio.objects.filter(main_choice='main')
         # context['slides'] = Slider.objects.all()
         # context['games'] = Game.objects.all()
         # context['supernumeraries'] = Supernumerary.objects.all()
