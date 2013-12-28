@@ -110,6 +110,7 @@ LOCAL_APPS = (
     'slider',
     'review',
     'portfolio',
+    'feedback',
 )
 
 # A sample logging configuration. The only tangible logging

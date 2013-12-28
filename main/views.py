@@ -44,3 +44,15 @@ class MobileView(TemplateView):
         # context['games'] = Game.objects.all()
         # context['supernumeraries'] = Supernumerary.objects.all()
         return context
+
+class ContactView(TemplateView):
+    template_name = 'contact.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(ContactView, self).get_context_data()
+        context['posts'] = Post.objects.all()
+        context['reviews'] = Review.objects.all()
+        # context['slides'] = Slider.objects.all()
+        # context['games'] = Game.objects.all()
+        # context['supernumeraries'] = Supernumerary.objects.all()
+        return context
