@@ -3,7 +3,7 @@ $(document).ready(function() {
 
     $("#popup").fancybox({
         'padding'           : 0,
-        'width'             : '650px',
+        'width'             : '1200px',
         'height'            : '700px',
         'autoScale'     	: false,
         'transitionIn'		: 'none',

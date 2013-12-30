@@ -168,13 +168,13 @@
                                             <h4>Наши последние работы</h4>
                                         </div>
                                         <div class="span4">
-                                            <a class="link" href="">Смотреть все работы</a>
+                                            <a class="link" href="/portfolio/">Смотреть все работы</a>
                                         </div>
                                     </div>
                                 </div>
                                 {% for folio in portfolios %}
                                     <div class="span4">
-                                        <a href="http://{{ folio.link }}"><img src="/media/{{ folio.image }}" alt=""/></a>
+                                        <a id="popup" href="http://{{ folio.link }}"><img src="/media/{{ folio.image }}" alt=""/></a>
                                         <h6>{{ folio.company }}</h6>
                                         <p>{{ folio.text|removetags:"img"|truncatewords:"30"|safe }}</p>
                                     </div>
