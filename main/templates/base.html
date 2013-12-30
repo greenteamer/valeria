@@ -65,8 +65,8 @@
                                             <ul class="nav my_nav">
                                                 <li><a href="/">Главная</a></li>
                                                 <li><a href="/sozdanie-saitov/">Создание сайтов</a></li>
-                                            <li><a href="/prodvijenie/">Продвижение сайтов</a></li>
-                                                <li><a href="/mobilnie-prilojeniya/">Мобильные приложения</a></li>
+                                                <li><a href="/prodvijenie/">Продвижение сайтов</a></li>
+                                                <li><a href="/portfolio/">Портфолио</a></li>
                                                 <li><a href="/kontakty/">Контакты</a></li>
                                             </ul>
                                         </div>
@@ -90,6 +90,17 @@
                 </div>
             </div>
         {% endblock %}
+
+        <div class="title_page">
+            <div class="container">
+                <div class="row">
+                    <div class="span12">
+                        {% block title %}
+                        {% endblock %}
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!-- header -->
         {% block first_content %}
@@ -156,16 +167,15 @@
                                             <h4>Наши последние работы</h4>
                                         </div>
                                         <div class="span4">
-                                            <a href="">Смотреть все работы</a>
+                                            <a class="link" href="">Смотреть все работы</a>
                                         </div>
                                     </div>
                                 </div>
                                 {% for folio in portfolios %}
                                     <div class="span4">
-                                        <img src="/media/{{ folio.image }}" alt=""/>
+                                        <a href="http://{{ folio.link }}"><img src="/media/{{ folio.image }}" alt=""/></a>
                                         <h6>{{ folio.company }}</h6>
                                         <p>{{ folio.text|removetags:"img"|truncatewords:"30"|safe }}</p>
-                                        <a href="http://{{ folio.link }}">перейти на сайт</a>
                                     </div>
                                 {% endfor %}
                             </div>
