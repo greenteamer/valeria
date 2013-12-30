@@ -1,10 +1,6 @@
 {% extends 'base.html' %}
 {% load thumbnail %}
-
-
-{% block first_content %}
-{% endblock %}
-
+{% load staticfiles %}
 
 {% block bottom_content %}
 {% endblock %}
@@ -13,45 +9,101 @@
 {% block portfolio %}
 {% endblock %}
 
+{% block review_slider %}
+{% endblock %}
+
+{% block first_content %}
+    <div class="header">
+        <div class="container">
+            <div class="row">
+                <div class="span12">
+                    <div class="header_title">
+                        <h2>Forward - качественная разработка сайтов</h2>
+                    </div>
+                </div>
+                <div class="span12 post_in_blue">
+                    <div class="row">
+                        <div class="span12">
+                            <div class="row">
+                                <div class="span6">
+                                    <div class="row">
+                                        <div class="span1">
+                                            <img src="{% static 'theme/img/contactcard32.png' %}" alt=""/>
+                                        </div>
+                                        <div class="span5">
+                                            <h4>Индивидуальная поддержка</h4>
+                                            <p>При заказе сайта вам выделяется персональный менеджер, который будет помогать вам и консультировать по любым вопросам в течение всего срока нашего сотрудничества.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="span6">
+                                    <div class="row">
+                                        <div class="span1">
+                                            <img src="{% static 'theme/img/cup.png' %}" alt=""/>
+                                        </div>
+                                        <div class="span5">
+                                            <h4>К продвижению готов</h4>
+                                            <p>Все сайты создаются с учетом требований для дальнейшего продвижения в поисковых системах. Даже самый маленький сайт имеет полный функционал и сразу готов к продвижению.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="span6">
+                                    <div class="row">
+                                        <div class="span1">
+                                            <img src="{% static 'theme/img/mouse.png' %}" alt=""/>
+                                        </div>
+                                        <div class="span5">
+                                            <h4>Лёгкое управление сайтом</h4>
+                                            <p>Мы создаем сайты на основе системы, которая позволит вам самостоятельно управлять вашим сайтом, добавлять новые страницы, изменять текст и размещать фотографии.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="span6">
+                                    <div class="row">
+                                        <div class="span1">
+                                        <img src="{% static 'theme/img/key.png' %}" alt=""/>
+                                    </div>
+                                    <div class="span5">
+                                        <h4>Возможности расширения</h4>
+                                        <p>Система управления сайтом позволяет наращивать необходимый функционал. Вы сможете перейти на более функциональную редакцию в любое время без потери времени и данных.</p>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="span12">
+                    <div class="header_title">
+                        <h2>
+                            Мобильный интернет - мобильные сайты
+                        </h2>
+                    </div>
+                </div>
+                <div class="span8">
+                    <img src="{% static 'theme/img/devices.png' %}" alt=""/>
+                </div>
+                <div class="span3 offset1 resp_list">
+                    <h4>Полная мобильная версия</h4>
+                    <p><i class="icon-ok icon-black"></i> Планшетные ПК Apple</p>
+                    <p><i class="icon-ok icon-black"></i> Смартфоны Apple</p>
+                    <p><i class="icon-ok icon-black"></i> Планшетные ПК Android</p>
+                    <p><i class="icon-ok icon-black"></i> Смартфоны Android</p>
+                    <p><i class="icon-ok icon-black"></i> Планшетные ПК Windows</p>
+                    <p><i class="icon-ok icon-black"></i> Смартфоны Windows</p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
 
 {% block second_content %}
   <div class="sait_create">
     <div class="container">
-
         <div class="row">
             <div class="span12">
-
                 <div class="row">
-
-                    <div class="span12">
-                        <h2>Качественная разработка сайтов</h2>
-                    </div>
-<div class="span12">
-    <div class="row">
-                    <div class="span6">
-                        <h4>Индивидуальная поддержка</h4>
-                        При заказе сайта вам выделяется персональный менеджер, который будет помогать вам и консультировать по любым вопросам в течение всего срока нашего сотрудничества.
-                    </div>
-
-                    <div class="span6">
-                        <h4>К продвижению готов</h4>
-                       Все сайты создаются с учетом требований для дальнейшего продвижения в поисковых системах. Даже самый маленький сайт имеет полный функционал и сразу готов к продвижению.
-                    </div>
-
-                    <div class="span6">
-                        <h4>Лёгкое управление сайтом</h4>
-                        Мы создаем сайты на основе системы, которая позволит вам самостоятельно управлять вашим сайтом, добавлять новые страницы, изменять текст и размещать фотографии.
-                    </div>
-                    <div class="span6">
-                        <h4>Возможности расширения</h4>
-                        Система управления сайтом позволяет наращивать необходимый функционал. Вы сможете перейти на более функциональную редакцию в любое время без потери времени и данных.
-                    </div>
-</div>
-    </div>
-                    <div class="span12">
-                        <hr>
-                    </div>
-
                     <div class="span12">
                         <h2>Тарифные планы на создание сайтов</h2>
                     </div>
@@ -82,7 +134,7 @@
                         <!-- .features -->
 
                         <div class="footerrow">
-                            <a class="button big default" href="">Заказать</a>
+                            <a class="button big default" href="/kontakty/">Заказать</a>
                         </div>
                         <!-- .footer -->
                     </div>
@@ -111,7 +163,7 @@
                         <!-- .features -->
 
                         <div class="footerrow">
-                            <a class="button big default" href="">Заказать</a>
+                            <a class="button big default" href="/kontakty/">Заказать</a>
                         </div>
                         <!-- .footer -->
                     </div>
@@ -140,7 +192,7 @@
                         <!-- .features -->
 
                         <div class="footerrow">
-                            <a class="button big default" href="">Заказать</a>
+                            <a class="button big default" href="/kontakty/">Заказать</a>
                         </div>
                         <!-- .footer -->
                     </div>
@@ -169,7 +221,7 @@
                         <!-- .features -->
 
                         <div class="footerrow">
-                            <a class="button big default" href="">Заказать</a>
+                            <a class="button big default" href="/kontakty/">Заказать</a>
                         </div>
                         <!-- .footer -->
                     </div>
@@ -180,12 +232,6 @@
                 </div>
             </div>
         </div>
-
-        <div class="text_info span12">
-            <p>Donec rutrum gravida ligula, ac adipiscing enim aliquet non. Sed consequat convallis lorem non feugiat. Curabitur nec orci eu lacus iaculis tempus volutpat non nulla. Mauris vehicula rhoncus risus, quis accumsan metus porta a. Sed rutrum condimentum ligula eu malesuada. Ut non erat mattis velit ullamcorper ultricies vel vitae dolor</p>
-            <p>Donec rutrum gravida ligula, ac adipiscing enim aliquet non. Sed consequat convallis lorem non feugiat. Curabitur nec orci eu lacus iaculis tempus volutpat non nulla. Mauris vehicula rhoncus risus, quis accumsan metus porta a. Sed rutrum condimentum ligula eu malesuada. Ut non erat mattis velit ullamcorper ultricies vel vitae dolor</p>
-        </div>
-
     </div>
   </div>
 

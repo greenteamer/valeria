@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load thumbnail %}
+{% load staticfiles %}
+
+{% block review_slider %}
+{% endblock %}
+
+{% block first_content %}
+    <div class="header portfolio_page">
+        <div class="container">
+            <div class="row">
+                <!--верхняя часть синий области контактов-->
+                <div class="span12 contact_top">
+                    <div class="row">
+                        <div class="span12">
+                            <h2>Форма обратной связи</h2>
+                        </div>
+                        <div class="span12">
+                            <div class="row">
+                                <div class="span12">
+                                    <div class="row">
+                                        <div class="span4">
+                                        </div>
+                                    </div>
+                                </div>
+                                {% for folio in portfolios %}
+                                    <div class="span4">
+                                        <a href="http://{{ folio.link }}"><img src="/media/{{ folio.image }}" alt=""/></a>
+                                        <h6>{{ folio.company }}</h6>
+                                        <p>{{ folio.text|removetags:"img"|truncatewords:"30"|safe }}</p>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block bottom_content %}
+{% endblock %}
+
+{% block second_content %}
+{% endblock %}
+
+{% block portfolio %}
+{% endblock %}
