@@ -437,7 +437,16 @@ a.link {
     float: right;
 }
 a.link.blue {
-    background: #1b3057;;
+    background: #1b3057;
+}
+.home a.link.blue {
+    float: left;
+}
+.home .header_title h2 {
+    margin-bottom: 30px;
+}
+.home_bottom a.link.blue{
+    background: #999;
 }
 a.link.blue:hover,
 #id_submit:hover {
