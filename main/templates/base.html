@@ -360,22 +360,17 @@
                 <div class="container">
                     <div class="row">
                         <div class="span12">
-                            <div class="row">
-                                <div class="span12">
-                                    <h1></h1>
-                                </div>
-                                <div class="span12">
-                                    <div class="row">
-                                        <div class="span6">
-
-                                        </div>
+                            <div class="row grams">
+                                <h2>Благодарности</h2>
+                                {% for gram in grams %}
+                                    <div class="span3">
+                                        <h6>{{ gram.name }}</h6>
+                                        <img src="/media/{{ gram.image }}" alt="{{ gram.alt }}"/>
                                     </div>
-                                </div>
-                                <div class="span9">
-{#                                    <p>Все права защищены @2013</p>#}
-                                </div>
-                                <div class="span3 forward">
-                                    <a href="http://forward70.ru"> Создание сайтов Forward</a>
+                                {% endfor %}
+                                <div class="span6">
+                                    <h6>Ценности</h6>
+                                    <p>Компания Forward всегда идет настречу некомерческим организациям, мы верим, что в наше время все вместе, объединившись, мы сможем быть ответом на нужды людей</p>
                                 </div>
                             </div>
                         </div>

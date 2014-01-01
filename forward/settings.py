@@ -113,6 +113,7 @@ LOCAL_APPS = (
     'review',
     'portfolio',
     'feedback',
+    'grammars',
 )
 
 # A sample logging configuration. The only tangible logging
