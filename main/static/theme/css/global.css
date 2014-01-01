@@ -155,10 +155,19 @@ a._news_all_link:hover {
 .footer {
     background: #3b3b3b;
     min-height: 42px;
-    padding-top: 25px;
+    padding: 60px 0px;
     margin-top:-2px;
 }
-
+.footer h6 {
+    font-family: 'eurofurence light';
+    font-size: 20px;
+    color: #fff;
+}
+.footer h2 {
+    font-family: 'eurofurence light';
+    font-size: 40px;
+    color: #fff;
+}
 .footer p, .footer a {
     color: #fff;
     padding: 5px;

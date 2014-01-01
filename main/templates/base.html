@@ -168,13 +168,13 @@
                                             <h4>Наши последние работы</h4>
                                         </div>
                                         <div class="span4">
-                                            <a class="link" href="">Смотреть все работы</a>
+                                            <a class="link" href="/portfolio/">Смотреть все работы</a>
                                         </div>
                                     </div>
                                 </div>
                                 {% for folio in portfolios %}
                                     <div class="span4">
-                                        <a href="http://{{ folio.link }}"><img src="/media/{{ folio.image }}" alt=""/></a>
+                                        <a id="popup" href="http://{{ folio.link }}"><img src="/media/{{ folio.image }}" alt=""/></a>
                                         <h6>{{ folio.company }}</h6>
                                         <p>{{ folio.text|removetags:"img"|truncatewords:"30"|safe }}</p>
                                     </div>
@@ -360,22 +360,17 @@
                 <div class="container">
                     <div class="row">
                         <div class="span12">
-                            <div class="row">
-                                <div class="span12">
-                                    <h1></h1>
-                                </div>
-                                <div class="span12">
-                                    <div class="row">
-                                        <div class="span6">
-
-                                        </div>
+                            <div class="row grams">
+                                <h2>Благодарности</h2>
+                                {% for gram in grams %}
+                                    <div class="span3">
+                                        <h6>{{ gram.name }}</h6>
+                                        <img src="/media/{{ gram.image }}" alt="{{ gram.alt }}"/>
                                     </div>
-                                </div>
-                                <div class="span9">
-{#                                    <p>Все права защищены @2013</p>#}
-                                </div>
-                                <div class="span3 forward">
-                                    <a href="http://forward70.ru"> Создание сайтов Forward</a>
+                                {% endfor %}
+                                <div class="span6">
+                                    <h6>Ценности</h6>
+                                    <p>Компания Forward всегда идет настречу некомерческим организациям, мы верим, что в наше время все вместе, объединившись, мы сможем быть ответом на нужды людей</p>
                                 </div>
                             </div>
                         </div>
