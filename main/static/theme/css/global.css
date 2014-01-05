@@ -168,6 +168,15 @@ a._news_all_link:hover {
     font-size: 40px;
     color: #fff;
 }
+.footer h3 {
+    font-family: 'eurofurence light';
+    font-size: 30px;
+    color: #fff;
+}
+.footer span {
+    color: #C0C0C3;
+    padding: 5px;
+}
 .footer p, .footer a {
     color: #fff;
     padding: 5px;
