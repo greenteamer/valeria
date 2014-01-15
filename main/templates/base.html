@@ -361,17 +361,27 @@
                     <div class="row">
                         <div class="span12">
                             <div class="row grams">
-                                <h2>Благодарности</h2>
-                                {% for gram in grams %}
-                                    <div class="span3">
-                                        <h6>{{ gram.name }}</h6>
-                                        <img src="/media/{{ gram.image }}" alt="{{ gram.alt }}"/>
+                                {% block grams %}
+                                    <h2>Благодарности</h2>
+                                    {% for gram in grams %}
+                                        <div class="span3">
+                                            <h6>{{ gram.name }}</h6>
+                                            <img src="/media/{{ gram.image }}" alt="{{ gram.alt }}"/>
+                                        </div>
+                                    {% endfor %}
+                                    <div class="span6">
+                                        <h6>Ценности</h6>
+                                        <p>Компания Forward всегда идет настречу некомерческим организациям, мы верим, что в наше время все вместе, объединившись, мы сможем быть ответом на нужды людей</p>
                                     </div>
-                                {% endfor %}
-                                <div class="span6">
-                                    <h6>Ценности</h6>
-                                    <p>Компания Forward всегда идет настречу некомерческим организациям, мы верим, что в наше время все вместе, объединившись, мы сможем быть ответом на нужды людей</p>
-                                </div>
+                                {% endblock %}
+                                {% block destinations %}
+                                    <div class="span6">
+                                        <h3>Наши направления:</h3>
+                                        <span>Создание сайтов</span>
+                                        <span>Продвижение сайтов</span>
+                                        <span>Создание мобильных приложений</span>
+                                    </div>
+                                {% endblock %}
                             </div>
                         </div>
                     </div>
