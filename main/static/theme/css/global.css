@@ -15,6 +15,10 @@ body {
     background:#999;
 }
 
+body h1, body h2 {
+    font-weight: normal;
+}
+
 .background {
     position: absolute;
     left: 10px;
@@ -426,6 +430,7 @@ p.review {
 .bottom_content {
     background: #3b3b3b;
     padding: 60px;
+    z-index: 10;
 }
 .bottom_content p {
     color: #8C8C8C;
@@ -811,4 +816,24 @@ input {
 h4.strong {
     font-family: 'Open Sans',sans-serif;
     font-weight: 200;
+}
+
+.img_first img {
+    width: 100%;
+    height: auto;
+}
+
+.img_second, .img_first  {
+    height: 290px;
+    overflow: hidden;
+}
+
+.img_second img,
+.img_first img {
+    width: 100%;
+    z-index: -1;
+    /*margin-top: -500px;*/
+    /*position: absolute;*/
+    /*width: 100%;*/
+    /*top:-100px;*/
 }
