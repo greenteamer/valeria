@@ -36,6 +36,9 @@
 .container.main {
     width: auto;
 }
+.cbp-so-section.vizitka {
+    float: left;
+}
 
 .container > header {
 	width: 90%;
