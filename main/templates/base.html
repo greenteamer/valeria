@@ -11,7 +11,6 @@
             <meta name ="keywords" content="Создание сайтов, продвижение сайтов">
         {% endblock %}
         <link href="{% static 'theme/css/global.css' %}" rel="stylesheet">
-        <link href="{% static 'libraries/calendar/fullcalendar.css' %}" rel="stylesheet">
         <link href="{% static 'bootstrap/css/bootstrap.css' %}" rel="stylesheet">
         <link href="{% static 'bootstrap/css/bootstrap-responsive.css' %}" rel="stylesheet">
 
@@ -20,11 +19,11 @@
         <![endif]-->
         <script type="text/javascript" src="{% static 'libraries/jquery-2.0.3.min.js' %}"></script>
         <script src="{% static 'bootstrap/js/bootstrap.min.js' %}" type="text/javascript"></script>
+        <script src="{% static 'libraries/jquery.lazyload.min.js' %}" type="text/javascript"></script>
 
         {% block chart %}
         {% endblock %}
-        <script type="text/javascript" src="{% static 'libraries/calendar/jquery-ui.custom.min.js' %}"></script>
-        <script type="text/javascript" src="{% static 'libraries/calendar/fullcalendar.js' %}"></script>
+{#        <script type="text/javascript" src="{% static 'libraries/calendar/jquery-ui.custom.min.js' %}"></script>#}
         <link rel="stylesheet" href="{% static 'libraries/fancybox/source/jquery.fancybox.css' %}" type="text/css" media="screen" />
         <script type="text/javascript" src="{% static 'libraries/fancybox/source/jquery.fancybox.pack.js' %}"></script>
         <script type="text/javascript" src="{% static 'libraries/scripts.js' %}"></script>
@@ -43,13 +42,25 @@
     </head>
     <body>
 
+{#    необходимо для визуального эффекта#}
+    <div class="container main">
+        <div id="cbp-so-scroller" class="cbp-so-scroller">
+
+
         {% block top %}
             <div class="top">
                 <div class="container">
                     <div class="row">
                         <div class="span5">
                             <div class="background"><img src="{% static 'theme/img/background.png' %}" alt=""/></div>
-                            <div class="brand my_brand"><a href="/"><img src="{% static 'theme/img/logo.jpg' %}" width="300" alt=""/></a></div>
+                            <div class="brand my_brand">
+                                <a href="/">
+                                    <div class="logo_block">
+                                        <div class="forward_logo">Forward</div>
+                                        <div class="text_logo">Сайты достигающие своей цели</div>
+                                    </div>
+                                </a>
+                            </div>
                         </div>
                         <div class="span7">
                             <div class="phone_wrapper">
@@ -142,15 +153,21 @@
                         <div class="span8">
                             <img src="{% static 'theme/img/devices.png' %}" alt=""/>
                         </div>
-                        <div class="span3 offset1 resp_list">
-                            <h4>Полная мобильная версия</h4>
-                            <p><i class="icon-ok icon-black"></i> Планшетные ПК Apple</p>
-                            <p><i class="icon-ok icon-black"></i> Смартфоны Apple</p>
-                            <p><i class="icon-ok icon-black"></i> Планшетные ПК Android</p>
-                            <p><i class="icon-ok icon-black"></i> Смартфоны Android</p>
-                            <p><i class="icon-ok icon-black"></i> Планшетные ПК Windows</p>
-                            <p><i class="icon-ok icon-black"></i> Смартфоны Windows</p>
-                        </div>
+
+                        <section class="cbp-so-section">
+                            <figure class="cbp-so-side cbp-so-side-right">
+                                <div class="span3 offset1 resp_list">
+                                    <h4>Полная мобильная версия</h4>
+                                    <p><i class="icon-ok icon-black"></i> Планшетные ПК Apple</p>
+                                    <p><i class="icon-ok icon-black"></i> Смартфоны Apple</p>
+                                    <p><i class="icon-ok icon-black"></i> Планшетные ПК Android</p>
+                                    <p><i class="icon-ok icon-black"></i> Смартфоны Android</p>
+                                    <p><i class="icon-ok icon-black"></i> Планшетные ПК Windows</p>
+                                    <p><i class="icon-ok icon-black"></i> Смартфоны Windows</p>
+                                </div>
+                            </figure>
+                        </section>
+
                     </div>
                 </div>
             </div>
@@ -163,7 +180,7 @@
         {% endblock %}
 
         {% block portfolio %}
-            <div class="portfolio">
+            <div id="portfolio" class="portfolio">
                 <div class="container">
                     <div class="row">
                         <div class="span12">
@@ -173,14 +190,20 @@
                                         <div class="span8">
                                             <h4>Наши последние работы</h4>
                                         </div>
-                                        <div class="span4">
-                                            <a class="link" href="/portfolio/">Смотреть все работы</a>
-                                        </div>
+
+                                        <section class="cbp-so-section">
+                                            <figure class="cbp-so-side cbp-so-side-top">
+                                                <div class="span4">
+                                                    <a class="link" href="/portfolio/">Смотреть все работы</a>
+                                                </div>
+                                            </figure>
+                                        </section>
+
                                     </div>
                                 </div>
                                 {% for folio in portfolios %}
                                     <div class="span4">
-                                        <a id="popup" href="http://{{ folio.link }}"><img src="/media/{{ folio.image }}" alt=""/></a>
+                                        <a id="popup" href="http://{{ folio.link }}"><img class="lazy" data-original="/media/{{ folio.image }}" alt=""/></a>
                                         <h6>{{ folio.company }}</h6>
                                         <p>{{ folio.text|removetags:"img"|truncatewords:"30"|safe }}</p>
                                     </div>
@@ -209,108 +232,93 @@
                                     </div>
                                 </div>
 
-
 {#                                эффект#}
-                                <div class="container span12">
-                                    <div id="cbp-so-scroller" class="cbp-so-scroller">
-                                        <section class="cbp-so-section">
+                                <section class="cbp-so-section">
+                                    <article class="cbp-so-side cbp-so-side-left">
+                                        <div class="span6">
                                             <div class="row">
-                                                <article class="cbp-so-side cbp-so-side-left">
-                                                    <div class="span6">
-                                                        <div class="row">
-                                                            <div class="span1">
-                                                                <img width="70" src="{% static 'theme/img/first2.png' %}" alt=""/>
-                                                            </div>
-                                                            <div class="span5">
-                                                                <h4>Ваши клиенты прийдут к Вам сами</h4>
-                                                                <p>{% flatblock 'main_seo_1' %}</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </article>
-                                                <figure class="cbp-so-side cbp-so-side-right">
-                                                    <div class="span6">
-                                                        <div class="row">
-                                                            <div class="span1">
-                                                                <img width="70" src="{% static 'theme/img/click3.png' %}" alt=""/>
-                                                            </div>
-                                                            <div class="span5">
-                                                                <h4>Анализ поведения пользователей</h4>
-                                                                <p>{% flatblock 'main_seo_2' %}</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </figure>
-                                            </div>
-                                        </section>
-                                        <section class="cbp-so-section">
-                                            <div class="row">
-                                                <article class="cbp-so-side cbp-so-side-left">
-                                                    <div class="span6">
-                                                        <div class="row">
-                                                            <div class="span1">
-                                                                <img width="70" src="{% static 'theme/img/monik2.png' %}" alt=""/>
-                                                            </div>
-                                                            <div class="span5">
-                                                                <h4>Идете впереди Ваших конкурентов</h4>
-                                                                <p>{% flatblock 'main_seo_3' %}</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </article>
-                                                <figure class="cbp-so-side cbp-so-side-right">
-                                                    <div class="span6">
-                                                        <div class="row">
-                                                            <div class="span1">
-                                                                <img width="70" src="{% static 'theme/img/target_seo.png' %}" alt=""/>
-                                                            </div>
-                                                            <div class="span5">
-                                                                <h4>Главное достижение - достижение цели</h4>
-                                                                <p>{% flatblock 'main_seo_4' %}</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </figure>
-                                            </div>
-                                        </section>
-
-                                        <div class="span12">
-                                            <h2>Наши клиенты в России</h2>
-                                        </div>
-
-                                        <section class="cbp-so-section">
-                                            <div class="row">
-                                                <article class="cbp-so-side cbp-so-side-left">
-                                                    <div class="span3 offset1 resp_list">
-                                                        <h4>Более 200 сайтов</h4>
-                                                        <p><i class="icon-ok icon-black"></i> Москва и Московская область</p>
-                                                        <p><i class="icon-ok icon-black"></i> Томск и Томская область</p>
-                                                        <p><i class="icon-ok icon-black"></i> Сургут</p>
-                                                        <p><i class="icon-ok icon-black"></i> Казань</p>
-                                                        <p><i class="icon-ok icon-black"></i> Тула</p>
-                                                        <p><i class="icon-ok icon-black"></i> Самара</p>
-                                                        <p><i class="icon-ok icon-black"></i> Кавказ</p>
-                                                    </div>
-                                                    <div class="span3 resp_list">
-                                                        <h4>Более 20 направлений</h4>
-                                                        <p><i class="icon-ok icon-black"></i> Дизайн</p>
-                                                        <p><i class="icon-ok icon-black"></i> Красота</p>
-                                                        <p><i class="icon-ok icon-black"></i> Ремонт</p>
-                                                        <p><i class="icon-ok icon-black"></i> Медицина</p>
-                                                        <p><i class="icon-ok icon-black"></i> Промышленность</p>
-                                                        <p><i class="icon-ok icon-black"></i> Интернет - магазины</p>
-                                                        <p><i class="icon-ok icon-black"></i> Благотворительные фонды</p>
-
-                                                    </div>
-                                                </article>
-                                                <div class="span5 map">
-                                                    <img src="{% static 'theme/img/map.png' %}" alt=""/>
+                                                <div class="span1">
+                                                    <img width="70" src="{% static 'theme/img/first2.png' %}" alt=""/>
+                                                </div>
+                                                <div class="span5">
+                                                    <h4>Ваши клиенты прийдут к Вам сами</h4>
+                                                    <p>{% flatblock 'main_seo_1' %}</p>
                                                 </div>
                                             </div>
-                                        </section>
-                                    </div>
-                                </div>
+                                        </div>
+                                    </article>
+                                    <figure class="cbp-so-side cbp-so-side-right">
+                                        <div class="span6">
+                                            <div class="row">
+                                                <div class="span1">
+                                                    <img width="70" src="{% static 'theme/img/click3.png' %}" alt=""/>
+                                                </div>
+                                                <div class="span5">
+                                                    <h4>Анализ поведения пользователей</h4>
+                                                    <p>{% flatblock 'main_seo_2' %}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </figure>
+                                </section>
+                                <section class="cbp-so-section">
+                                    <article class="cbp-so-side cbp-so-side-left">
+                                        <div class="span6">
+                                            <div class="row">
+                                                <div class="span1">
+                                                    <img width="70" src="{% static 'theme/img/monik2.png' %}" alt=""/>
+                                                </div>
+                                                <div class="span5">
+                                                    <h4>Идете впереди Ваших конкурентов</h4>
+                                                    <p>{% flatblock 'main_seo_3' %}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </article>
+                                    <figure class="cbp-so-side cbp-so-side-right">
+                                        <div class="span6">
+                                            <div class="row">
+                                                <div class="span1">
+                                                    <img width="70" src="{% static 'theme/img/target_seo.png' %}" alt=""/>
+                                                </div>
+                                                <div class="span5">
+                                                    <h4>Главное достижение - достижение цели</h4>
+                                                    <p>{% flatblock 'main_seo_4' %}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </figure>
+                                </section>
 {#                                конец эффекту#}
+
+                                <div class="span12">
+                                    <h2>Наши клиенты в России</h2>
+                                </div>
+
+                                <div class="span3 offset1 resp_list">
+                                    <h4>Более 200 сайтов</h4>
+                                    <p><i class="icon-ok icon-black"></i> Москва и Московская область</p>
+                                    <p><i class="icon-ok icon-black"></i> Томск и Томская область</p>
+                                    <p><i class="icon-ok icon-black"></i> Сургут</p>
+                                    <p><i class="icon-ok icon-black"></i> Казань</p>
+                                    <p><i class="icon-ok icon-black"></i> Тула</p>
+                                    <p><i class="icon-ok icon-black"></i> Самара</p>
+                                    <p><i class="icon-ok icon-black"></i> Кавказ</p>
+                                </div>
+                                <div class="span3 resp_list">
+                                    <h4>Более 20 направлений</h4>
+                                    <p><i class="icon-ok icon-black"></i> Дизайн</p>
+                                    <p><i class="icon-ok icon-black"></i> Красота</p>
+                                    <p><i class="icon-ok icon-black"></i> Ремонт</p>
+                                    <p><i class="icon-ok icon-black"></i> Медицина</p>
+                                    <p><i class="icon-ok icon-black"></i> Промышленность</p>
+                                    <p><i class="icon-ok icon-black"></i> Интернет - магазины</p>
+                                    <p><i class="icon-ok icon-black"></i> Благотворительные фонды</p>
+                                </div>
+
+                                <div class="span5 map">
+                                    <img class="lazy" data-original="{% static 'theme/img/map.png' %}" alt=""/>
+                                </div>
 
                             </div>
                         </div>
@@ -321,7 +329,7 @@
 
         {% block img_second %}
             <div class="img_second">
-                <img src="{% static 'theme/img/dynamic_bg_02.jpg' %}" alt=""/>
+                <img class="lazy" data-original="{% static 'theme/img/dynamic_bg_02.jpg' %}" alt=""/>
             </div>
         {% endblock %}
 
@@ -338,55 +346,80 @@
                                 </div>
                                 <div class="span8">
                                     <div class="row apps_text">
-                                        <div class="span8">
-                                            <div class="row">
-                                                <div class="span1">
-                                                    <img width="40" src="{% static 'theme/img/target.png' %}" alt=""/>
+
+                                        <section class="cbp-so-section">
+                                            <article class="cbp-so-side cbp-so-side-left">
+                                                <div class="span8">
+                                                    <div class="row">
+                                                        <div class="span1">
+                                                            <img width="40" src="{% static 'theme/img/target.png' %}" alt=""/>
+                                                        </div>
+                                                        <div class="span7">
+                                                            <h5>Определение бизнесс цели</h5>
+                                                            <p>Бизнес-цели проекта определяются конкретными результатами, которых необходимо достичь при его реализации. Результатом может быть позиционирование бренда, привлечение новых сотрудников, создание дополнительного канала продаж и т.д. </p>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                <div class="span7">
-                                                    <h5>Определение бизнесс цели</h5>
-                                                    <p>Бизнес-цели проекта определяются конкретными результатами, которых необходимо достичь при его реализации. Результатом может быть позиционирование бренда, привлечение новых сотрудников, создание дополнительного канала продаж и т.д. </p>
+                                            </article>
+                                        </section>
+
+                                        <section class="cbp-so-section">
+                                            <article class="cbp-so-side cbp-so-side-left">
+                                                <div class="span8">
+                                                    <div class="row">
+                                                        <div class="span1">
+                                                            <img width="40" src="{% static 'theme/img/koleso.png' %}" alt=""/>
+                                                        </div>
+                                                        <div class="span7">
+                                                            <h5>Создание мобильного приложения</h5>
+                                                            <p>Мы можем реализовать все, даже самые безумные идеи с помощью подходящих технологий и изящных интегрированных решений. Интересуют детали? Напишите нам,  мы любим персональный подход и с удовольствием обсудим конкретно вашу бизнес-задачу, а не какой-то абстрактный кейс.</p>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <div class="span8">
-                                            <div class="row">
-                                                <div class="span1">
-                                                    <img width="40" src="{% static 'theme/img/koleso.png' %}" alt=""/>
+                                            </article>
+                                        </section>
+
+                                        <section class="cbp-so-section">
+                                            <article class="cbp-so-side cbp-so-side-left">
+                                                <div class="span8">
+                                                    <div class="row">
+                                                        <div class="span1">
+                                                            <img width="40" src="{% static 'theme/img/smile.png' %}" alt=""/>
+                                                        </div>
+                                                        <div class="span7">
+                                                            <h5>Тестирование и сопровождение</h5>
+                                                            <p>Статистика показывает, что пользователи iOS больше покупают платные версии приложений и приобретают что-то внутри приложений через in-app-purchase. Из 100% всех доходов через мобильные приложения 74% приходится на iOS и около 20% на Android. Это значит, что пользователи iOS потратили на платные приложения и внутренние покупки (in-app-purchase) почти в 3,5 раза больше денег, чем пользователи Adnroid.</p>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                <div class="span7">
-                                                    <h5>Создание мобильного приложения</h5>
-                                                    <p>Мы можем реализовать все, даже самые безумные идеи с помощью подходящих технологий и изящных интегрированных решений. Интересуют детали? Напишите нам,  мы любим персональный подход и с удовольствием обсудим конкретно вашу бизнес-задачу, а не какой-то абстрактный кейс.</p>
+                                            </article>
+                                        </section>
+
+                                        <section class="cbp-so-section">
+                                            <article class="cbp-so-side cbp-so-side-left">
+                                                <div class="span8">
+                                                    <div class="row">
+                                                        <div class="span1">
+                                                            <img width="40" src="{% static 'theme/img/globe.png' %}" alt=""/>
+                                                        </div>
+                                                        <div class="span7">
+                                                            <h5>Продвижение мобильного приложения</h5>
+                                                            <p>Подборка приложений в топах — это один из основных каналов, из которого пользователь узнает о новых приложениях. Когда достаточно большое количество человек скачивает ваше приложение, вы попадаете в топ. Чем дольше приложение находится в топе, тем больше у вас скачиваний.</p>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <div class="span8">
-                                            <div class="row">
-                                                <div class="span1">
-                                                    <img width="40" src="{% static 'theme/img/smile.png' %}" alt=""/>
-                                                </div>
-                                                <div class="span7">
-                                                    <h5>Тестирование и сопровождение</h5>
-                                                    <p>Статистика показывает, что пользователи iOS больше покупают платные версии приложений и приобретают что-то внутри приложений через in-app-purchase. Из 100% всех доходов через мобильные приложения 74% приходится на iOS и около 20% на Android. Это значит, что пользователи iOS потратили на платные приложения и внутренние покупки (in-app-purchase) почти в 3,5 раза больше денег, чем пользователи Adnroid.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="span8">
-                                            <div class="row">
-                                                <div class="span1">
-                                                    <img width="40" src="{% static 'theme/img/globe.png' %}" alt=""/>
-                                                </div>
-                                                <div class="span7">
-                                                    <h5>Продвижение мобильного приложения</h5>
-                                                    <p>Подборка приложений в топах — это один из основных каналов, из которого пользователь узнает о новых приложениях. Когда достаточно большое количество человек скачивает ваше приложение, вы попадаете в топ. Чем дольше приложение находится в топе, тем больше у вас скачиваний.</p>
-                                                </div>
-                                            </div>
-                                        </div>
+                                            </article>
+                                        </section>
+
                                     </div>
                                 </div>
-                                <div class="span4 app_image">
-                                    <img width="300" src="{% static 'theme/img/app.png' %}" alt=""/>
-                                </div>
+                                <section class="cbp-so-section">
+                                    <article class="cbp-so-side cbp-so-side-top">
+                                        <div class="span4 app_image">
+                                            <img width="300" class="lazy" data-original="{% static 'theme/img/app_mini.jpg' %}" alt=""/>
+                                        </div>
+                                    </article>
+                                </section>
                             </div>
                         {% endblock %}
                     </div>
@@ -407,7 +440,8 @@
                                     {% for gram in grams %}
                                         <div class="span3">
                                             <h6>{{ gram.name }}</h6>
-                                            <img src="/media/{{ gram.image }}" alt="{{ gram.alt }}"/>
+{#                                            <img src="/media/{{ gram.image }}" alt="{{ gram.alt }}"/>#}
+                                            <img class="lazy" data-original="/media/{{ gram.image }}" alt="{{ gram.alt }}">
                                         </div>
                                     {% endfor %}
                                     <div class="span6">
@@ -429,6 +463,10 @@
                 </div>
             </div>
         {% endblock %}
+
+{#      2 закрытых блока конец визульного эффект#}
+        </div>
+    </div>
 
         <script src="{% static 'theme/effect/js/classie.js' %}"></script>
 		<script src="{% static 'theme/effect/js/cbpScroller.js' %}"></script>
