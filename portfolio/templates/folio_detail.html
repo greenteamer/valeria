@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load thumbnail %}
+
+{% block meta %}
+    <title>Создание сайтов | портфолио</title>
+    <meta name="description" content="" >
+    <meta name ="keywords" content="">
+{% endblock %}
+
+{% block review_slider %}
+{% endblock %}
+
+{% block first_content %}
+{% endblock %}
+
+{% block img_first %}
+{% endblock %}
+
+{% block portfolio %}
+{% endblock %}
+
+{% block bottom_content %}
+{% endblock %}
+
+{% block img_second %}
+{% endblock %}
+
+{% block second_content %}
+{% endblock %}
+
+{% block footer %}
+    <div class="footer">
+        <div class="container portfolio_detail">
+            <div class="row">
+                <div class="text">
+                    <h2>{{ portfolio.name }}</h2>
+                    <p>{{ portfolio.text }}</p>
+                </div>
+{#                <div class="span11">#}
+                    <div class="portfolio_slider">
+                        {% include 'slider.html' %}
+                    </div>
+{#                </div>#}
+            {% block sidebar_menu %}
+                <div class="span3">
+                </div>
+            {% endblock %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

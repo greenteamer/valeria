@@ -26,6 +26,10 @@ body h1, body h2 {
     z-index: -1;
 }
 
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+}
+
 .navbar .navbar-inner.my_navbar_inner {
     background: #fff;
     border: none;
@@ -52,8 +56,8 @@ body h1, body h2 {
 }
 
 .my_brand {
-    /*height: 350px;*/
-    /*width: 350px;*/
+    height: 350px;
+    width: 350px;
 }
 .my_brand img {
     margin-bottom: 40px;
@@ -255,7 +259,30 @@ a.my_btn:hover {
 .login {
     text-align: right;
 }
-
+.logo_block {
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    color: white;
+    background: #323232;
+}
+.forward_logo {
+    position: relative;
+    left: 26px;
+    top: 174px;
+    letter-spacing: 2px;
+}
+.text_logo {
+    font-size: 19px;
+    width: 187px;
+    position: relative;
+    top: 178px;
+    left: 16px;
+    text-align: right;
+    letter-spacing: 2px;
+    line-height: 17px;
+    color: #B6B6B6;
+}
 .baner img {
     border-bottom: 1px solid #B6B6B6;
     border-right: 1px solid #B6B6B6;
@@ -836,4 +863,34 @@ h4.strong {
     /*position: absolute;*/
     /*width: 100%;*/
     /*top:-100px;*/
+}
+
+/*портфолио*/
+.portfolio_slider {
+    background: url("../img/bg-mac.png") no-repeat;
+    padding: 35px 127px 55px 127px;
+    margin-left: 27px;
+    width: 789px;
+    float: right;
+    margin-right: 20px;
+    height: 530px;
+}
+.portfolio_slider #myCarousel {
+    /*margin-right: 219px;*/
+}
+.portfolio_slider .carousel-control.right {
+    right: -110px;
+}
+.portfolio_slider .carousel-control.left {
+    left:-110px;
+}
+.container.portfolio_detail {
+    width: 100%;
+}
+.portfolio_detail .text {
+    width:300px;
+    float: left;
+    position: absolute;
+    margin-left: 60px;
+    margin-top: 260px;
 }

@@ -13,6 +13,7 @@ urlpatterns = patterns('',
 
     url(r'^', include('main.urls')),
     url(r'^blog/', include('blog.urls', namespace="blog")),
+    url(r'^portfolio/', include('portfolio.urls', namespace="folio")),
     url(r'^admin/', include(admin.site.urls)),
     (r'^ckeditor/', include('ckeditor.urls')),
     url(r'^flatblocks/', include("flatblocks.urls")),

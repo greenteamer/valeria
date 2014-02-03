@@ -19,7 +19,7 @@
                 <div class="span12 contact_top">
                     <div class="row">
                         <div class="span12">
-                            <h2>Форма обратной связи</h2>
+                            <h2>Наше портфолио</h2>
                         </div>
                         <div class="span12">
                             <div class="row">
@@ -31,7 +31,7 @@
                                 </div>
                                 {% for folio in portfolios %}
                                     <div class="span4">
-                                        <a id="popup" href="http://{{ folio.link }}"><img src="/media/{{ folio.image }}" alt=""/></a>
+                                        <a href="/portfolio/{{ folio.slug }}"><img src="/media/{{ folio.image }}" alt=""/></a>
                                         <h6>{{ folio.company }}</h6>
                                         <p>{{ folio.text|removetags:"img"|truncatewords:"30"|safe }}</p>
                                     </div>
