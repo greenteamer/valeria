@@ -25,6 +25,10 @@ $(document).ready(function() {
         }
     });
 
+//    отложенная загрузка картинок
+    $("img.lazy").lazyload({
+        threshold : 200
+    });
 //    скролл
 //    $("a.scroll").scroll(function() {
 //            $('a.scroll').toggleClass('visible');

@@ -19,6 +19,7 @@
         <![endif]-->
         <script type="text/javascript" src="{% static 'libraries/jquery-2.0.3.min.js' %}"></script>
         <script src="{% static 'bootstrap/js/bootstrap.min.js' %}" type="text/javascript"></script>
+        <script src="{% static 'libraries/jquery.lazyload.min.js' %}" type="text/javascript"></script>
 
         {% block chart %}
         {% endblock %}
@@ -202,7 +203,7 @@
                                 </div>
                                 {% for folio in portfolios %}
                                     <div class="span4">
-                                        <a id="popup" href="http://{{ folio.link }}"><img src="/media/{{ folio.image }}" alt=""/></a>
+                                        <a id="popup" href="http://{{ folio.link }}"><img class="lazy" data-original="/media/{{ folio.image }}" alt=""/></a>
                                         <h6>{{ folio.company }}</h6>
                                         <p>{{ folio.text|removetags:"img"|truncatewords:"30"|safe }}</p>
                                     </div>
@@ -319,7 +320,7 @@
                                         </div>
                                     </article>
                                     <div class="span5 map">
-                                        <img src="{% static 'theme/img/map.png' %}" alt=""/>
+                                        <img class="lazy" data-original="{% static 'theme/img/map.png' %}" alt=""/>
                                     </div>
                                 </section>
 {#                                конец эффекту#}
@@ -333,7 +334,7 @@
 
         {% block img_second %}
             <div class="img_second">
-                <img src="{% static 'theme/img/dynamic_bg_02.jpg' %}" alt=""/>
+                <img class="lazy" data-original="{% static 'theme/img/dynamic_bg_02.jpg' %}" alt=""/>
             </div>
         {% endblock %}
 
@@ -420,7 +421,7 @@
                                 <section class="cbp-so-section">
                                     <article class="cbp-so-side cbp-so-side-top">
                                         <div class="span4 app_image">
-                                            <img width="300" src="{% static 'theme/img/app_mini.jpg' %}" alt=""/>
+                                            <img width="300" class="lazy" data-original="{% static 'theme/img/app_mini.jpg' %}" alt=""/>
                                         </div>
                                     </article>
                                 </section>
@@ -444,7 +445,8 @@
                                     {% for gram in grams %}
                                         <div class="span3">
                                             <h6>{{ gram.name }}</h6>
-                                            <img src="/media/{{ gram.image }}" alt="{{ gram.alt }}"/>
+{#                                            <img src="/media/{{ gram.image }}" alt="{{ gram.alt }}"/>#}
+                                            <img class="lazy" data-original="/media/{{ gram.image }}" alt="{{ gram.alt }}">
                                         </div>
                                     {% endfor %}
                                     <div class="span6">
