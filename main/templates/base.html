@@ -19,6 +19,7 @@
         <![endif]-->
         <script type="text/javascript" src="{% static 'libraries/jquery-2.0.3.min.js' %}"></script>
         <script src="{% static 'bootstrap/js/bootstrap.min.js' %}" type="text/javascript"></script>
+        <script src="{% static 'libraries/jquery.lazyload.min.js' %}" type="text/javascript"></script>
 
         {% block chart %}
         {% endblock %}
@@ -444,7 +445,8 @@
                                     {% for gram in grams %}
                                         <div class="span3">
                                             <h6>{{ gram.name }}</h6>
-                                            <img src="/media/{{ gram.image }}" alt="{{ gram.alt }}"/>
+{#                                            <img src="/media/{{ gram.image }}" alt="{{ gram.alt }}"/>#}
+                                            <img class="lazy" data-original="/media/{{ gram.image }}" alt="{{ gram.alt }}">
                                         </div>
                                     {% endfor %}
                                     <div class="span6">
