@@ -31,7 +31,7 @@
                                 </div>
                                 {% for folio in portfolios %}
                                     <div class="span4">
-                                        <a id="popup" href="http://{{ folio.link }}"><img src="/media/{{ folio.image }}" alt=""/></a>
+                                        <a href="/portfolio/{{ folio.slug }}"><img src="/media/{{ folio.image }}" alt=""/></a>
                                         <h6>{{ folio.company }}</h6>
                                         <p>{{ folio.text|removetags:"img"|truncatewords:"30"|safe }}</p>
                                     </div>
