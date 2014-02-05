@@ -16,3 +16,7 @@ class FolioView(TemplateView):
         # context['games'] = Game.objects.all()
         # context['supernumeraries'] = Supernumerary.objects.all()
         return context
+
+class FolioDetail(DetailView):
+    template_name = 'folio_detail.html'
+    model = Portfolio
