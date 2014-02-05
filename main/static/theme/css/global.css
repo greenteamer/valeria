@@ -880,9 +880,11 @@ h4.strong {
 }
 .portfolio_slider .carousel-control.right {
     right: -110px;
+    top: 240px;
 }
 .portfolio_slider .carousel-control.left {
     left:-110px;
+    top: 240px;
 }
 .container.portfolio_detail {
     width: 100%;
