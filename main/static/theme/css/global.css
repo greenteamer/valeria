@@ -864,3 +864,33 @@ h4.strong {
     /*width: 100%;*/
     /*top:-100px;*/
 }
+
+/*портфолио*/
+.portfolio_slider {
+    background: url("../img/bg-mac.png") no-repeat;
+    padding: 35px 127px 55px 127px;
+    margin-left: 27px;
+    width: 789px;
+    float: right;
+    margin-right: 20px;
+    height: 530px;
+}
+.portfolio_slider #myCarousel {
+    /*margin-right: 219px;*/
+}
+.portfolio_slider .carousel-control.right {
+    right: -110px;
+}
+.portfolio_slider .carousel-control.left {
+    left:-110px;
+}
+.container.portfolio_detail {
+    width: 100%;
+}
+.portfolio_detail .text {
+    width:300px;
+    float: left;
+    position: absolute;
+    margin-left: 60px;
+    margin-top: 260px;
+}
