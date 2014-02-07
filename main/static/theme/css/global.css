@@ -896,3 +896,15 @@ h4.strong {
     margin-left: 60px;
     margin-top: 260px;
 }
+#portfolio_detail {
+    position: absolute;
+    left: 1500px;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    transition: all .3s ease;
+}
+.footer.port_det {
+    min-height: 650px;
+}
