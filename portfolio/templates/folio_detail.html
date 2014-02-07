@@ -38,7 +38,7 @@
             <div class="row">
                 <div class="text">
                     <h2>{{ portfolio.name }}</h2>
-                    <p>{{ portfolio.text }}</p>
+                    <p>{{ portfolio.text|removetags:"img"|safe }}</p>
                 </div>
 {#                <div class="span11">#}
                     <div class="portfolio_slider">
