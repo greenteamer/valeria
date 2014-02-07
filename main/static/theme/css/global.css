@@ -896,3 +896,6 @@ h4.strong {
     margin-left: 60px;
     margin-top: 260px;
 }
+#portfolio_detail {
+    display: none;
+}
