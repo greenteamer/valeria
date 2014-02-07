@@ -46,5 +46,5 @@ $(document).ready(function() {
 
 //загрузка портфолио только после полной загрузки фото
 function loadPage() {
-    document.getElementById('portfolio_detail').style.display = 'block';
+    document.getElementById('portfolio_detail').style.left = '0';
 }
