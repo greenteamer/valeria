@@ -908,3 +908,8 @@ h4.strong {
 .footer.port_det {
     min-height: 650px;
 }
+.loading {
+    position: absolute;
+    left: -50%;
+    top:40%;
+}

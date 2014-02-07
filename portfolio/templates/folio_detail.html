@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load thumbnail %}
+{% load staticfiles %}
 
 {% block meta %}
     <title>Создание сайтов | портфолио</title>
@@ -31,6 +32,9 @@
 {% block footer %}
     <div class="footer port_det">
         <div id="portfolio_detail" class="container portfolio_detail">
+            <div class="loading">
+                <img src="{% static 'theme/img/495.gif' %}" alt=""/>
+            </div>
             <div class="row">
                 <div class="text">
                     <h2>{{ portfolio.name }}</h2>
