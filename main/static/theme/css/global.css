@@ -898,7 +898,7 @@ h4.strong {
 }
 #portfolio_detail {
     position: absolute;
-    left: 1500px;
+    left: 100%;
     -webkit-transition: all .3s ease;
     -moz-transition: all .3s ease;
     -ms-transition: all .3s ease;
