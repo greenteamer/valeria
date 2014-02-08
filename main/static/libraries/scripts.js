@@ -2,14 +2,14 @@ $(document).ready(function() {
     $(".fancybox").fancybox();
 
     $("#popup").fancybox({
-        'padding'           : 0,
-        'width'             : '1200px',
-        'height'            : '700px',
+//        'cyclic'            : true,
         'autoScale'     	: false,
         'transitionIn'		: 'none',
         'transitionOut'		: 'none',
         'type'				: 'iframe'
     });
+
+//    $("#popup").fancybox.resize();
 
     $('a#hide_show').click(function (e) {
         $('.hide_form').toggleClass('active');

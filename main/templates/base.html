@@ -23,6 +23,7 @@
 
         {% block chart %}
         {% endblock %}
+
 {#        <script type="text/javascript" src="{% static 'libraries/calendar/jquery-ui.custom.min.js' %}"></script>#}
         <link rel="stylesheet" href="{% static 'libraries/fancybox/source/jquery.fancybox.css' %}" type="text/css" media="screen" />
         <script type="text/javascript" src="{% static 'libraries/fancybox/source/jquery.fancybox.pack.js' %}"></script>
@@ -37,8 +38,9 @@
         <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,300,400,600,700,800&subset=latin,cyrillic-ext,cyrillic' rel='stylesheet' type='text/css'>
 
-        {% block calendar_js %}
-        {% endblock %}
+        {#        blueimp#}
+        <link rel="stylesheet" href="{% static 'libraries/blueimp/css/blueimp-gallery.min.css' %}" type="text/css" media="screen" />
+
     </head>
     <body onload="loadPage()">
 
@@ -77,7 +79,7 @@
                                                 <li><a href="/">Главная</a></li>
                                                 <li><a href="/sozdanie-saitov/">Создание сайтов</a></li>
                                                 <li><a href="/prodvijenie/">Продвижение сайтов</a></li>
-                                                <li><a href="/portfolio/">Портфолио</a></li>
+                                                <li><a href="/portfolio/newtopbet/">Портфолио</a></li>
                                                 <li><a href="/kontakty/">Контакты</a></li>
                                             </ul>
                                         </div>
@@ -436,27 +438,30 @@
                         <div class="span12">
                             <div class="row grams">
                                 {% block grams %}
-                                    <h2>Благодарности</h2>
-                                    {% for gram in grams %}
-                                        <div class="span3">
-                                            <h6>{{ gram.name }}</h6>
-{#                                            <img src="/media/{{ gram.image }}" alt="{{ gram.alt }}"/>#}
-                                            <img class="lazy" data-original="/media/{{ gram.image }}" alt="{{ gram.alt }}">
-                                        </div>
-                                    {% endfor %}
                                     <div class="span6">
-                                        <h6>Ценности</h6>
-                                        <p>Компания Forward всегда идет настречу некомерческим организациям, мы верим, что в наше время все вместе, объединившись, мы сможем быть ответом на нужды людей</p>
+                                        <h6>Благодарности</h6>
+                                        <div id="links">
+                                            {% for gram in grams %}
+                                                <a href="/media/{{ gram.image }}" title="{{ gram.name }}">
+                                                    {% thumbnail gram.image "130x170" crop="center" as im %}
+                                                        <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+                                                    {% endthumbnail %}
+                                                </a>
+                                            {% endfor %}
+                                        </div>
                                     </div>
                                 {% endblock %}
                                 {% block destinations %}
                                     <div class="span6">
-                                        <h3>Наши направления:</h3>
+                                        <h6>Ценности</h6>
+                                        <p>Компания Forward всегда идет настречу некомерческим организациям, мы верим, что в наше время все вместе, объединившись, мы сможем быть ответом на нужды людей</p>
+                                        <h6>Наши направления:</h6>
                                         <span>Создание сайтов</span>
                                         <span>Продвижение сайтов</span>
                                         <span>Создание мобильных приложений</span>
                                     </div>
                                 {% endblock %}
+
                             </div>
                         </div>
                     </div>
@@ -464,15 +469,27 @@
             </div>
         {% endblock %}
 
+
 {#      2 закрытых блока конец визульного эффект#}
         </div>
     </div>
 
-        <script src="{% static 'theme/effect/js/classie.js' %}"></script>
-		<script src="{% static 'theme/effect/js/cbpScroller.js' %}"></script>
-		<script>
-			new cbpScroller( document.getElementById( 'cbp-so-scroller' ) );
-		</script>
+<!-- The Gallery as lightbox dialog, should be a child element of the document body -->
+<div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls">
+    <div class="slides"></div>
+    <h3 class="title"></h3>
+    <a class="prev">‹</a>
+    <a class="next">›</a>
+    <a class="close">×</a>
+    <a class="play-pause"></a>
+    <ol class="indicator"></ol>
+</div>
 
+<script src="{% static 'libraries/blueimp/js/blueimp-gallery.min.js' %}"></script>
+
+<script src="{% static 'theme/effect/js/classie.js' %}"></script>
+<script src="{% static 'theme/effect/js/cbpScroller.js' %}"></script>
+
+<script src="{% static 'libraries/last.js' %}"></script>
     </body>
 </html>

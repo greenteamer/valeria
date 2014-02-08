@@ -905,7 +905,7 @@ h4.strong {
     -o-transition: all .3s ease;
     transition: all .3s ease;
 }
-.footer.port_det {
+.bottom_content.port_det {
     min-height: 650px;
 }
 .loading {

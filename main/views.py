@@ -28,8 +28,7 @@ class SaitView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(SaitView, self).get_context_data()
-        context['posts'] = Post.objects.all()
-        context['reviews'] = Review.objects.all()
+        context['grams'] = Gram.objects.all()
         # context['slides'] = Slider.objects.all()
         # context['games'] = Game.objects.all()
         # context['supernumeraries'] = Supernumerary.objects.all()
@@ -40,8 +39,7 @@ class ProdvijenieView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(ProdvijenieView, self).get_context_data()
-        context['posts'] = Post.objects.all()
-        context['reviews'] = Review.objects.all()
+        context['grams'] = Gram.objects.all()
         # context['slides'] = Slider.objects.all()
         # context['games'] = Game.objects.all()
         # context['supernumeraries'] = Supernumerary.objects.all()
@@ -54,8 +52,7 @@ class MobileView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(MobileView, self).get_context_data()
-        context['posts'] = Post.objects.all()
-        context['reviews'] = Review.objects.all()
+        context['grams'] = Gram.objects.all()
         # context['slides'] = Slider.objects.all()
         # context['games'] = Game.objects.all()
         # context['supernumeraries'] = Supernumerary.objects.all()
@@ -66,8 +63,7 @@ class ContactView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(ContactView, self).get_context_data()
-        context['posts'] = Post.objects.all()
-        context['reviews'] = Review.objects.all()
+        context['grams'] = Gram.objects.all()
         # context['slides'] = Slider.objects.all()
         # context['games'] = Game.objects.all()
         # context['supernumeraries'] = Supernumerary.objects.all()

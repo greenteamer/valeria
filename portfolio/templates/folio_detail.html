@@ -11,26 +11,14 @@
 {% block review_slider %}
 {% endblock %}
 
-{% block first_content %}
-{% endblock %}
-
 {% block img_first %}
 {% endblock %}
 
-{% block portfolio %}
+{% block first_content %}
 {% endblock %}
 
 {% block bottom_content %}
-{% endblock %}
-
-{% block img_second %}
-{% endblock %}
-
-{% block second_content %}
-{% endblock %}
-
-{% block footer %}
-    <div class="footer port_det">
+    <div class="bottom_content port_det">
         <div id="portfolio_detail" class="container portfolio_detail">
             <div class="loading">
                 <img src="{% static 'theme/img/495.gif' %}" alt=""/>
@@ -52,4 +40,44 @@
             </div>
         </div>
     </div>
+{% endblock %}
+
+{% block second_content %}
+    <div class="middle_content">
+        <div class="container">
+            <div class="row">
+                <!--верхняя часть синий области контактов-->
+                <div class="span12 contact_top">
+                    <div class="row">
+                        <div class="span12">
+                            <h2>Наши работы</h2>
+                        </div>
+                        <div class="span12">
+                            <div class="row">
+                                <div class="span12">
+                                    <div class="row">
+                                        <div class="span4">
+                                        </div>
+                                    </div>
+                                </div>
+                                {% for folio in portfolios %}
+                                    <div class="span4">
+                                        <a href="/portfolio/{{ folio.slug }}"><img src="/media/{{ folio.image }}" alt=""/></a>
+                                        <h6>{{ folio.company }}</h6>
+                                        <p>{{ folio.text|removetags:"img"|truncatewords:"30"|safe }}</p>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block img_second %}
+{% endblock %}
+
+{% block portfolio %}
 {% endblock %}
