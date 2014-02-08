@@ -866,6 +866,21 @@ h4.strong {
     /*width: 100%;*/
     /*top:-100px;*/
 }
+/*.img_first_siti img {*/
+    /*padding: 10px;*/
+    /*border: 0px solid #DBFCFF;*/
+    /*border-radius: 75px;*/
+    /*-webkit-transition: all .3s ease;*/
+    /*-moz-transition: all .3s ease;*/
+    /*-ms-transition: all .3s ease;*/
+    /*-o-transition: all .3s ease;*/
+    /*transition: all .3s ease;*/
+/*}*/
+/*.img_first_siti img:hover {*/
+    /*border: 10px solid #DBFCFF;*/
+    /*border-radius: 75px;*/
+    /*padding: 0;*/
+/*}*/
 
 /*портфолио*/
 .portfolio_slider {
