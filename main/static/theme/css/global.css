@@ -535,7 +535,9 @@ a.link:hover {
     width: 84%;
     margin: 60px auto 45px;
 }
-
+.img_first_siti {
+    text-align: center;
+}
 /*.sait_create {*/
     /*background: #365eab;*/
     /*padding: 30px 30px 90px 30px;*/
