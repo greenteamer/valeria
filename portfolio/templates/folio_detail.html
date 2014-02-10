@@ -33,6 +33,9 @@
                         {% include 'slider.html' %}
                     </div>
 {#                </div>#}
+                <div class="center_div">
+                    <a href="#myModal2" class="link blue" data-toggle="modal">Заказать Сайт</a>
+                </div>
             {% block sidebar_menu %}
                 <div class="span3">
                 </div>
@@ -61,7 +64,7 @@
                                     </div>
                                 </div>
                                 {% for folio in portfolios %}
-                                    <div class="span4">
+                                    <div class="span4 folio_item">
                                         <a href="/portfolio/{{ folio.slug }}"><img src="/media/{{ folio.image }}" alt=""/></a>
                                         <h6>{{ folio.company }}</h6>
                                         <p>{{ folio.text|removetags:"img"|truncatewords:"30"|safe }}</p>
