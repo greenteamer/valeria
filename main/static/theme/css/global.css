@@ -957,6 +957,7 @@ h4.strong {
 }
 .folio_item {
     margin-top: 40px;
+    min-height: 435px;
 }
 
 /*form*/
