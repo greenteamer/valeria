@@ -872,8 +872,14 @@ h4.strong {
 }
 
 .img_second, .img_first  {
-    height: 290px;
+    height: 190px;
     overflow: hidden;
+}
+.main .img_second img {
+    /*margin-top: -45px;*/
+}
+.main .img_first img {
+    /*margin-top: -105px;*/
 }
 
 .img_second img,
@@ -954,9 +960,9 @@ h4.strong {
 }
 
 /*form*/
-.home_bottom form,
 #myModal2 form,
-#myModal1 form {
+#myModal1 form,
+#myModal form {
     margin-bottom: 0;
 }
 button#id_submit.red {
@@ -969,6 +975,7 @@ h3#myModalLabel {
     color: #000;
     font-family: 'Open Sans',sans-serif;
     font-weight: 200;
+    float: left;
 }
 .center_div {
     text-align: center;
@@ -978,4 +985,21 @@ h3#myModalLabel {
 }
 .center_div .link.blue {
     background: #999;
+}
+.error{
+    border:1px solid red !important;
+    background-color:#fdd !important;
+}
+#status {
+    margin-left: 40px;
+    margin-top: 4px;
+    font-size: 17px;
+    color: #F04A4A;
+    background: #EEE;
+    font-family: 'Open Sans',sans-serif;
+    font-weight: 200;
+    border: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
 }

@@ -5,6 +5,11 @@ from review.models import *
 from portfolio.models import *
 from grammars.models import *
 
+from feedback.forms import ContactForm
+from django.core.mail import send_mail
+from django.shortcuts import render
+from django.http import HttpResponseRedirect
+
 class FolioView(TemplateView):
     template_name = 'folio.html'
 

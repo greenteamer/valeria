@@ -9,6 +9,13 @@ from feedback.forms import ContactForm
 from django.core.mail import send_mail
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
+
+from django.conf import settings
+
+from dajaxice.core import dajaxice_functions
+from dajaxice.core import dajaxice_autodiscover
+dajaxice_autodiscover()
+
 # from slider.models import Slider
 # from game.models import Game
 # from user_profile.models import Supernumerary
