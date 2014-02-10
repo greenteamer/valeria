@@ -229,8 +229,27 @@
                                             <h2>Впереди Ваших конкурентов</h2>
                                         </div>
                                         <div class="span2">
-                                            <a class="link blue" href="/kontakty/">Заказать сайт</a>
+                                            <a href="#myModal" class="link blue" data-toggle="modal">Заказать сайт</a>
                                         </div>
+                                        <!-- Modal -->
+                                        <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                                <h3 id="myModalLabel">Отправить заявку</h3>
+                                            </div>
+                                            <form action="." method="post">
+                                                <div class="modal-body">
+                                                    {% csrf_token %}
+                                                    {{ form.as_ul }}
+
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <input id="id_submit" type="submit" />
+                                                    <button id="id_submit" class="red">Отменить</button>
+                                                </div>
+                                            </form>
+                                        </div>
+
                                     </div>
                                 </div>
 
@@ -318,9 +337,9 @@
                                     <p><i class="icon-ok icon-black"></i> Благотворительные фонды</p>
                                 </div>
 
-                                <div class="span5 map">
-                                    <img class="lazy" data-original="{% static 'theme/img/map.png' %}" alt=""/>
-                                </div>
+{#                                <div class="span5 map">#}
+{#                                    <img class="lazy" data-original="{% static 'theme/img/map.png' %}" alt=""/>#}
+{#                                </div>#}
 
                             </div>
                         </div>
@@ -331,7 +350,8 @@
 
         {% block img_second %}
             <div class="img_second">
-                <img class="lazy" data-original="{% static 'theme/img/dynamic_bg_02.jpg' %}" alt=""/>
+{#                <img class="lazy" data-original="{% static 'theme/img/dynamic_bg_02.jpg' %}" alt=""/>#}
+                <img  src="{% static 'theme/img/bg-table2_mini.jpg' %}" alt=""/>
             </div>
         {% endblock %}
 

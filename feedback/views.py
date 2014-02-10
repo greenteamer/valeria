@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from feedback.forms import ContactForm
 from blog.models import *
+from grammars.models import *
 from django.core.mail import send_mail
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
@@ -22,10 +23,10 @@ def contact(request):
             })
     else:
         form = ContactForm()
-        post = Post.objects.all()
+        grams = Gram.objects.all()
 
     return render(request, 'contact.html', {
         'form': form,
-        'posts': post,
+        'grams': grams,
     })
 
