@@ -23,6 +23,6 @@ class FolioDetail(DetailView):
         context = super(FolioDetail, self).get_context_data()
         context['posts'] = Post.objects.all()
         context['reviews'] = Review.objects.all()
-        context['portfolios'] = Portfolio.objects.all().order_by('-date')
+        context['portfolios'] = Portfolio.objects.all().order_by('date')
         context['grams'] = Gram.objects.all()
         return context
