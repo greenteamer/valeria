@@ -99,22 +99,22 @@
                                                     </article>
 
                                                     <div class="span1">
-                                                        <a href="#myModal2" class="link blue" data-toggle="modal">Заказать</a>
+                                                        <a href="#myModal" class="link blue" data-toggle="modal">Заказать</a>
                                                     </div>
                                                     <!-- Modal -->
-                                                    <div id="myModal2" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                                    <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                                         <div class="modal-header">
                                                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                                            <h3 id="myModalLabel">Отправить заявку</h3>
+                                                            <span><h3 id="myModalLabel" class="">Отправить заявку</h3></span><span><input id="status" class="hidden" value="" type="text"></span>
                                                         </div>
-                                                        <form action="." method="post">
+                                                        <form action="." method="post" id="my_form">
                                                             <div class="modal-body">
                                                                 {% csrf_token %}
-                                                                {{ form.as_ul }}
+                                                                {{ form.as_p }}
                                                             </div>
                                                             <div class="modal-footer">
-                                                                <input id="id_submit" type="submit" />
-                                                                <button id="id_submit" class="red">Отменить</button>
+                                                                <input id="id_submit" value="Отправить" type="button" onclick="send_form();">
+                                                                <button id="id_submit" class="red" data-dismiss="modal" aria-hidden="true">Отменить</button>
                                                             </div>
                                                         </form>
                                                     </div>

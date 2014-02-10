@@ -1,6 +1,8 @@
 {% load staticfiles %}
 {% load flatblock_tags %}
 {% load thumbnail %}
+{% load dajaxice_templatetags %}
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -18,15 +20,13 @@
         <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
         <script type="text/javascript" src="{% static 'libraries/jquery-2.0.3.min.js' %}"></script>
+
         <script src="{% static 'bootstrap/js/bootstrap.min.js' %}" type="text/javascript"></script>
         <script src="{% static 'libraries/jquery.lazyload.min.js' %}" type="text/javascript"></script>
 
-        {% block chart %}
-        {% endblock %}
-
 {#        <script type="text/javascript" src="{% static 'libraries/calendar/jquery-ui.custom.min.js' %}"></script>#}
-        <link rel="stylesheet" href="{% static 'libraries/fancybox/source/jquery.fancybox.css' %}" type="text/css" media="screen" />
-        <script type="text/javascript" src="{% static 'libraries/fancybox/source/jquery.fancybox.pack.js' %}"></script>
+{#        <link rel="stylesheet" href="{% static 'libraries/fancybox/source/jquery.fancybox.css' %}" type="text/css" media="screen" />#}
+{#        <script type="text/javascript" src="{% static 'libraries/fancybox/source/jquery.fancybox.pack.js' %}"></script>#}
         <script type="text/javascript" src="{% static 'libraries/scripts.js' %}"></script>
 
         <link rel="stylesheet" type="text/css" href="{% static 'theme/effect/css/demo.css' %}" />
@@ -40,6 +40,15 @@
 
         {#        blueimp#}
         <link rel="stylesheet" href="{% static 'libraries/blueimp/css/blueimp-gallery.min.css' %}" type="text/css" media="screen" />
+
+{#        dajax        #}
+        <script type="text/javascript" src="{% static 'dajax/jquery.dajax.core.js' %}"></script>
+        <script type="text/javascript" charset="utf-8">
+            function send_form(){
+                Dajaxice.ajaxapp.send_form(Dajax.process,{'form':$('#my_form').serialize(true)});
+            }
+        </script>
+        {% dajaxice_js_import %}
 
     </head>
     <body onload="loadPage()">
@@ -177,7 +186,7 @@
 
         {% block img_first %}
             <div class="img_first">
-                <img src="{% static 'theme/img/air.jpg' %}" alt=""/>
+                <img src="{% static 'theme/img/air2.jpg' %}" alt=""/>
             </div>
         {% endblock %}
 
@@ -205,7 +214,7 @@
                                 </div>
                                 {% for folio in portfolios %}
                                     <div class="span4">
-                                        <a id="popup" href="http://{{ folio.link }}"><img class="lazy" data-original="/media/{{ folio.image }}" alt=""/></a>
+                                        <a id="popup" href="http://{{ folio.link }}"><img class="lazy" src="/media/{{ folio.image }}" alt=""/></a>
                                         <h6>{{ folio.company }}</h6>
                                         <p>{{ folio.text|removetags:"img"|truncatewords:"30"|safe }}</p>
                                     </div>
@@ -231,21 +240,21 @@
                                         <div class="span2">
                                             <a href="#myModal" class="link blue" data-toggle="modal">Заказать сайт</a>
                                         </div>
+
                                         <!-- Modal -->
                                         <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                             <div class="modal-header">
                                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                                <h3 id="myModalLabel">Отправить заявку</h3>
+                                                <span><h3 id="myModalLabel" class="">Отправить заявку</h3></span><span><input id="status" class="hidden" value="" type="text"></span>
                                             </div>
-                                            <form action="." method="post">
+                                            <form action="." method="post" id="my_form">
                                                 <div class="modal-body">
                                                     {% csrf_token %}
-                                                    {{ form.as_ul }}
-
+                                                    {{ form.as_p }}
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <input id="id_submit" type="submit" />
-                                                    <button id="id_submit" class="red">Отменить</button>
+                                                    <input id="id_submit" value="Отправить" type="button" onclick="send_form();">
+                                                    <button id="id_submit" class="red" data-dismiss="modal" aria-hidden="true">Отменить</button>
                                                 </div>
                                             </form>
                                         </div>
@@ -351,7 +360,7 @@
         {% block img_second %}
             <div class="img_second">
 {#                <img class="lazy" data-original="{% static 'theme/img/dynamic_bg_02.jpg' %}" alt=""/>#}
-                <img  src="{% static 'theme/img/bg-table2_mini.jpg' %}" alt=""/>
+                <img  src="{% static 'theme/img/table.jpg' %}" alt=""/>
             </div>
         {% endblock %}
 
@@ -438,7 +447,7 @@
                                 <section class="cbp-so-section">
                                     <article class="cbp-so-side cbp-so-side-top">
                                         <div class="span4 app_image">
-                                            <img width="300" class="lazy" data-original="{% static 'theme/img/app_mini.jpg' %}" alt=""/>
+                                            <img width="300" class="lazy" src="{% static 'theme/img/app_mini.jpg' %}" alt=""/>
                                         </div>
                                     </article>
                                 </section>
@@ -504,6 +513,10 @@
     <a class="play-pause"></a>
     <ol class="indicator"></ol>
 </div>
+
+{#<script>#}
+{#    try{for(var lastpass_iter=0; lastpass_iter < document.forms.length; lastpass_iter++){ var lastpass_f = document.forms[lastpass_iter]; if(typeof(lastpass_f.lpsubmitorig2)=="undefined"){ lastpass_f.lpsubmitorig2 = lastpass_f.submit; lastpass_f.submit = function(){ var form=this; var customEvent = document.createEvent("Event"); customEvent.initEvent("lpCustomEvent", true, true); var d = document.getElementById("hiddenlpsubmitdiv"); if (d) {for(var i = 0; i < document.forms.length; i++){ if(document.forms[i]==form){ d.innerText=i; } } d.dispatchEvent(customEvent); }form.lpsubmitorig2(); } } }}catch(e){}#}
+{#</script>#}
 
 <script src="{% static 'libraries/blueimp/js/blueimp-gallery.min.js' %}"></script>
 

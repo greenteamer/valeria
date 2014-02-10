@@ -57,11 +57,13 @@ CKEDITOR_CONFIGS = {
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'dajaxice.finders.DajaxiceFinder',
 )
 
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
+    'django.template.loaders.eggs.Loader',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -82,14 +84,19 @@ WSGI_APPLICATION = 'forward.wsgi.application'
 
 TEMPLATE_CONTEXT_PROCESSORS = (
     'django.contrib.auth.context_processors.auth',
-    'django.contrib.messages.context_processors.messages',
     'django.core.context_processors.debug',
     'django.core.context_processors.i18n',
     'django.core.context_processors.media',
     'django.core.context_processors.static',
     'django.core.context_processors.request',
+    'django.contrib.messages.context_processors.messages',
 )
 
+DAJAXICE_MEDIA_PREFIX="dajaxice"
+
+DAJAX_FUNCTIONS=(
+    'ajaxapp.ajax.send_form',
+)
 
 INSTALLED_APPS = (
     'django.contrib.admin',
@@ -104,6 +111,8 @@ INSTALLED_APPS = (
     'south',
     'sorl.thumbnail',
     'flatblocks',
+    'dajaxice',
+    'dajax',
 )
 
 LOCAL_APPS = (
@@ -114,6 +123,7 @@ LOCAL_APPS = (
     'portfolio',
     'feedback',
     'grammars',
+    'ajaxapp',
 )
 
 # A sample logging configuration. The only tangible logging
