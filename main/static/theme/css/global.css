@@ -966,6 +966,9 @@ h4.strong {
 #myModal form {
     margin-bottom: 0;
 }
+#myModal p {
+    color: #545454;
+}
 button#id_submit.red {
     background:#85342C;
 }
