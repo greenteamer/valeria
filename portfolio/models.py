@@ -6,7 +6,7 @@ from autoslug import AutoSlugField
 class Portfolio(models.Model):
     name = models.CharField(verbose_name=(u'Название сайта'), max_length=255)
     company = models.CharField(verbose_name=(u'Название компании') ,max_length=255)
-    date = models.DateTimeField(verbose_name=(u'Дата'), auto_now_add=True)
+    date = models.DateTimeField(verbose_name=(u'Дата'), auto_now_add=False)
     image = models.ImageField(verbose_name=(u'Скриншот сайта'), upload_to='portfolio', null=False)
     text = RichTextField()
     # link = models.CharField(verbose_name=(u'ссылка'), max_length=155)

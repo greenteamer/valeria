@@ -253,6 +253,9 @@
                                                     {{ form.as_p }}
                                                 </div>
                                                 <div class="modal-footer">
+                                                    <div class="loading hidden">
+                                                        <img src="{% static 'theme/img/335.gif' %}" alt=""/>
+                                                    </div>
                                                     <input id="id_submit" value="Отправить" type="button" onclick="send_form();">
                                                     <button id="id_submit" class="red" data-dismiss="modal" aria-hidden="true">Отменить</button>
                                                 </div>
