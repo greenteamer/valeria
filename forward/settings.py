@@ -96,6 +96,7 @@ DAJAXICE_MEDIA_PREFIX="dajaxice"
 
 DAJAX_FUNCTIONS=(
     'ajaxapp.ajax.send_form',
+    'ajaxapp.ajax.load_form',
 )
 
 INSTALLED_APPS = (

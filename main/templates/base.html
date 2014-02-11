@@ -45,7 +45,16 @@
         <script type="text/javascript" src="{% static 'dajax/jquery.dajax.core.js' %}"></script>
         <script type="text/javascript" charset="utf-8">
             function send_form(){
+                $('.loading').removeClass('hidden');
                 Dajaxice.ajaxapp.send_form(Dajax.process,{'form':$('#my_form').serialize(true)});
+{#                Dajaxice.ajaxapp.load_form();#}
+{#                $('.message_show').toggleClass('hidden');#}
+            }
+            function closemodal(){
+                $('.close').click();
+            }
+            function closeMessage(){
+                $('#message_show').addClass('hidden');
             }
         </script>
         {% dajaxice_js_import %}
@@ -158,7 +167,7 @@
                                 <h2>
                                     Мобильный интернет - мобильные сайты
                                 </h2>
-                                <a class="link blue" href="/kontakty/">Заказать сайт</a>
+                                <a href="#myModal" class="link blue" data-toggle="modal">Заказать сайт</a>
                             </div>
                         </div>
                         <div class="span8">
@@ -515,6 +524,14 @@
     <a class="close">×</a>
     <a class="play-pause"></a>
     <ol class="indicator"></ol>
+</div>
+
+<div id="message_show" class="hidden">
+    <div class="message_inner">
+        <h6>Спасибо!</h6>
+        <p>В ближайшее время наш менеджер свяжется с Вами</p>
+        <button id="id_submit" class="red" onclick="closeMessage();">Закрыть</button>
+    </div>
 </div>
 
 {#<script>#}
