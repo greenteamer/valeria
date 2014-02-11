@@ -166,7 +166,7 @@ a._news_all_link:hover {
 
 .footer {
     background: #3b3b3b;
-    background-image: url(../img/main-bg.jpg);
+    background-image: url(../img/main-bg2.jpg);
     min-height: 42px;
     padding: 60px 0px;
     margin-top:-2px;
@@ -462,7 +462,7 @@ p.review {
 /*bottom_content*/
 .bottom_content {
     background: #3b3b3b;
-    background-image: url(../img/main-bg.jpg);
+    background-image: url(../img/main-bg2.jpg);
     padding: 60px;
     z-index: 10;
 }
@@ -470,7 +470,8 @@ p.review {
     color: #8C8C8C;
 }
 .bottom_content .flatblock {
-    color: #9B9B9B;
+    color: #9E9E9E;
+    font-weight: 300;
 }
 
 /*portfolio*/
