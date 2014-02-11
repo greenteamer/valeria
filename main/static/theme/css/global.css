@@ -955,6 +955,12 @@ h4.strong {
     left: -50%;
     top:40%;
 }
+#myModal .loading {
+    position: relative;
+    float: left;
+    left: 5px;
+    top:5px;
+}
 .folio_item {
     margin-top: 40px;
     min-height: 435px!important;
