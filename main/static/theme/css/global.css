@@ -950,6 +950,7 @@ h4.strong {
 }
 .bottom_content.port_det {
     min-height: 650px;
+    background-image: url(../img/main-bg.jpg);
 }
 .loading {
     position: absolute;
@@ -964,7 +965,7 @@ h4.strong {
 }
 .folio_item {
     margin-top: 40px;
-    min-height: 435px!important;
+    min-height: 475px!important;
 }
 
 /*form*/
