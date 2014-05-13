@@ -1,0 +1,589 @@
+{% load staticfiles %}
+{% load flatblock_tags %}
+{% load thumbnail %}
+{% load dajaxice_templatetags %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        {% block meta %}
+            <title>Создание сайтов</title>
+            <meta name="description" content="Forward - Создание высококачественных сайтов в Томске, Новосибирске, Москве, продвижение сайтов, поисковая сео оптимизация, качественное продвижение сайта в топ." >
+            <meta name ="keywords" content="Создание сайтов, продвижение сайтов">
+        {% endblock %}
+        <meta name="google-site-verification" content="iVS6NXL7kkO9Lt3XJ7R09EKIaV9x86hALOI11wtPnbk" />
+        <link href="{% static 'theme/css/global.css' %}" rel="stylesheet">
+        <link href="{% static 'bootstrap/css/bootstrap.css' %}" rel="stylesheet">
+        <link href="{% static 'bootstrap/css/bootstrap-responsive.css' %}" rel="stylesheet">
+
+        <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        <script type="text/javascript" src="{% static 'libraries/jquery-2.0.3.min.js' %}"></script>
+
+        <script src="{% static 'bootstrap/js/bootstrap.min.js' %}" type="text/javascript"></script>
+        <script src="{% static 'libraries/jquery.lazyload.min.js' %}" type="text/javascript"></script>
+
+{#        <script type="text/javascript" src="{% static 'libraries/calendar/jquery-ui.custom.min.js' %}"></script>#}
+{#        <link rel="stylesheet" href="{% static 'libraries/fancybox/source/jquery.fancybox.css' %}" type="text/css" media="screen" />#}
+{#        <script type="text/javascript" src="{% static 'libraries/fancybox/source/jquery.fancybox.pack.js' %}"></script>#}
+        <script type="text/javascript" src="{% static 'libraries/scripts.js' %}"></script>
+
+        <link rel="stylesheet" type="text/css" href="{% static 'theme/effect/css/demo.css' %}" />
+		<link rel="stylesheet" type="text/css" href="{% static 'theme/effect/css/component.css' %}" />
+		<script src="{% static 'theme/effect/js/modernizr.custom.js' %}"></script>
+
+        <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,300,400,600,700,800&subset=latin,cyrillic-ext,cyrillic' rel='stylesheet' type='text/css'>
+
+        {#        blueimp#}
+        <link rel="stylesheet" href="{% static 'libraries/blueimp/css/blueimp-gallery.min.css' %}" type="text/css" media="screen" />
+
+{#        dajax        #}
+        <script type="text/javascript" src="{% static 'dajax/jquery.dajax.core.js' %}"></script>
+        <script type="text/javascript" charset="utf-8">
+            function send_form(){
+                $('.loading').removeClass('hidden');
+                Dajaxice.ajaxapp.send_form(Dajax.process,{'form':$('#my_form').serialize(true)});
+{#                Dajaxice.ajaxapp.load_form();#}
+{#                $('.message_show').toggleClass('hidden');#}
+            }
+            function closemodal(){
+                $('.close').click();
+            }
+            function closeMessage(){
+                $('#message_show').addClass('hidden');
+            }
+        </script>
+        {% dajaxice_js_import %}
+
+    </head>
+    <body onload="loadPage()">
+
+{#    необходимо для визуального эффекта#}
+    <div class="container main">
+        <div id="cbp-so-scroller" class="cbp-so-scroller">
+
+
+        {% block top %}
+            <div class="top">
+                <div class="container">
+                    <div class="row">
+                        <div class="span5">
+                            <div class="background"><img src="{% static 'theme/img/background.png' %}" alt=""/></div>
+                            <div class="brand my_brand">
+                                <a href="/">
+                                    <div class="logo_block">
+                                        <div class="forward_logo">Forward</div>
+                                        <div class="text_logo">Сайты достигающие своей цели</div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="span7">
+                            <div class="phone_wrapper">
+                                <div class="phone">
+                                    <p><span>тел.(3822)</span> 94-20-19</p>
+                                    <p class="adress">г.Томск ул.Кирова 58 стр.55 оф.61</p>
+                                </div>
+                            </div>
+                            <div class="navbar navbar-inverse navbar-static">
+                                <div class="navbar-inner my_navbar_inner">
+                                    <div class="container">
+                                        <div class="main_menu">
+                                            <ul class="nav my_nav">
+                                                <li><a href="/">Главная</a></li>
+                                                <li><a href="/sozdanie-saitov/">Создание сайтов</a></li>
+                                                <li><a href="/prodvijenie/">Продвижение сайтов</a></li>
+                                                <li><a href="/portfolio/newtopbet/">Портфолио</a></li>
+                                                <li><a href="/kontakty/">Контакты</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="span7 top_text">
+                            <div class="content">
+                                <h1><strong>FORWARD</strong> - сайт будет продавать</h1>
+                                <div class="head-info">{% flatblock 'top_text' %}</div>
+                                {% block review_slider %}
+                                    <div class="my_title">
+                                        <h1>Клиенты говорят</h1>
+                                    </div>
+                                    {% include 'review_slider.html' %}
+                                {% endblock %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endblock %}
+
+        <div class="title_page">
+            <div class="container">
+                <div class="row">
+                    <div class="span12">
+                        {% block title %}
+                        {% endblock %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- header -->
+        {% block first_content %}
+            <div class="header home">
+                <div class="container">
+                    <div class="row">
+                        <div class="span12">
+                            <div class="header_title">
+                                <h2>Forward - сайты которые приносят доход</h2>
+                            </div>
+                        </div>
+                        <div class="span12 post_in_blue">
+                            <div class="row">
+                                {% for post in posts %}
+                                    {% if post.post_in_blue %}
+                                        <div class="span4">
+                                            <div class="row">
+                                                <div class="span1">
+                                                    <img width="32" src="/media/{{ post.image_blue }}" align="left" hspace="10" alt=""/>
+                                                </div>
+                                                <div class="span3">
+                                                    <h4>{{ post.name }}</h4>
+                                                    <div class="middle_text">{{ post.text|removetags:"img"|truncatewords:"20"|safe }}</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="span12">
+                            <div class="header_title">
+                                <h2>
+                                    Мобильный интернет - мобильные сайты
+                                </h2>
+                                <a href="#myModal" class="link blue" data-toggle="modal">Заказать сайт</a>
+                            </div>
+                        </div>
+                        <div class="span8">
+                            <img src="{% static 'theme/img/devices.png' %}" alt=""/>
+                        </div>
+
+                        <section class="cbp-so-section">
+                            <figure class="cbp-so-side cbp-so-side-right">
+                                <div class="span3 offset1 resp_list">
+                                    <h4>Полная мобильная версия</h4>
+                                    <p><i class="icon-ok icon-black"></i> Планшетные ПК Apple</p>
+                                    <p><i class="icon-ok icon-black"></i> Смартфоны Apple</p>
+                                    <p><i class="icon-ok icon-black"></i> Планшетные ПК Android</p>
+                                    <p><i class="icon-ok icon-black"></i> Смартфоны Android</p>
+                                    <p><i class="icon-ok icon-black"></i> Планшетные ПК Windows</p>
+                                    <p><i class="icon-ok icon-black"></i> Смартфоны Windows</p>
+                                </div>
+                            </figure>
+                        </section>
+
+                    </div>
+                </div>
+            </div>
+        {% endblock %}
+
+        {% block img_first %}
+            <div class="img_first">
+                <img src="{% static 'theme/img/air2.jpg' %}" alt=""/>
+            </div>
+        {% endblock %}
+
+        {% block portfolio %}
+            <div id="portfolio" class="portfolio">
+                <div class="container">
+                    <div class="row">
+                        <div class="span12">
+                            <div class="row">
+                                <div class="span12">
+                                    <div class="row">
+                                        <div class="span8">
+                                            <h4>Наши последние работы</h4>
+                                        </div>
+
+                                        <section class="cbp-so-section">
+                                            <figure class="cbp-so-side cbp-so-side-top">
+                                                <div class="span4">
+                                                    <a class="link" href="/portfolio/lara/">Смотреть все работы</a>
+                                                </div>
+                                            </figure>
+                                        </section>
+
+                                    </div>
+                                </div>
+                                {% for folio in portfolios %}
+                                    <div class="span4">
+                                        <a id="popup" href="http://{{ folio.link }}"><img class="lazy" src="/media/{{ folio.image }}" alt=""/></a>
+                                        <h6>{{ folio.company }}</h6>
+                                        <p>{{ folio.text|removetags:"img"|truncatewords:"30"|safe }}</p>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endblock %}
+
+        {% block bottom_content %}
+            <div class="bottom_content home_bottom">
+                <div class="container">
+                    <div class="row">
+                        <div class="span12">
+                            <div class="row">
+                                <div class="span12">
+                                    <div class="row">
+                                        <div class="span10">
+                                            <h2>Впереди Ваших конкурентов</h2>
+                                        </div>
+                                        <div class="span2">
+                                            <a href="#myModal" class="link blue" data-toggle="modal">Заказать сайт</a>
+                                        </div>
+
+                                        <!-- Modal -->
+                                        <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                                <span><h3 id="myModalLabel" class="">Отправить заявку</h3></span><span><input id="status" class="hidden" value="" type="text"></span>
+                                            </div>
+                                            <form action="." method="post" id="my_form">
+                                                <div class="modal-body">
+                                                    {% csrf_token %}
+                                                    {{ form.as_p }}
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <div class="loading hidden">
+                                                        <img src="{% static 'theme/img/335.gif' %}" alt=""/>
+                                                    </div>
+                                                    <input id="id_submit" value="Отправить" type="button" onclick="send_form();">
+                                                    <button id="id_submit" class="red" data-dismiss="modal" aria-hidden="true">Отменить</button>
+                                                </div>
+                                            </form>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+{#                                эффект#}
+                                <section class="cbp-so-section">
+                                    <article class="cbp-so-side cbp-so-side-left">
+                                        <div class="span6">
+                                            <div class="row">
+                                                <div class="span1">
+                                                    <img width="70" src="{% static 'theme/img/first2.png' %}" alt=""/>
+                                                </div>
+                                                <div class="span5">
+                                                    <h4>Ваши клиенты прийдут к Вам сами</h4>
+                                                    <p>{% flatblock 'main_seo_1' %}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </article>
+                                    <figure class="cbp-so-side cbp-so-side-right">
+                                        <div class="span6">
+                                            <div class="row">
+                                                <div class="span1">
+                                                    <img width="70" src="{% static 'theme/img/click3.png' %}" alt=""/>
+                                                </div>
+                                                <div class="span5">
+                                                    <h4>Анализ поведения пользователей</h4>
+                                                    <p>{% flatblock 'main_seo_2' %}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </figure>
+                                </section>
+                                <section class="cbp-so-section">
+                                    <article class="cbp-so-side cbp-so-side-left">
+                                        <div class="span6">
+                                            <div class="row">
+                                                <div class="span1">
+                                                    <img width="70" src="{% static 'theme/img/monik2.png' %}" alt=""/>
+                                                </div>
+                                                <div class="span5">
+                                                    <h4>Идете впереди Ваших конкурентов</h4>
+                                                    <p>{% flatblock 'main_seo_3' %}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </article>
+                                    <figure class="cbp-so-side cbp-so-side-right">
+                                        <div class="span6">
+                                            <div class="row">
+                                                <div class="span1">
+                                                    <img width="70" src="{% static 'theme/img/target_seo.png' %}" alt=""/>
+                                                </div>
+                                                <div class="span5">
+                                                    <h4>Главное достижение - достижение цели</h4>
+                                                    <p>{% flatblock 'main_seo_4' %}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </figure>
+                                </section>
+{#                                конец эффекту#}
+
+                                <div class="span12">
+                                    <h2>Наши клиенты в России</h2>
+                                </div>
+
+                                <div class="span3 offset1 resp_list">
+                                    <h4>Более 200 сайтов</h4>
+                                    <p><i class="icon-ok icon-black"></i> Москва и Московская область</p>
+                                    <p><i class="icon-ok icon-black"></i> Томск и Томская область</p>
+                                    <p><i class="icon-ok icon-black"></i> Сургут</p>
+                                    <p><i class="icon-ok icon-black"></i> Казань</p>
+                                    <p><i class="icon-ok icon-black"></i> Тула</p>
+                                    <p><i class="icon-ok icon-black"></i> Самара</p>
+                                    <p><i class="icon-ok icon-black"></i> Кавказ</p>
+                                </div>
+                                <div class="span3 resp_list">
+                                    <h4>Более 20 направлений</h4>
+                                    <p><i class="icon-ok icon-black"></i> Дизайн</p>
+                                    <p><i class="icon-ok icon-black"></i> Красота</p>
+                                    <p><i class="icon-ok icon-black"></i> Ремонт</p>
+                                    <p><i class="icon-ok icon-black"></i> Медицина</p>
+                                    <p><i class="icon-ok icon-black"></i> Промышленность</p>
+                                    <p><i class="icon-ok icon-black"></i> Интернет - магазины</p>
+                                    <p><i class="icon-ok icon-black"></i> Благотворительные фонды</p>
+                                </div>
+
+{#                                <div class="span5 map">#}
+{#                                    <img class="lazy" data-original="{% static 'theme/img/map.png' %}" alt=""/>#}
+{#                                </div>#}
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endblock %}
+
+        {% block img_second %}
+            <div class="img_second">
+{#                <img class="lazy" data-original="{% static 'theme/img/dynamic_bg_02.jpg' %}" alt=""/>#}
+                <img  src="{% static 'theme/img/table.jpg' %}" alt=""/>
+            </div>
+        {% endblock %}
+
+        <!--middle content-->
+        {% block second_content %}
+        <div class="middle_content">
+            <div class="container">
+                <div class="row">
+                    <div class="span12">
+                        {% block content %}
+                            <div class="row apps">
+                                <div class="span12">
+                                    <h4>Мобильное приложение на широкую ногу</h4>
+                                </div>
+                                <div class="span8">
+                                    <div class="row apps_text">
+
+                                        <section class="cbp-so-section">
+                                            <article class="cbp-so-side cbp-so-side-left">
+                                                <div class="span8">
+                                                    <div class="row">
+                                                        <div class="span1">
+                                                            <img width="40" src="{% static 'theme/img/target.png' %}" alt=""/>
+                                                        </div>
+                                                        <div class="span7">
+                                                            <h5>Определение бизнесс цели</h5>
+                                                            <p>Бизнес-цели проекта определяются конкретными результатами, которых необходимо достичь при его реализации. Результатом может быть позиционирование бренда, привлечение новых сотрудников, создание дополнительного канала продаж и т.д. </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </article>
+                                        </section>
+
+                                        <section class="cbp-so-section">
+                                            <article class="cbp-so-side cbp-so-side-left">
+                                                <div class="span8">
+                                                    <div class="row">
+                                                        <div class="span1">
+                                                            <img width="40" src="{% static 'theme/img/koleso.png' %}" alt=""/>
+                                                        </div>
+                                                        <div class="span7">
+                                                            <h5>Создание мобильного приложения</h5>
+                                                            <p>Мы можем реализовать все, даже самые безумные идеи с помощью подходящих технологий и изящных интегрированных решений. Интересуют детали? Напишите нам,  мы любим персональный подход и с удовольствием обсудим конкретно вашу бизнес-задачу, а не какой-то абстрактный кейс.</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </article>
+                                        </section>
+
+                                        <section class="cbp-so-section">
+                                            <article class="cbp-so-side cbp-so-side-left">
+                                                <div class="span8">
+                                                    <div class="row">
+                                                        <div class="span1">
+                                                            <img width="40" src="{% static 'theme/img/smile.png' %}" alt=""/>
+                                                        </div>
+                                                        <div class="span7">
+                                                            <h5>Тестирование и сопровождение</h5>
+                                                            <p>Статистика показывает, что пользователи iOS больше покупают платные версии приложений и приобретают что-то внутри приложений через in-app-purchase. Из 100% всех доходов через мобильные приложения 74% приходится на iOS и около 20% на Android. Это значит, что пользователи iOS потратили на платные приложения и внутренние покупки (in-app-purchase) почти в 3,5 раза больше денег, чем пользователи Adnroid.</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </article>
+                                        </section>
+
+                                        <section class="cbp-so-section">
+                                            <article class="cbp-so-side cbp-so-side-left">
+                                                <div class="span8">
+                                                    <div class="row">
+                                                        <div class="span1">
+                                                            <img width="40" src="{% static 'theme/img/globe.png' %}" alt=""/>
+                                                        </div>
+                                                        <div class="span7">
+                                                            <h5>Продвижение мобильного приложения</h5>
+                                                            <p>Подборка приложений в топах — это один из основных каналов, из которого пользователь узнает о новых приложениях. Когда достаточно большое количество человек скачивает ваше приложение, вы попадаете в топ. Чем дольше приложение находится в топе, тем больше у вас скачиваний.</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </article>
+                                        </section>
+
+                                    </div>
+                                </div>
+                                <section class="cbp-so-section">
+                                    <article class="cbp-so-side cbp-so-side-top">
+                                        <div class="span4 app_image">
+                                            <img width="300" class="lazy" src="{% static 'theme/img/app_mini.jpg' %}" alt=""/>
+                                        </div>
+                                    </article>
+                                </section>
+                            </div>
+                        {% endblock %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endblock %}
+
+        <!--footer-->
+        {% block footer %}
+            <div class="footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="span12">
+                            <div class="row grams">
+                                {% block grams %}
+                                    <div class="span6">
+                                        <h6>Благодарности</h6>
+                                        <div id="links">
+                                            {% for gram in grams %}
+                                                <a href="/media/{{ gram.image }}" title="{{ gram.name }}">
+                                                    {% thumbnail gram.image "130x170" crop="center" as im %}
+                                                        <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+                                                    {% endthumbnail %}
+                                                </a>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                {% endblock %}
+                                {% block destinations %}
+                                    <div class="span6">
+                                        <h6>Ценности</h6>
+                                        <p>Компания Forward всегда идет настречу некомерческим организациям, мы верим, что в наше время все вместе, объединившись, мы сможем быть ответом на нужды людей</p>
+                                        <h6>Наши направления:</h6>
+                                        <span>Создание сайтов</span>
+                                        <span>Продвижение сайтов</span>
+                                        <span>Создание мобильных приложений</span>
+                                    </div>
+                                {% endblock %}
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endblock %}
+
+
+{#      2 закрытых блока конец визульного эффект#}
+        </div>
+    </div>
+
+<!-- The Gallery as lightbox dialog, should be a child element of the document body -->
+<div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls">
+    <div class="slides"></div>
+    <h3 class="title"></h3>
+    <a class="prev">‹</a>
+    <a class="next">›</a>
+    <a class="close">×</a>
+    <a class="play-pause"></a>
+    <ol class="indicator"></ol>
+</div>
+
+<div id="message_show" class="hidden">
+    <div class="message_inner">
+        <h6>Спасибо!</h6>
+        <p>В ближайшее время наш менеджер свяжется с Вами</p>
+        <button id="id_submit" class="red" onclick="closeMessage();">Закрыть</button>
+    </div>
+</div>
+
+{#<script>#}
+{#    try{for(var lastpass_iter=0; lastpass_iter < document.forms.length; lastpass_iter++){ var lastpass_f = document.forms[lastpass_iter]; if(typeof(lastpass_f.lpsubmitorig2)=="undefined"){ lastpass_f.lpsubmitorig2 = lastpass_f.submit; lastpass_f.submit = function(){ var form=this; var customEvent = document.createEvent("Event"); customEvent.initEvent("lpCustomEvent", true, true); var d = document.getElementById("hiddenlpsubmitdiv"); if (d) {for(var i = 0; i < document.forms.length; i++){ if(document.forms[i]==form){ d.innerText=i; } } d.dispatchEvent(customEvent); }form.lpsubmitorig2(); } } }}catch(e){}#}
+{#</script>#}
+
+<script src="{% static 'libraries/blueimp/js/blueimp-gallery.min.js' %}"></script>
+
+<script src="{% static 'theme/effect/js/classie.js' %}"></script>
+<script src="{% static 'theme/effect/js/cbpScroller.js' %}"></script>
+
+<script src="{% static 'libraries/last.js' %}"></script>
+
+
+{#google#}
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-49598727-1', 'forward70.ru');
+    ga('send', 'pageview');
+</script>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function (d, w, c) {
+    (w[c] = w[c] || []).push(function() {
+        try {
+            w.yaCounter11675299 = new Ya.Metrika({id:11675299,
+                    webvisor:true,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true});
+        } catch(e) { }
+    });
+
+    var n = d.getElementsByTagName("script")[0],
+        s = d.createElement("script"),
+        f = function () { n.parentNode.insertBefore(s, n); };
+    s.type = "text/javascript";
+    s.async = true;
+    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+    if (w.opera == "[object Opera]") {
+        d.addEventListener("DOMContentLoaded", f, false);
+    } else { f(); }
+})(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="//mc.yandex.ru/watch/11675299" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+    </body>
+</html>

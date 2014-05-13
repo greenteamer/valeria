@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% load thumbnail %}
+{% load staticfiles %}
+
+{% block meta %}
+    <title>Создание сайтов | портфолио</title>
+    <meta name="description" content="" >
+    <meta name ="keywords" content="">
+{% endblock %}
+
+{% block review_slider %}
+{% endblock %}
+
+{% block img_first %}
+{% endblock %}
+
+{% block first_content %}
+{% endblock %}
+
+{% block bottom_content %}
+    <div class="bottom_content port_det">
+        <div id="portfolio_detail" class="container portfolio_detail">
+            <div class="loading">
+                <img src="{% static 'theme/img/495.gif' %}" alt=""/>
+            </div>
+            <div class="row">
+                <div class="text">
+                    <h2>{{ portfolio.name }}</h2>
+                    <p>{{ portfolio.text|removetags:"img"|safe }}</p>
+                </div>
+{#                <div class="span11">#}
+                    <div class="portfolio_slider">
+                        {% include 'slider.html' %}
+                    </div>
+{#                </div>#}
+{#                <div class="center_div">#}
+{#                    <a href="#myModal1" class="link blue" data-toggle="modal">Заказать Сайт</a>#}
+{#                </div>#}
+{##}
+{#            <!-- Modal -->#}
+{#                <div id="myModal1" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">#}
+{#                    <div class="modal-header">#}
+{#                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>#}
+{#                        <h3 id="myModalLabel">Отправить заявку</h3>#}
+{#                    </div>#}
+{#                    <form action="." method="post">#}
+{#                        <div class="modal-body">#}
+{#                            {% csrf_token %}#}
+{#                            {{ form.as_ul }}#}
+{#                        </div>#}
+{#                        <div class="modal-footer">#}
+{#                            <input id="id_submit" type="submit" />#}
+{#                            <button id="id_submit" class="red" data-dismiss="modal" aria-hidden="true">Отменить</button>#}
+{#                        </div>#}
+{#                    </form>#}
+{#                </div>#}
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block second_content %}
+    <div class="middle_content">
+        <div class="container">
+            <div class="row">
+                <!--верхняя часть синий области контактов-->
+                <div class="span12 contact_top">
+                    <div class="row">
+                        <div class="span12">
+                            <h2>Наши работы</h2>
+                        </div>
+                        <div class="span12">
+                            <div class="row">
+                                <div class="span12">
+                                    <div class="row">
+                                        <div class="span4">
+                                        </div>
+                                    </div>
+                                </div>
+                                {% for folio in portfolios %}
+                                    <div class="span4 folio_item">
+                                        <a href="/portfolio/{{ folio.slug }}"><img src="/media/{{ folio.image }}" alt=""/></a>
+                                        <h6>{{ folio.company }}</h6>
+                                        <p>{{ folio.text|removetags:"img"|truncatewords:"10"|safe }}</p>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block img_second %}
+{% endblock %}
+
+{% block portfolio %}
+{% endblock %}

@@ -1,0 +1,476 @@
+{% extends 'base.html' %}
+{% load thumbnail %}
+{% load staticfiles %}
+{% load flatblock_tags %}
+
+
+{% block portfolio %}
+{% endblock %}
+
+{% block review_slider %}
+{% endblock %}
+
+{% block img_first %}
+    <div class="portfolio">
+                <div class="container">
+                    <div class="row">
+                        <div class="span12">
+                            <h4>Forward - наши преимущества</h4>
+                        </div>
+                        <div class="span12">
+                            <div class="row">
+
+                                <section class="cbp-so-section">
+                                    <article class="cbp-so-side cbp-so-side-top">
+                                        <div class="span4">
+                                            <div class="img_first_siti">
+                                                <img src="{% static 'theme/img/Cloud.png' %}" alt=""/>
+                                            </div>
+                                        </div>
+                                        <div class="span4">
+                                            <div class="img_first_siti">
+                                                <img src="{% static 'theme/img/Settings.png' %}" alt=""/>
+                                            </div>
+                                        </div>
+                                        <div class="span4">
+                                            <div class="img_first_siti">
+                                                <img src="{% static 'theme/img/1+1.png' %}" alt=""/>
+                                            </div>
+                                        </div>
+                                    </article>
+                                </section>
+                                <section class="cbp-so-section">
+                                    <article class="cbp-so-side cbp-so-side-bottom">
+                                        <div class="span4">
+                                            <div class="img_first_siti">
+                                                <h6>Честность</h6>
+                                            </div>
+                                        </div>
+                                        <div class="span4">
+                                            <div class="img_first_siti">
+                                                <h6>Эффективность</h6>
+                                            </div>
+                                        </div>
+                                        <div class="span4">
+                                            <div class="img_first_siti">
+                                                <h6>Простота</h6>
+                                            </div>
+                                        </div>
+                                    </article>
+                                </section>
+                                <section class="cbp-so-section">
+                                    <article class="cbp-so-side cbp-so-side-bottom">
+                                        <div class="span4">
+                                            <p>В бизнесе всегда важно доверие к своему партнеру. В веб и IT индустрии это означает уверенность в сохранении своих личных данных и корпоративных секретов. Моральные ценности нашей команды ставят перед нами высокие стандарты. Честность перед людьми, с которыми мы работаем, – наш главный приоритет.</p>
+                                        </div>
+                                        <div class="span4">
+                                            <p>Эффективность Вашего бизнеса в современных конкурентных условиях — вопрос не столько личных качеств, сколько эффективности инструментов, которые Вы используете. Мы предлагаем Вам автоматизацию бизнес процессов на многих уровнях, контроль статуса задач, статистику эффективности работников и многое другое.</p>
+                                        </div>
+                                        <div class="span4">
+                                            <p>Просто, просто, действительно просто. Мы знаем свое дело, и вы можете доверить нам свой проект, не тратя время на вникание во все детали и тонкости веб-разработки. Расскажите нам о своих планах на развитие, ваших желаниях и мечтах, а мы позаботимся, чтобы даже самая сложная идея нашла свое воплощение.</p>
+                                        </div>
+                                    </article>
+                                </section>
+
+                            </div>
+                        </div>
+
+
+
+
+                    </div>
+                </div>
+            </div>
+{% endblock %}
+
+ {% block bottom_content %}
+            <div class="bottom_content home_bottom">
+                <div class="container">
+                    <div class="row">
+                        <div class="span12">
+                            <div class="row">
+                                <div class="span12">
+                                    <div class="row">
+                                        <div class="span10">
+                                            <h2>Как будет создаваться ваш сайт</h2>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                        <div class="span6">
+                                            <div class="row">
+                                                <div class="span1">
+                                                    <img width="70" src="{% static 'theme/img/site_tz.png' %}" alt=""/>
+                                                </div>
+                                                <div class="span5">
+                                                    <h4>Написание технического задания</h4>
+                                                    <p>Первый один из самых важных   этапом  работ при разработке любого сайта — это определение задач и методов их достижения, то есть написание подробного технического задания.
+                                                        На этом этапе работ  Вы описываете нам свои цели  которые Вы желаете достичь посредством разработанного сайта, мы обсуждаем и  принимаем  ко внеманию все Ваши  пожелания
+                                                        и идеи  которые необходимо воплотить в проекте. После этого операясь на богатый опыт и тщательно исследуя  рынок  предлагаем вам варианты выполнения задачи.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="span6">
+                                            <div class="row">
+                                                <div class="span1">
+                                                    <img width="70" src="{% static 'theme/img/prototipir.png' %}" alt=""/>
+                                                </div>
+                                                <div class="span5">
+                                                    <h4>Прототипирование</h4>
+                                                    <p>Прототипирование - реализация базовой функциональности. На этом этапе работы мы производим  тщательное проектирование и разработку
+                                                        структуры Вашего будущего сайта. Расположение необходимых блоков. Необходимый функционал для качественной работы сайта.
+                                                        Для этого мы исследуем потенциального покупателя и разрабатываем грамотную концепцию сайта, которая в дальнейшем обеспечит его высокую конверсию.
+                                                        Мы делаем большой уклон в сторону юзобилити (удобство использования) используя все современные и необходимое методы, чтобы человек прешедший сайт мог
+                                                        без труда за короткое время найти необходимую информацию.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                             <div class="span6">
+                                                <div class="row">
+                                                    <div class="span1">
+                                                        <img width="70" src="{% static 'theme/img/designs_icon.png' %}" alt=""/>
+                                                    </div>
+                                                <div class="span5">
+                                                    <h4>Создание дизайна</h4>
+                                                    <p>Следующий этап — это разработка дизайна для Вашего сайта этот этап является одним из главных.
+                                                        Подбирается цветовая палитра и концепция в которой будет разрабатываться дизайн сайта.
+                                                        Мы учитываем все ваши пожелания и предпочтения — и в результате создаем уникальный, яркий и современный  образ Вашего  интернет-представительства.
+                                                        При работе над дизайном применяются  все самые современные стандарты типографики, юзабилити и эргономики.
+                                                        Итогом работы  становится готовый визуальный образ сайта.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="span6">
+                                            <div class="row">
+                                                <div class="span1">
+                                                    <img width="70" src="{% static 'theme/img/programs_icons.png' %}" alt=""/>
+                                                </div>
+                                                <div class="span5">
+                                                    <h4>Програмирование и моделирование</h4>
+                                                    <p>После того как был разработан и утвержден дизайн сайта. Начинается следующий этап который включает в себя программную верстку
+                                                        шаблона из разработанного дизайна. Осуществляется настройка  CMS (система управления содержимым) производится работа по разработке
+                                                        и программирования необходимых дополнительных модулей и функционала, которые не входят в стандартный пакет CMS.
+                                                        Производится тестирование и первоначальный запуск сайта. На этом этапе выявляются ошибки и дорабатывается необходимая часть
+                                                        которая не была усмотрена или обговорена при создании технического задания. </p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                         <div class="span6">
+                                            <div class="row">
+                                                <div class="span1">
+                                                    <img width="70" src="{% static 'theme/img/napolnenie.png' %}" alt=""/>
+                                                </div>
+                                                <div class="span5">
+                                                    <h4>Наполнение сайта</h4>
+                                                    <p>Перед сдачей сайта мы  производим  первоначальное  наполнение сайта по условиям которые были оговорены объем и источник информации для заполнения сайта.
+                                                        Как правило это происходит по одной из двух схем, необходимую информацию
+                                                        предоставляете Вы и мы заполняем сайт  или мы сами берем не себя ответственность по заполнению сайта текстовой и графической информацией.
+                                                        Но в любом случае такую информацию как « О нас »  « О компании » наилучшим образом предоставить сможете только Вы.
+</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="span6">
+                                            <div class="row">
+                                                <div class="span1">
+                                                    <img width="70" src="{% static 'theme/img/gotovo_icons.png' %}" alt=""/>
+                                                </div>
+                                                <div class="span5">
+                                                    <h4>Запуск сайта</h4>
+                                                    <p>Вот и все Ваш сайт разработан и готов использованию. Согласитесь что Все  проходит быстро и не затратно всю основную работу мы взяли на себя.
+                                                        Это одно из наших преимуществ и сильных сторон нашей компании. На последнем этапе мы делаем выгрузку сайта на хостинг и выполняется итоговое тестирование.
+                                                        Мы объясняем и  показываем как осуществлять дальнейшее  наполнение и редактирования сайта. Так же Вы можете заказать у нас обслуживание сайта согласно тарифу.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        {% endblock %}
+
+{% block img_second %}
+
+{% endblock %}
+
+
+
+{% block first_content %}
+    <div class="header">
+        <div class="container">
+            <div class="row">
+                <div class="span12">
+                    <div class="header_title">
+                        <h2>Forward - качественная разработка сайтов</h2>
+                    </div>
+                </div>
+                <div class="span12 post_in_blue">
+                    <div class="row">
+                        <div class="span12">
+                            <div class="row">
+                                <div class="span6">
+                                    <div class="row">
+                                        <div class="span1">
+                                            <img src="{% static 'theme/img/contactcard32.png' %}" alt=""/>
+                                        </div>
+                                        <div class="span5">
+                                            <h4>Индивидуальная поддержка</h4>
+                                            <p>При заказе сайта вам выделяется персональный менеджер, который будет помогать вам и консультировать по любым вопросам в течение всего срока нашего сотрудничества.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="span6">
+                                    <div class="row">
+                                        <div class="span1">
+                                            <img src="{% static 'theme/img/cup.png' %}" alt=""/>
+                                        </div>
+                                        <div class="span5">
+                                            <h4>К продвижению готов</h4>
+                                            <p>Все сайты создаются с учетом требований для дальнейшего продвижения в поисковых системах. Даже самый маленький сайт имеет полный функционал и сразу готов к продвижению.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="span6">
+                                    <div class="row">
+                                        <div class="span1">
+                                            <img src="{% static 'theme/img/mouse.png' %}" alt=""/>
+                                        </div>
+                                        <div class="span5">
+                                            <h4>Лёгкое управление сайтом</h4>
+                                            <p>Мы создаем сайты на основе системы, которая позволит вам самостоятельно управлять вашим сайтом, добавлять новые страницы, изменять текст и размещать фотографии.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="span6">
+                                    <div class="row">
+                                        <div class="span1">
+                                        <img src="{% static 'theme/img/key.png' %}" alt=""/>
+                                    </div>
+                                    <div class="span5">
+                                        <h4>Возможности расширения</h4>
+                                        <p>Система управления сайтом позволяет наращивать необходимый функционал. Вы сможете перейти на более функциональную редакцию в любое время без потери времени и данных.</p>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="span12">
+                    <div class="header_title">
+                        <h2>
+                            Мобильный интернет - мобильные сайты
+                        </h2>
+                    </div>
+                </div>
+                <div class="span8">
+                    <img src="{% static 'theme/img/devices.png' %}" alt=""/>
+                </div>
+                    <div class="span3 offset1 resp_list">
+                        <h4>Полная мобильная версия</h4>
+                        <p><i class="icon-ok icon-black"></i> Планшетные ПК Apple</p>
+                        <p><i class="icon-ok icon-black"></i> Смартфоны Apple</p>
+                        <p><i class="icon-ok icon-black"></i> Планшетные ПК Android</p>
+                        <p><i class="icon-ok icon-black"></i> Смартфоны Android</p>
+                        <p><i class="icon-ok icon-black"></i> Планшетные ПК Windows</p>
+                        <p><i class="icon-ok icon-black"></i> Смартфоны Windows</p>
+                    </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block second_content %}
+  <div class="sait_create">
+    <div class="container">
+        <div class="row">
+            <div class="span12">
+                <div class="row">
+                    <div class="span12">
+                        <h2>Тарифные планы на создание сайтов</h2>
+                    </div>
+
+                    <div class="span12">
+                        <div class="row">
+                            <!-- 1 -->
+                            <section class="cbp-so-section vizitka">
+                                <article class="cbp-so-side cbp-so-side-left">
+                                    <div class="span3">
+                                        <div class="headerrow">
+                                            <h4 class="title">Сайт визитка</h4>
+
+                                            <div class="price">
+                                                <h3 class="cost">от 10000р.</h3>
+                                                <span class="description"></span>
+                                            </div>
+                                            <!--/ .price-->
+                                        </div>
+                                        <!-- .header -->
+
+                                        <ul class="features">
+                                            <li>Индивидуальный дизайн</li>
+                                            <li>Базовая CMS система управления сайтом</li>
+                                            <li>Регистрация домена</li>
+                                            <li>Настройка почты</li>
+                                            <li>Наполнение основным содержанием</li>
+                                            <li>Консультационная и Техническая поддержка</li>
+                                        </ul>
+                                        <!-- .features -->
+
+                                        <div class="footerrow">
+                                            <a class="button big default" href="#myModal" data-toggle="modal">Заказать</a>
+                                        </div>
+
+                                        <!-- .footer -->
+                                    </div>
+                                </article>
+                            </section>
+
+                            <!-- 2 -->
+                            <section class="cbp-so-section vizitka">
+                                <article class="cbp-so-side cbp-so-side-top">
+                                    <div class="span3 featured">
+                                        <div class="headerrow">
+                                            <h4 class="title">Корпоративный сайт</h4>
+
+                                            <div class="price">
+                                                <h3 class="cost">от 20000р.</h3>
+                                                <span class="description"></span>
+                                            </div>
+                                            <!--/ .price-->
+                                        </div>
+                                        <!-- .header -->
+
+                                        <ul class="features">
+                                            <li>Индивидуальный дизайн</li>
+                                            <li>Базовая CMS система управления сайтом</li>
+                                            <li>Регистрация домена</li>
+                                            <li>Настройка почты</li>
+                                            <li>Наполнение основным содержанием</li>
+                                            <li>Консультационная и Техническая поддержка</li>
+                                        </ul>
+                                        <!-- .features -->
+
+                                        <div class="footerrow">
+                                            <a class="button big default" href="#myModal" data-toggle="modal">Заказать</a>
+                                        </div>
+                                        <!-- .footer -->
+                                    </div>
+                                </article>
+                            </section>
+
+                            <!-- 3 -->
+                            <section class="cbp-so-section">
+                                <article class="cbp-so-side cbp-so-side-bottom">
+                                    <div class="span3">
+                                        <div class="headerrow">
+                                            <h4 class="title">Интернет магазин</h4>
+
+                                            <div class="price">
+                                                <h3 class="cost">от 30000р.</h3>
+                                                <span class="description"></span>
+                                            </div>
+                                            <!--/ .price-->
+                                        </div>
+                                        <!-- .header -->
+
+                                        <ul class="features">
+                                            <li>Индивидуальный дизайн</li>
+                                            <li>Базовая CMS система управления сайтом</li>
+                                            <li>Регистрация домена</li>
+                                            <li>Настройка почты</li>
+                                            <li>Наполнение основным содержанием</li>
+                                            <li>Консультационная и Техническая поддержка</li>
+                                        </ul>
+                                        <!-- .features -->
+
+                                        <div class="footerrow">
+                                            <a class="button big default" href="#myModal" data-toggle="modal">Заказать</a>
+                                        </div>
+                                        <!-- .footer -->
+                                    </div>
+                                </article>
+
+                            <!-- 4 -->
+
+                                <figure class="cbp-so-side cbp-so-side-right">
+                                    <div class="span3">
+                                        <div class="headerrow">
+                                            <h4 class="title">Сайт «Бизнес»</h4>
+
+                                            <div class="price">
+                                                <h3 class="cost">от 35000р.</h3>
+                                                <span class="description"></span>
+                                            </div>
+                                            <!--/ .price-->
+                                        </div>
+                                        <!-- .header -->
+
+                                        <ul class="features">
+                                            <li>Индивидуальный дизайн</li>
+                                            <li>Базовая CMS система управления сайтом</li>
+                                            <li>Регистрация домена</li>
+                                            <li>Настройка почты</li>
+                                            <li>Наполнение основным содержанием</li>
+                                            <li>Консультационная и Техническая поддержка</li>
+                                        </ul>
+                                        <!-- .features -->
+
+                                        <div class="footerrow">
+                                            <a class="button big default" href="#myModal" data-toggle="modal">Заказать</a>
+                                        </div>
+                                        <!-- .footer -->
+                                    </div>
+                                </figure>
+                            </section>
+
+                            <!-- Modal -->
+                            <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                    <span><h3 id="myModalLabel" class="">Отправить заявку</h3></span><span><input id="status" class="hidden" value="" type="text"></span>
+                                </div>
+                                <form action="." method="post" id="my_form">
+                                    <div class="modal-body">
+                                        {% csrf_token %}
+                                        {{ form.as_p }}
+                                    </div>
+                                    <div class="modal-footer">
+                                        <div class="loading hidden">
+                                            <img src="{% static 'theme/img/335.gif' %}" alt=""/>
+                                        </div>
+                                        <input id="id_submit" value="Отправить" type="button" onclick="send_form();">
+                                        <button id="id_submit" class="red" data-dismiss="modal" aria-hidden="true">Отменить</button>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+
+
+
+
+{% endblock %}
+
+
+
+
+

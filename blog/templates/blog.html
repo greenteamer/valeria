@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load thumbnail %}
+
+{% block meta %}
+    <title>Статьи о создании сайтов</title>
+    <meta name="description" content="Статьи о создании и продвижении сайтов, их преимуществах и недостатках, о том как продвинуть свой сайт самостоятельно или купить сайт, готовый к работе." >
+    <meta name ="keywords" content="Создание сайтов в Томске, продвижение сайтов в Томске">
+{% endblock %}
+
+{% block slogan %}
+{% endblock %}
+
+{% block first_content %}
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="span9">
+            <div>
+                {% for post in posts %}
+                    <div>
+                        <div>
+                            <div class="sport_date">{{ post.date }}</div>
+                            {% thumbnail post.image "250x150" crop="center" as im %}
+                                <img class="_category-img" src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="Иллюстрация" align="left" vspace="5" hspace="5">
+                            {% endthumbnail %}
+                            <span>{{ post.name }}</span>
+                            <div>{{ post.text|removetags:"img"|truncatewords:"150"|safe }}</div>
+                        </div>
+                        <div>
+                            <a href="/blog/{{ post.slug }}">подробнее</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    {% block sidebar_menu %}
+        <div class="span3">
+        </div>
+    {% endblock %}
+    </div>
+{% endblock %}

@@ -1,0 +1,145 @@
+{% extends 'base.html' %}
+{% load thumbnail %}
+{% load staticfiles %}
+
+{% block review_slider %}
+{% endblock %}
+
+{% block bottom_content %}
+{% endblock %}
+
+
+{% block portfolio %}
+{% endblock %}
+
+{% block img_first %}
+{% endblock %}
+
+{% block img_second %}
+{% endblock %}
+
+{% block title %}
+    <h1>Продвижение сайтов</h1>
+{% endblock %}
+
+{% block first_content %}
+    <div class="header">
+        <div class="container">
+            <div class="row">
+                <div class="span12">
+                    <div class="header_title">
+                        <h2>Поисковое продвижение сайта (SEO)</h2>
+                    </div>
+                </div>
+                <div class="span12 post_in_blue">
+                    <div class="row">
+                        <div class="span12">
+                            <div class="row">
+                                <div class="span12">
+                                    <div class="row">
+
+                                        <div class="span1">
+                                            <img src="{% static 'theme/img/notecheck32.png' %}" alt=""/>
+                                        </div>
+                                        <div class="span11">
+                                            <h4>Необходимо для поднятия позиций сайта в выдачи поисковых систем по определенным запросам пользователей.</h4>
+                                            <h4>Основной перечень действий, которые мы предпринимаем для оптимизации сайта:</h4>
+                                        </div>
+                                        <div class="span5 offset1">
+                                            <h3>Процесс продвижения</h3>
+                                            <div class="progress">
+                                                <div class="bar" style="width: 36%;">Создание сайта 36%</div>
+                                            </div>
+                                            <div class="progress">
+                                                <div class="bar" style="width: 42%;">Подбор ключевых фраз 42%</div>
+                                            </div>
+                                            <div class="progress">
+                                                <div class="bar" style="width: 54%;">Написание SEO текстов 54%</div>
+                                            </div>
+                                            <div class="progress">
+                                                <div class="bar" style="width: 69%;">Наращивание ссылочной базы 69%</div>
+                                            </div>
+                                            <div class="progress">
+                                                <div class="bar" style="width: 75%;">Внутренняя перелинковка 75%</div>
+                                            </div>
+                                            <div class="progress">
+                                                <div class="bar" style="width: 87%;">301 редирект 87%</div>
+                                            </div>
+                                            <div class="progress">
+                                                <div class="bar" style="width: 91%;">ЧПУ (человекопонятные URL) 91%</div>
+                                            </div>
+                                            <div class="progress">
+                                                <div class="bar" style="width: 96%;">Улечшение производительности сайта 96%</div>
+                                            </div>
+                                            <div class="progress">
+                                                <div class="bar" style="width: 100%;">Установка счётчиков статистки 100%</div>
+                                            </div>
+                                        </div>
+                                        <div class="span6"><h3>Общая информация</h3></div>
+                                        <div class="span1"><img src="{% static 'theme/img/list.png' %}" alt=""/></div>
+                                        <div class="span5">
+                                            <p>SEO оптимизация сайта включает в себя комплекс мер, которые способствуют повышению рейтинга сайта в поисковых системах Интернета. На сегодняшний день Интернет наполнен большим количеством сайтов различных компаний и на различную тематику, сайтов, которые предоставляют те или иные услуги. Для того, чтобы Ваш сайт не потерялся и был найден среди обилия сайтов, необходима его оптимизация.</p>
+                                        </div>
+                                        <div class="span6"><h3>Для нас важно</h3></div>
+                                        <div class="span1"><img src="{% static 'theme/img/graph.png' %}" alt=""/></div>
+                                        <div class="span5">
+                                            <p>Мы даем своим клиентам гарантию в том, что заказанная ими внутренняя оптимизация
+                                            сайта будет выполнена ответственно и добросовестно. Мы пользуемся только «белыми»
+                                            методами оптимизации и раскрутки сайтов, что исключает любой обман посетителей и мошенничество.</p>
+                                        </div>
+
+                                        <div class="span6 seo_price">
+                                            <div class="row">
+
+                                                <section class="cbp-so-section">
+                                                    <article class="cbp-so-side cbp-so-side-left">
+                                                        <div class="span5">
+                                                            <h4 class="strong">Базовый 3-х месячный пакет 35 000 руб. </h4>
+                                                        </div>
+                                                    </article>
+
+                                                    <div class="span1">
+                                                        <a href="#myModal" class="link blue" data-toggle="modal">Заказать</a>
+                                                    </div>
+                                                    <!-- Modal -->
+                                                    <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                                        <div class="modal-header">
+                                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                                            <span><h3 id="myModalLabel" class="">Отправить заявку</h3></span><span><input id="status" class="hidden" value="" type="text"></span>
+                                                        </div>
+                                                        <form action="." method="post" id="my_form">
+                                                            <div class="modal-body">
+                                                                {% csrf_token %}
+                                                                {{ form.as_p }}
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <div class="loading hidden">
+                                                                    <img src="{% static 'theme/img/335.gif' %}" alt=""/>
+                                                                </div>
+                                                                <input id="id_submit" value="Отправить" type="button" onclick="send_form();">
+                                                                <button id="id_submit" class="red" data-dismiss="modal" aria-hidden="true">Отменить</button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </section>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block second_content %}
+{% endblock %}
+
+
+
+
