@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+{% load thumbnail %}
+{% load staticfiles %}
+
+{% block review_slider %}
+{% endblock %}
+
+{% block img_first %}
+{% endblock %}
+
+{% block img_second %}
+{% endblock %}
+
+{% block first_content %}
+    <div class="header">
+        <div class="container">
+            <div class="row">
+                <!--верхняя часть синий области контактов-->
+                <div class="span12 contact_top">
+                    <div class="row">
+                        <div class="span12">
+                            <h2>Форма обратной связи</h2>
+                        </div>
+
+{#                    <!-- Button to trigger modal -->#}
+{#                    <a href="#myModal" role="button" class="btn" data-toggle="modal">Launch demo modal</a>#}
+{#    #}
+{#                    <!-- Modal -->#}
+{#                    <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">#}
+{#                        <div class="modal-header">#}
+{#                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>#}
+{#                            <h3 id="myModalLabel">Modal header</h3>#}
+{#                        </div>#}
+{#                        <div class="modal-body">#}
+{#                            <p>One fine body…</p>#}
+{#                        </div>#}
+{#                        <div class="modal-footer">#}
+{#                            <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>#}
+{#                            <button class="btn btn-primary">Save changes</button>#}
+{#                        </div>#}
+{#                    </div>#}
+
+                        <div class="span4">
+                            <div class="contact_form">
+                                <h4>Оставьте свой номер телефона и мы свяжемся с Вами в ближайшее время</h4>
+                                {% if error %}
+                                    <p style="color: red;">Please submit a search term.</p>
+                                {% endif %}
+                                <div class="myForm">
+                                    <form action="." method="post">
+                                        {% csrf_token %}
+                                        {{ form.as_ul }}
+                                        <input id="id_submit" type="submit" />
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="span5">
+                            <p><a id="firmsonmap_biglink" href="http://maps.2gis.ru/#/?history=project/tomsk/center/84.984178848713,56.466354189737/zoom/17/state/widget/id/422740746465572/firms/422740746465572" style="display: none;">Перейти к большой карте</a><br>
+                                <script charset="utf-8" type="text/javascript" src="http://firmsonmap.api.2gis.ru/js/DGWidgetLoader.js"></script><br>
+                                <script charset="utf-8" type="text/javascript">new DGWidgetLoader({"borderColor":"#a3a3a3","width":"470","height":"400","wid":"a0f0bba8b3fcfee1982bdc474efe666a","pos":{"lon":"84.984178848713","lat":"56.466354189737","zoom":"16"},"opt":{"ref":"hidden","card":["name","contacts","schedule","payings"],"city":"tomsk"},"org":[{"id":"422740746465572"}]});</script>
+                            </p>
+                            <noscript style="color:#c00;font-size:16px;font-weight:bold;">Виджет карты использует JavaScript. Включите его в настройках вашего браузера.</noscript>
+                        </div>
+                        <div class="span3 contact">
+                            <p>г.Томск, ул Кирова 58 стр 55  оф. 61</p>
+                            <p>тел. (3822) 94-20-19</p>
+                            <p>Email: forward.70@yandex.ru</p>
+                            <p>skype: greenteamer</p>
+                        </div>
+                        <div class="span3 resp_list">
+                            <h4>Мы работаем</h4>
+                            <p><i class="icon-ok icon-black"></i> Понедельник</p>
+                            <p><i class="icon-ok icon-black"></i> Вторник</p>
+                            <p><i class="icon-ok icon-black"></i> Среда</p>
+                            <p><i class="icon-ok icon-black"></i> Четверг</p>
+                            <p><i class="icon-ok icon-black"></i> Пятница</p>
+                            <p><i class="icon-ok icon-black"></i> Суббота</p>
+                            <p><i class="icon-ok icon-black"></i> Воскресенье</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block bottom_content %}
+{% endblock %}
+
+{% block second_content %}
+{% endblock %}
+
+{% block portfolio %}
+{% endblock %}
+
+{% block grams %}
+    <div class="span6">
+        <h6>Благодарности</h6>
+        <div id="links">
+            {% for gram in grams %}
+                <a href="/media/{{ gram.image }}" title="{{ gram.name }}">
+                    {% thumbnail gram.image "130x170" crop="center" as im %}
+                        <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+                    {% endthumbnail %}
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
