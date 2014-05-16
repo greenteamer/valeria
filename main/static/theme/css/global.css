@@ -1,4 +1,4 @@
-@font-face {
+z@font-face {
 	font-family:"eurofurence light";
 	src:url("../eurofurence_light_regular.ttf") format("truetype");
 	font-weight:normal;
@@ -1053,4 +1053,239 @@ h3#myModalLabel {
 }
 #myModal input#id_submit:hover {
     background:#224D9F;
+}
+
+/***** общие настройки *****/
+
+a.no_decor {
+    text-decoration: none;
+}
+
+a.no_decor:hover {
+    text-decoration: none;
+}
+/*
+.container .row {
+    margin-left: 0px;
+}*/
+/*
+.row .span1,
+.row .span2,
+.row .span3,
+.row .span4,
+.row .span5,
+.row .span6,
+.row .span7,
+.row .span8,
+.row .span9,
+.row .span10,
+.row .span11,
+.row .span12 {
+    margin: 0px;
+}
+*/
+
+/***** главная страница *****/
+
+/* блок с меню */
+.top {
+    padding: 0px;
+    height: 100px;
+    max-height: 100px;
+}
+
+.top .conteiner {
+    height: 100px;
+}
+
+.top .row {
+    height: 100px;
+}
+
+.top .css_logo {
+    float: left;
+}
+
+.top .top .css-top_text {
+    margin-top: 0px;
+}
+
+.top .css_logo img {
+    max-height: 80px;
+    padding-top: 20px;
+}
+
+/* главное  меню */
+
+.top .navbar {
+    margin-bottom: 0px;
+}
+
+.top .navbar a {
+    color: #555;
+    font-size: 16px;
+}
+
+.top .navbar .my_nav li a.css_last {
+    padding-right: 0px;
+}
+
+.top .navbar .my_nav li a:hover {
+    color: #72c02c;
+    background: none;
+}
+
+/* мини меню */
+
+.top .css-mini-menu {
+    top: 0px;
+    height: 30px;
+    padding-top: 15px;
+}
+
+.top .css-mini-menu-ul {
+    float: right;
+}
+
+.top .css-mini-menu-ul li {
+    float:left;
+}
+
+.top .main_menu .my_nav {
+    margin-top: 0px;
+}
+
+.css-mini-menu li {
+    list-style-type: none;
+}
+
+.css-mini-menu li.devider {
+    padding-left: 10px;
+    padding-right: 10px;
+    font-family: Tahoma;
+    font-size: 10px;
+    font-weight: bold;
+    color: #808080;
+}
+
+.top .css-mini-menu-ul li div {
+    margin: 0px;
+    width: 16px;
+    height: 16px;
+    padding-right: 6px;
+    background-size: 15px 15px;
+    background-position: 0px 0px;
+}
+
+div.icon-mini-review {
+    background-image: url(../img/css/icon-menu/icon-menu-review-gray.png);
+}
+
+.top .css-mini-menu-ul li:hover div.icon-mini-review {
+    background-image: url(../img/css/icon-menu/icon-menu-review.png);
+}
+
+div.icon-mini-call {
+    background-image: url(../img/css/icon-menu/icon-menu-call-gray.png);
+}
+
+.top .css-mini-menu-ul li:hover div.icon-mini-call {
+    background-image: url(../img/css/icon-menu/icon-menu-call.png);
+}
+
+div.icon-mini-phone {
+    background-image: url(../img/css/icon-menu/icon-menu-phone-gray.png);
+}
+
+.top .css-mini-menu-ul li:hover div.icon-mini-phone {
+    background-image: url(../img/css/icon-menu/icon-menu-phone.png);
+}
+
+.css-mini-menu li a {
+    color: #D5D5D5;
+}
+
+.css-mini-menu li:hover a {
+    color: #687074;
+}
+
+/* блок с видео */
+
+.header.home {
+    background-color: #72c02c;
+    padding-bottom: 60px
+}
+
+.header.home .header_title h2 {
+    text-align: center;
+}
+
+.header.home h4.css_text {
+    line-height: 1.5em;
+}
+
+.header_title-1 {
+    margin-top: 40px;
+}
+
+.css_vidio {
+    width: 500px;
+    height: 300px;
+    background-color: #000;
+}
+
+.css_form_consultation form {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.css_form_consultation form {
+    width: 350px;
+    border: 1px solid #fff;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+
+.css_form_consultation form p {
+    color: #fff;
+    font-weight: bold;
+    padding-top: 20px;
+    margin-bottom: 40px;
+    font-size: 16px;
+    line-height: 1.5em;
+}
+
+.css_form_consultation form input {
+    width: 250px;
+    margin-bottom: 30px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+
+.form_consultation_submit {
+    padding: 4px 6px;
+    background-color: #568F23;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* блок css_benvenuto */
+
+.css_benvenuto {
+    background-color: rgba(0, 0, 0, 0.06);
+}
+
+.css_benvenuto .benvenuto-title {
+    text-transform: uppercase;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 60px;
+    margin-bottom: 30px;
+}
+
+.css_benvenuto .benvenuto-text {
+    margin-bottom: 30px;
 }

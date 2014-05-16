@@ -72,23 +72,20 @@
             <div class="top">
                 <div class="container">
                     <div class="row">
-                        <div class="span5">
-                            <div class="background"><img src="{% static 'theme/img/background.png' %}" alt=""/></div>
-                            <div class="brand my_brand">
-                                <a href="/">
-                                    <div class="logo_block">
-                                        <div class="forward_logo">Forward</div>
-                                        <div class="text_logo">Сайты достигающие своей цели</div>
-                                    </div>
-                                </a>
-                            </div>
+                        <div class="span4 css_logo">
+                            <a href="/"> <img src="{% static 'theme/img/css/logo.png' %}" alt=""/> </a>
                         </div>
-                        <div class="span7">
-                            <div class="phone_wrapper">
-                                <div class="phone">
-                                    <p><span>тел.(3822)</span> 94-20-19</p>
-                                    <p class="adress">г.Томск ул.Кирова 58 стр.55 оф.61</p>
-                                </div>
+                        <div class="span8">
+                            <div class = "css-mini-menu">
+                                <ul class="css-mini-menu-ul">
+                                    <li><a href="#" class = "no_decor"><div class = "icon-mini-review"></div>Отзывы</a></li>
+                                    <li class="devider">|</li>
+                                    <li><a href="#" class = "no_decor"><div class = "icon-mini-call"></div>Вопрос консультанту</a></li>
+                                    <li class="devider">|</li>
+                                    <li><a href="#" class = "no_decor"><div class = "icon-mini-phone"></div>Контакты</a></li>
+                                    <li class="devider">|</li>
+                                    <li>+7 (909) 777-77-77</li>
+                                </ul>
                             </div>
                             <div class="navbar navbar-inverse navbar-static">
                                 <div class="navbar-inner my_navbar_inner">
@@ -99,23 +96,11 @@
                                                 <li><a href="/sozdanie-saitov/">Создание сайтов</a></li>
                                                 <li><a href="/prodvijenie/">Продвижение сайтов</a></li>
                                                 <li><a href="/portfolio/newtopbet/">Портфолио</a></li>
-                                                <li><a href="/kontakty/">Контакты</a></li>
+                                                <li><a href="/kontakty/" class = "css_last">Контакты</a></li>
                                             </ul>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="span7 top_text">
-                            <div class="content">
-                                <h1><strong>FORWARD</strong> - сайт будет продавать</h1>
-                                <div class="head-info">{% flatblock 'top_text' %}</div>
-                                {% block review_slider %}
-                                    <div class="my_title">
-                                        <h1>Клиенты говорят</h1>
-                                    </div>
-                                    {% include 'review_slider.html' %}
-                                {% endblock %}
                             </div>
                         </div>
                     </div>
@@ -141,10 +126,33 @@
                     <div class="row">
                         <div class="span12">
                             <div class="header_title">
-                                <h2>Forward - сайты которые приносят доход</h2>
+                                <h2>
+                                    Путешествуй с пользой для здоровья в лучшие места в Италии<br>
+                                    с местным гидом с Валерией Сизовой
+                                </h2>
+                                <h4 class = "css_text">
+                                    10 лучших целебных мест планеты<br />
+                                    15 ресторанов, где родилась Итальянская кухня<br />
+                                    Омоложение кожи за 3 сеанса в тесмальных источниках Таксаны<br />
+                                <h4>
                             </div>
                         </div>
-                        <div class="span12 post_in_blue">
+                        <div class = "span12 header_title-1">
+                            <div class = "row">
+                                <div class = "span6">
+                                    <div class = "css_vidio"> </div>
+                                </div>
+                                <div class = "span6 css_form_consultation">
+                                    <form>
+                                        <p>сделайте заказ и получите<br />консльтацию бесплатно</p>
+                                        <input type = "text"><br />
+                                        <input type = "text"><br />
+                                        <input type = "submit" value="отправить" class = "form_consultation_submit">
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <!--<div class="span12 post_in_blue">
                             <div class="row">
                                 {% for post in posts %}
                                     {% if post.post_in_blue %}
@@ -162,8 +170,8 @@
                                     {% endif %}
                                 {% endfor %}
                             </div>
-                        </div>
-                        <div class="span12">
+                        </div>-->
+                        <!--<div class="span12">
                             <div class="header_title">
                                 <h2>
                                     Мобильный интернет - мобильные сайты
@@ -187,16 +195,35 @@
                                     <p><i class="icon-ok icon-black"></i> Смартфоны Windows</p>
                                 </div>
                             </figure>
-                        </section>
+                        </section>-->
 
                     </div>
                 </div>
             </div>
         {% endblock %}
 
-        {% block img_first %}
-            <div class="img_first">
-                <img src="{% static 'theme/img/air2.jpg' %}" alt=""/>
+        {% block img_benvenuto %}
+            <div class="css_benvenuto">
+                <div class="container">
+                    <div class="row">
+                        <div class="span4">
+                            <img src = "" />
+                        </div>
+                        <div class="span8">
+                            <p class = "benvenuto-title">benvenuto!</p>
+                            <p class = "benvenuto-text">
+                                Меня зовут Валерия Сизова. Я родилась и выросла в Сибири, однако уже 13 лет живу в Тоскане -
+                                самом центре Италии. Я полюбила этот волшебный край и, наверное, уже могу сказать: "Тоскана -
+                                моя вторая родина".<br /><br />
+                                Экскурсовод — специалист по проведению экскурсий. Смежные профессии: гид, историк, культуролог,
+                                музейный работник, этнограф. Специалист в данной области должен иметь хорошие знания по истории,
+                                культуре и географии. Ему необходимо знать принципы организации и методики проведения экскурсий,
+                                особенности обустройства выставочных стендов. Кроме того, он должен иметь навык общения с публикой,
+                                грамотную, хорошо поставленную, речь.
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
         {% endblock %}
 
