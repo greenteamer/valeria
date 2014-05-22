@@ -46,7 +46,7 @@ MEDIA_URL = '/media/'
 STATICFILES_DIRS = ()
 TEMPLATE_DIRS = ()
 
-CKEDITOR_UPLOAD_PATH = "/media/uploads"
+CKEDITOR_UPLOAD_PATH = "media/uploads"
 CKEDITOR_UPLOAD_PREFIX = "/media/uploads"
 CKEDITOR_CONFIGS = {
     'default': {
