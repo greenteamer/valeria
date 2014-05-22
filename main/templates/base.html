@@ -16,6 +16,7 @@
         <link href="{% static 'theme/css/global.css' %}" rel="stylesheet">
         <link href="{% static 'bootstrap/css/bootstrap.css' %}" rel="stylesheet">
         <link href="{% static 'bootstrap/css/bootstrap-responsive.css' %}" rel="stylesheet">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
         <!--[if lt IE 9]>
         <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -39,6 +40,8 @@
         <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,300,400,600,700,800&subset=latin,cyrillic-ext,cyrillic' rel='stylesheet' type='text/css'>
 
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&subset=latin,cyrillic' rel='stylesheet' type='text/css'><!---->
+
         {#        blueimp#}
         <link rel="stylesheet" href="{% static 'libraries/blueimp/css/blueimp-gallery.min.css' %}" type="text/css" media="screen" />
 
@@ -61,44 +64,41 @@
         {% dajaxice_js_import %}
 
     </head>
-    <body onload="loadPage()">
-
-{#    необходимо для визуального эффекта#}
-    <div class="container main">
-        <div id="cbp-so-scroller" class="cbp-so-scroller">
-
+    <body>
 
         {% block top %}
             <div class="top">
                 <div class="container">
                     <div class="row">
-                        <div class="span4 css_logo">
-                            <a href="/"> <img src="{% static 'theme/img/css/logo.png' %}" alt=""/> </a>
+                        <div class="span4">
+                            <a href="/"> <img class = "css_logo" src="{% static 'theme/img/css/logo.png' %}" alt=""/> </a>
                         </div>
                         <div class="span8">
                             <div class = "css-mini-menu">
                                 <ul class="css-mini-menu-ul">
-                                    <li><a href="#" class = "no_decor"><div class = "icon-mini-review"></div>Отзывы</a></li>
-                                    <li class="devider">|</li>
-                                    <li><a href="#" class = "no_decor"><div class = "icon-mini-call"></div>Вопрос консультанту</a></li>
+                                    <li>+7 (909) 777-77-77</li>
                                     <li class="devider">|</li>
                                     <li><a href="#" class = "no_decor"><div class = "icon-mini-phone"></div>Контакты</a></li>
                                     <li class="devider">|</li>
-                                    <li>+7 (909) 777-77-77</li>
+                                    <li><a href="#" class = "no_decor"><div class = "icon-mini-call"></div>Вопрос консультанту</a></li>
+                                    <li class="devider">|</li>
+                                    <li><a href="#" class = "no_decor"><div class = "icon-mini-review"></div>Отзывы</a></li>
                                 </ul>
                             </div>
-                            <div class="navbar navbar-inverse navbar-static">
-                                <div class="navbar-inner my_navbar_inner">
-                                    <div class="container">
-                                        <div class="main_menu">
-                                            <ul class="nav my_nav">
-                                                <li><a href="/">Главная</a></li>
-                                                <li><a href="/sozdanie-saitov/">Создание сайтов</a></li>
-                                                <li><a href="/prodvijenie/">Продвижение сайтов</a></li>
-                                                <li><a href="/portfolio/newtopbet/">Портфолио</a></li>
-                                                <li><a href="/kontakty/" class = "css_last">Контакты</a></li>
-                                            </ul>
-                                        </div>
+                            <div class="navbar">
+                                <div class="navbar-inner">
+                                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </a>
+                                    <div class="nav-collapse">
+                                        <ul class="nav">
+                                            <li><a href="/">Главная</a></li>
+                                            <li><a href="/sozdanie-saitov/">Создание сайтов</a></li>
+                                            <li><a href="/prodvijenie/">Продвижение сайтов</a></li>
+                                            <li><a href="/portfolio/newtopbet/" class = "css_last">Портфолио</a></li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
@@ -108,18 +108,6 @@
             </div>
         {% endblock %}
 
-        <div class="title_page">
-            <div class="container">
-                <div class="row">
-                    <div class="span12">
-                        {% block title %}
-                        {% endblock %}
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- header -->
         {% block first_content %}
             <div class="header home">
                 <div class="container">
@@ -133,81 +121,34 @@
                                 <h4 class = "css_text">
                                     10 лучших целебных мест планеты<br />
                                     15 ресторанов, где родилась Итальянская кухня<br />
-                                    Омоложение кожи за 3 сеанса в тесмальных источниках Таксаны<br />
+                                    Омоложение кожи за 3 сеанса в термальных источниках Таксаны<br />
                                 <h4>
                             </div>
                         </div>
-                        <div class = "span12 header_title-1">
-                            <div class = "row">
-                                <div class = "span6">
-                                    <div class = "css_vidio"> </div>
-                                </div>
-                                <div class = "span6 css_form_consultation">
-                                    <form>
-                                        <p>сделайте заказ и получите<br />консльтацию бесплатно</p>
-                                        <input type = "text"><br />
-                                        <input type = "text"><br />
-                                        <input type = "submit" value="отправить" class = "form_consultation_submit">
-                                    </form>
-                                </div>
+                        <div class = "span6">
+                            <div class = "css_vidio">
+                                <iframe width="500" height="300" src="//www.youtube.com/embed/xWynNxpxsYQ" frameborder="0" allowfullscreen></iframe>
                             </div>
                         </div>
-                        <!--<div class="span12 post_in_blue">
-                            <div class="row">
-                                {% for post in posts %}
-                                    {% if post.post_in_blue %}
-                                        <div class="span4">
-                                            <div class="row">
-                                                <div class="span1">
-                                                    <img width="32" src="/media/{{ post.image_blue }}" align="left" hspace="10" alt=""/>
-                                                </div>
-                                                <div class="span3">
-                                                    <h4>{{ post.name }}</h4>
-                                                    <div class="middle_text">{{ post.text|removetags:"img"|truncatewords:"20"|safe }}</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    {% endif %}
-                                {% endfor %}
-                            </div>
-                        </div>-->
-                        <!--<div class="span12">
-                            <div class="header_title">
-                                <h2>
-                                    Мобильный интернет - мобильные сайты
-                                </h2>
-                                <a href="#myModal" class="link blue" data-toggle="modal">Заказать сайт</a>
-                            </div>
+                        <div class = "span6 css_form_consultation">
+                            <form>
+                                <p>сделайте заказ и получите<br />консльтацию бесплатно</p>
+                                <input type = "text"><br />
+                                <input type = "text"><br />
+                                <input type = "submit" value="отправить" class = "form_consultation_submit">
+                            </form>
                         </div>
-                        <div class="span8">
-                            <img src="{% static 'theme/img/devices.png' %}" alt=""/>
-                        </div>
-
-                        <section class="cbp-so-section">
-                            <figure class="cbp-so-side cbp-so-side-right">
-                                <div class="span3 offset1 resp_list">
-                                    <h4>Полная мобильная версия</h4>
-                                    <p><i class="icon-ok icon-black"></i> Планшетные ПК Apple</p>
-                                    <p><i class="icon-ok icon-black"></i> Смартфоны Apple</p>
-                                    <p><i class="icon-ok icon-black"></i> Планшетные ПК Android</p>
-                                    <p><i class="icon-ok icon-black"></i> Смартфоны Android</p>
-                                    <p><i class="icon-ok icon-black"></i> Планшетные ПК Windows</p>
-                                    <p><i class="icon-ok icon-black"></i> Смартфоны Windows</p>
-                                </div>
-                            </figure>
-                        </section>-->
-
                     </div>
                 </div>
             </div>
         {% endblock %}
 
-        {% block img_benvenuto %}
-            <div class="css_benvenuto">
+        {% block benvenuto %}
+            <div id = "benvenuto" class="css_benvenuto">
                 <div class="container">
                     <div class="row">
-                        <div class="span4">
-                            <img src = "" />
+                        <div class="span4 benvenuto-img">
+                            <img src = "{% static 'theme/img/css/photo_gid.jpg' %}" />
                         </div>
                         <div class="span8">
                             <p class = "benvenuto-title">benvenuto!</p>
@@ -225,43 +166,251 @@
                     </div>
                 </div>
             </div>
-        {% endblock %}
-
-        {% block portfolio %}
-            <div id="portfolio" class="portfolio">
+        {% endblock benvenuto %}
+        {% block advantage %}
+            <div id="advantage" class="advantage">
                 <div class="container">
                     <div class="row">
                         <div class="span12">
-                            <div class="row">
-                                <div class="span12">
-                                    <div class="row">
-                                        <div class="span8">
-                                            <h4>Наши последние работы</h4>
-                                        </div>
-
-                                        <section class="cbp-so-section">
-                                            <figure class="cbp-so-side cbp-so-side-top">
-                                                <div class="span4">
-                                                    <a class="link" href="/portfolio/lara/">Смотреть все работы</a>
-                                                </div>
-                                            </figure>
-                                        </section>
-
+                            <h4>Преимущества нашей прогаммы</h4>
+                        </div>
+                        <div class = "span12">
+                            <div class = "row">
+                                <div class = "span4">
+                                    <div class = "advantage-icon">
+                                        <i class="fa fa-university"></i>
+                                    </div>
+                                    <div class= "advantage-content">
+                                        <p class= "advantage-title">заголовок</p>
+                                        <p class= "advantage-text">
+                                            Специалист в данной области должен иметь хорошие знания по истории, культуре
+                                            и географии.
+                                        </p>
                                     </div>
                                 </div>
-                                {% for folio in portfolios %}
-                                    <div class="span4">
-                                        <a id="popup" href="http://{{ folio.link }}"><img class="lazy" src="/media/{{ folio.image }}" alt=""/></a>
-                                        <h6>{{ folio.company }}</h6>
-                                        <p>{{ folio.text|removetags:"img"|truncatewords:"30"|safe }}</p>
+                                <div class = "span4">
+                                    <div class = "advantage-icon">
+                                        <i class="fa fa-camera-retro"></i>
                                     </div>
-                                {% endfor %}
+                                    <div class= "advantage-content">
+                                        <p class= "advantage-title">заголовок</p>
+                                        <p class= "advantage-text">
+                                            Специалист в данной области должен иметь хорошие знания по истории, культуре
+                                            и географии.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class = "span4">
+                                    <div class = "advantage-icon">
+                                        <i class="fa fa-pied-piper-alt"></i>
+                                    </div>
+                                    <div class= "advantage-content">
+                                        <p class= "advantage-title">заголовок</p>
+                                        <p class= "advantage-text">
+                                            Специалист в данной области должен иметь хорошие знания по истории, культуре
+                                            и географии.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class = "row">
+                                <div class = "span4">
+                                    <div class = "advantage-icon">
+                                        <i class="fa fa-coffee"></i>
+                                    </div>
+                                    <div class= "advantage-content">
+                                        <p class= "advantage-title">заголовок</p>
+                                        <p class= "advantage-text">
+                                            Специалист в данной области должен иметь хорошие знания по истории, культуре
+                                            и географии.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class = "span4">
+                                    <div class = "advantage-icon">
+                                        <i class="fa fa-car"></i>
+                                    </div>
+                                    <div class= "advantage-content">
+                                        <p class= "advantage-title">заголовок</p>
+                                        <p class= "advantage-text">
+                                            Специалист в данной области должен иметь хорошие знания по истории, культуре
+                                            и географии.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class = "span4">
+                                    <div class = "advantage-icon">
+                                        <i class="fa fa-clock-o"></i>
+                                    </div>
+                                    <div class= "advantage-content">
+                                        <p class= "advantage-title">заголовок</p>
+                                        <p class= "advantage-text">
+                                            Специалист в данной области должен иметь хорошие знания по истории, культуре
+                                            и географии.
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        {% endblock %}
+        {% endblock advantage %}
+        {% block why %}
+            <div id="why" class="why">
+                <div class="container">
+                    <div class="row">
+                        <div class="span12">
+                            <h4>почему со мной и почему целебный</h4>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="span6">
+                            Городской гид приглашает Вас присоединиться к сообществу тех, кто готов сказать скуке
+                            твердое НЕТ! И однозначное ДА полной, насыщенной жизни: мероприятиям, событиям, интересным
+                            местам – всем тем возможностям, которые каждый день открывает наш перспективный, развивающийся
+                            город. Хотите прочувствовать ритм городской жизни: от спокойного и размеренного до бурного
+                            и экстатичного! В Томске есть все для того, чтобы отлично провести время в соответствии
+                            именно с вашими личными вкусами и предпочтениями.<br /><br />
+                            Городской гид приглашает Вас присоединиться к сообществу тех, кто готов сказать скуке
+                            твердое НЕТ! И однозначное ДА полной, насыщенной жизни: мероприятиям, событиям, интересным
+                            местам – всем тем возможностям, которые каждый день открывает наш перспективный, развивающийся
+                            город. Хотите прочувствовать ритм городской жизни: от спокойного и размеренного до бурного
+                            и экстатичного! В Томске есть все для того, чтобы отлично провести время в соответствии
+                            именно с вашими личными вкусами и предпочтениями.<br /><br />
+                        </div>
+                        <div class="span6">
+                            Городской гид приглашает Вас присоединиться к сообществу тех, кто готов сказать скуке
+                            твердое НЕТ! И однозначное ДА полной, насыщенной жизни: мероприятиям, событиям, интересным
+                            местам – всем тем возможностям, которые каждый день открывает наш перспективный, развивающийся
+                            город. Хотите прочувствовать ритм городской жизни: от спокойного и размеренного до бурного
+                            и экстатичного! В Томске есть все для того, чтобы отлично провести время в соответствии
+                            именно с вашими личными вкусами и предпочтениями.<br /><br />
+                            Городской гид приглашает Вас присоединиться к сообществу тех, кто готов сказать скуке
+                            твердое НЕТ! И однозначное ДА полной, насыщенной жизни: мероприятиям, событиям, интересным
+                            местам – всем тем возможностям, которые каждый день открывает наш перспективный, развивающийся
+                            город. Хотите прочувствовать ритм городской жизни: от спокойного и размеренного до бурного
+                            и экстатичного! В Томске есть все для того, чтобы отлично провести время в соответствии
+                            именно с вашими личными вкусами и предпочтениями.<br /><br />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endblock why %}
+        {% block route %}
+            <div id="route" class="route">
+                <div class="container">
+                    <div class="row">
+                        <div class="span12">
+                            <h4>отличный маршрут по личному рейтингу</h4>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="span4">
+                            <div class = "route-1">
+                                <div><h3>Кулинарный маршрут</h3></div>
+                                <div class = "route-img">
+                                    <img src = "{% static 'theme/img/css/route-img/piza.jpg' %}" />
+                                </div>
+                                <div class = "route-text">
+                                    Вас присоединиться к сообществу тех, кто готов сказать скуке
+                                    твердое НЕТ! И однозначное ДА полной, насыщенной жизни: мероприятиям, событиям, интересным
+                                    местам – всем тем возможностям, которые каждый день открывает наш перспективный, развивающийся
+                                    город. Хотите прочувствовать?
+                                </div>
+                                <div class = "route-button">
+                                    Читать
+                                </div>
+                            </div>
+                        </div>
+                        <div class="span4">
+                            <div class = "route-2">
+                                <div><h3>Оздоровительный</h3></div>
+                                <div class = "route-img">
+                                    <img src = "{% static 'theme/img/css/route-img/spa.jpg' %}" />
+                                </div>
+                                <div class = "route-text">
+                                    Вас присоединиться к сообществу тех, кто готов сказать скуке
+                                    твердое НЕТ! И однозначное ДА полной, насыщенной жизни: мероприятиям, событиям, интересным
+                                    местам – всем тем возможностям, которые каждый день открывает наш перспективный, развивающийся
+                                    город. Хотите прочувствовать?
+                                </div>
+                                <div class = "route-button">
+                                    Читать
+                                </div>
+                            </div>
+                        </div>
+                        <div class="span4">
+                            <div class = "route-3">
+                                <div><h3>Исторический</h3></div>
+                                <div class = "route-img">
+                                    <img src = "{% static 'theme/img/css/route-img/city.jpg' %}" />
+                                </div>
+                                <div class = "route-text">
+                                    Вас присоединиться к сообществу тех, кто готов сказать скуке
+                                    твердое НЕТ! И однозначное ДА полной, насыщенной жизни: мероприятиям, событиям, интересным
+                                    местам – всем тем возможностям, которые каждый день открывает наш перспективный, развивающийся
+                                    город. Хотите прочувствовать?
+                                </div>
+                                <div class = "route-button">
+                                    Читать
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class = "row">
+                        <div class = "span12">
+                            <div class = "route_bottom">
+                                <div class = "route_bottom_text">
+                                    Городской гид приглашает Вас присоединиться к сообществу тех, кто готов сказать скуке
+                                    твердое НЕТ! И однозначное ДА полной, насыщенной жизни: мероприятиям, событиям, интересным
+                                    местам – всем тем возможностям, которые каждый день открывает наш перспективный, развивающийся
+                                    город. Хотите прочувствовать ритм городской жизни: от спокойного и размеренного до бурного
+                                    и экстатичного! В Томске есть все для того, чтобы отлично провести время в соответствии
+                                    именно с вашими личными вкусами и предпочтениями.
+                                </div>
+                                <div class = "route_bottom_button">
+                                    <a href = "#">Читать</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endblock route %}
+        {% block  footer %}
+            <div id="footer" class="footer">
+                <div class="container">
+                    <div class="row">
+                        <div class = "span6">
+                            <div class = "css_footer-title">
+                                ценнее денег
+                            </div>
+                            <div class = "css_footer-text">
+                                Следует отметить одну особенность Италии: чтобы получить действительно высокий сервис,
+                                необходимы знание итальянского, а также хорошее понимание нравов и обычаев, характерных
+                                для этой местности. И порой, даже большие деньги - еще не гарантия отличного качества, и
+                                чтобы получить тот самый уровень обслуживания, какой получают сами итальянцы - необходим
+                                личный контакт и знакомства. И здесь Вы можете смело довериться мне. Я и мои друзья будем
+                                всегда рядом с Вами. Заботливое внимание и дружеское отношение в этом путешествии Вам гарантированны.
+                            </div>
+                        </div>
+                        <div class = "span6 css_form_consultation">
+                            <form>
+                                <p>сделайте заказ и получите<br />консльтацию бесплатно</p>
+                                <input type = "text"><br />
+                                <input type = "text"><br />
+                                <input type = "submit" value="отправить" class = "form_consultation_submit">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endblock footer %}
+
+
+
+<!--
 
         {% block bottom_content %}
             <div class="bottom_content home_bottom">
@@ -278,7 +427,7 @@
                                             <a href="#myModal" class="link blue" data-toggle="modal">Заказать сайт</a>
                                         </div>
 
-                                        <!-- Modal -->
+
                                         <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                             <div class="modal-header">
                                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
@@ -395,17 +544,17 @@
                     </div>
                 </div>
             </div>
-        {% endblock %}
-
+        {% endblock %}-->
+<!--
         {% block img_second %}
             <div class="img_second">
 {#                <img class="lazy" data-original="{% static 'theme/img/dynamic_bg_02.jpg' %}" alt=""/>#}
                 <img  src="{% static 'theme/img/table.jpg' %}" alt=""/>
             </div>
-        {% endblock %}
+        {% endblock %}-->
 
         <!--middle content-->
-        {% block second_content %}
+    <!--    {% block second_content %}
         <div class="middle_content">
             <div class="container">
                 <div class="row">
@@ -497,10 +646,10 @@
                 </div>
             </div>
         </div>
-        {% endblock %}
+        {% endblock %}-->
 
-        <!--footer-->
-        {% block footer %}
+        <!--footer--><!--
+        {% block footer1 %}
             <div class="footer">
                 <div class="container">
                     <div class="row">
@@ -536,12 +685,7 @@
                     </div>
                 </div>
             </div>
-        {% endblock %}
-
-
-{#      2 закрытых блока конец визульного эффект#}
-        </div>
-    </div>
+        {% endblock %}-->
 
 <!-- The Gallery as lightbox dialog, should be a child element of the document body -->
 <div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls">
