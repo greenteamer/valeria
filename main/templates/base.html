@@ -51,9 +51,13 @@
             function send_form(){
                 $('.loading').removeClass('hidden');
                 Dajaxice.ajaxapp.send_form(Dajax.process,{'form':$('#my_form').serialize(true)});
-{#                Dajaxice.ajaxapp.load_form();#}
-{#                $('.message_show').toggleClass('hidden');#}
             }
+
+            function send_mini_form(){
+                $('.loading').removeClass('hidden');
+                Dajaxice.ajaxapp.send_mini_form(Dajax.process,{'form':$('#mini_form').serialize(true)});
+            }
+
             function closemodal(){
                 $('.close').click();
             }
@@ -72,17 +76,18 @@
                     <div class="row">
                         <div class="span4">
                             <a href="/"> <img class = "css_logo" src="{% static 'theme/img/css/logo.png' %}" alt=""/> </a>
+                            <div class="description">В Италию с Валерией Сизовой</div>
                         </div>
                         <div class="span8">
                             <div class = "css-mini-menu">
                                 <ul class="css-mini-menu-ul">
                                     <li>+7 (909) 777-77-77</li>
                                     <li class="devider">|</li>
-                                    <li><a href="#" class = "no_decor"><div class = "icon-mini-phone"></div>Контакты</a></li>
+                                    <li><a href="/kontakty/" class = "no_decor"><i class="fa fa-phone"></i> Контакты</a></li>
+{#                                    <li class="devider">|</li>#}
+{#                                    <li><a href="#" class = "no_decor"><div class = "icon-mini-call"></div>Вопрос консультанту</a></li>#}
                                     <li class="devider">|</li>
-                                    <li><a href="#" class = "no_decor"><div class = "icon-mini-call"></div>Вопрос консультанту</a></li>
-                                    <li class="devider">|</li>
-                                    <li><a href="#" class = "no_decor"><div class = "icon-mini-review"></div>Отзывы</a></li>
+                                    <li><a href="#" class = "no_decor"><i class="fa fa-comments-o"></i> Отзывы</a></li>
                                 </ul>
                             </div>
                             <div class="navbar">
@@ -115,27 +120,43 @@
                         <div class="span12">
                             <div class="header_title">
                                 <h2>
-                                    Путешествуй с пользой для здоровья в лучшие места в Италии<br>
-                                    с местным гидом с Валерией Сизовой
+                                    Что если Вы не только отправитесь в путешествие мечты, посмотрите на истинную Италию глазами коренных итальянцев,
+                                    но и подарите здоровье своему организму?
                                 </h2>
-                                <h4 class = "css_text">
-                                    10 лучших целебных мест планеты<br />
-                                    15 ресторанов, где родилась Итальянская кухня<br />
-                                    Омоложение кожи за 3 сеанса в термальных источниках Таксаны<br />
-                                <h4>
                             </div>
                         </div>
+                        <div class="span12 main_description">
+                            <div class="row">
+                                <div class="span1"></div>
+                                <div class="span10">
+                                    <h4 class = "">
+                                        10 лучших целебных мест планеты<br />
+                                        15 ресторанов, где родилась Итальянская кухня<br />
+                                        Омоложение кожи за 3 сеанса в термальных источниках Таксаны<br />
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="span1"></div>
                         <div class = "span6">
                             <div class = "css_vidio">
-                                <iframe width="500" height="300" src="//www.youtube.com/embed/xWynNxpxsYQ" frameborder="0" allowfullscreen></iframe>
+{#                                <iframe width="100%" height="300" src="//www.youtube.com/embed/xWynNxpxsYQ" frameborder="0" allowfullscreen></iframe>#}
                             </div>
                         </div>
-                        <div class = "span6 css_form_consultation">
-                            <form>
-                                <p>сделайте заказ и получите<br />консльтацию бесплатно</p>
-                                <input type = "text"><br />
-                                <input type = "text"><br />
-                                <input type = "submit" value="отправить" class = "form_consultation_submit">
+                        <div class = "span4 css_form_consultation">
+                            <form action="." method="post" id="mini_form">
+                                <div class="form_container">
+                                    {% csrf_token %}
+                                    <h4>Оставьте заявку прямо сейчас и получите подарок</h4>
+                                    <input id="status" class="hidden" value="" type="text">
+                                    {{ form.sender }}
+                                    {{ form.phone }}
+{#                                    {{ form.as_p }}#}
+                                    <input id="id_submit" value="Отправить" type="button" onclick="send_mini_form();">
+                                    <div class="loading hidden">
+                                        <img src="{% static 'theme/img/335.gif' %}" alt=""/>
+                                    </div>
+                                </div>
                             </form>
                         </div>
                     </div>
@@ -143,246 +164,174 @@
             </div>
         {% endblock %}
 
+        {% block how_it_will_be %}
+            <div class="how_it_will_be">
+                <div class="container">
+                    <div class="row">
+                        <div class="span12">
+                            <h2>Целебное путешествие по Италии с Валерией Сизовой</h2>
+                            <h3>Каким оно будет?</h3>
+                        </div>
+                        <div class="span12">
+                            <div class="row">
+                                <div class="span3"></div>
+                                <div class="span6">
+                                    <p><i class="fa fa-check-circle"></i> Духовное эзотерическое путешествие</p>
+                                    <p><i class="fa fa-check-circle"></i> Совмещение отдыха в Италии с оздоровлением организма</p>
+                                    <p><i class="fa fa-check-circle"></i> Комплексный отдых: оздоровление, кулинария, шоппинг</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endblock %}
+
+        {% block where_to_go %}
+            <div class="where_to_go">
+                <div class="container">
+                    <div class="row">
+                        <div class="span6">
+                            <div class="row">
+                                <div class="span6">
+                                    <p>Вы приезжаете в самое сердце Италии – Тоскану, с ее чистейшими водами Мареммы, целебными термальными источниками, ресторанами, где зародилась традиционная итальянская кухня, самобытный городками и живописнейшими пейзажами.</p>
+                                </div>
+                                <div class="span2">
+                                    <img src="{% static 'theme/img/css/route-img/toskana3.jpg' %}" alt=""/>
+                                </div>
+                                <div class="span2">
+                                    <img src="{% static 'theme/img/css/route-img/toskana1.png' %}" alt=""/>
+                                </div>
+                                <div class="span2">
+                                    <img src="{% static 'theme/img/css/route-img/toskana2.jpg' %}" alt=""/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="span6" style="position:relative;">
+                            <img class="img_absolute" src="{% static 'theme/img/css/backgr_blocks/road4.png' %}" alt=""/>
+                            <div class="row">
+                                <div class="span1"></div>
+                                <div class="span4">
+                                    <h2>Куда поедете?</h2>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        {% endblock %}
+
+        {% block for_whom %}
+            <div class="for_whom">
+                <div class="container">
+                    <div class="row">
+{#                        <h2>Для кого это путешествие?</h2>#}
+                        <div class="span12">
+                            <h2>Для единомышленников и людей, готовых изменить себя, подарив своему организму здоровье и молодость</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endblock %}
+
+        {% block what_will_do %}
+            <div class="what_will_do">
+                <div class="container">
+                    <div class="row">
+                        <div class="span6" style="position:relative;">
+                            <img class="img_absolute" src="{% static 'theme/img/css/backgr_blocks/food.png' %}" alt=""/>
+                            <div class="row">
+                                <div class="span1"></div>
+                                <div class="span4">
+                                    <h2>Чем займетесь?</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="span6">
+                            <h3>- Ежедневная активность на морском и сосновом воздухе;</h3>
+                            <h3>- Введение в Вашу жизнь полезных привычек с профессионалами;</h3>
+                            <h3>- Основы здорового питания, способного обновить Ваш организм;</h3>
+                            <h3 style="font-weight: 600;">- Вы научитесь готовить вкусные, а главное – полезные итальянские блюда;</h3>
+                            <h3>- Шоппинг-прогулки по лучшим аутлетам страны.</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endblock %}
+
+        {% block what_if %}
+            <div class="what_if">
+                <div class="container">
+                    <div class="row">
+                        <h2>Что если Вы не только отправитесь в путешествие мечты, посмотрите на истинную Италию глазами коренных итальянцев, но и подарите здоровье своему организму? </h2>
+                        <div class="span3"></div>
+                        <div class="span6" style="margin-top: 40px; text-align: justify;">
+                            <p>Сможете без стрессовых ситуаций привить себе полезные привычки, научиться вкусно готовить традиционную итальянскую еду. Ведь поддерживать себя в форме, быть здоровым и находиться в полной гармонии с самим собой можно по-настоящему легко.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endblock %}
+
         {% block benvenuto %}
-            <div id = "benvenuto" class="css_benvenuto">
+            <div id="benvenuto" class="css_benvenuto">
                 <div class="container">
                     <div class="row">
                         <div class="span4 benvenuto-img">
-                            <img src = "{% static 'theme/img/css/photo_gid.jpg' %}" />
+                            <img src = "{% static 'theme/img/css/hello.jpg' %}" />
                         </div>
                         <div class="span8">
-                            <p class = "benvenuto-title">benvenuto!</p>
-                            <p class = "benvenuto-text">
-                                Меня зовут Валерия Сизова. Я родилась и выросла в Сибири, однако уже 13 лет живу в Тоскане -
-                                самом центре Италии. Я полюбила этот волшебный край и, наверное, уже могу сказать: "Тоскана -
-                                моя вторая родина".<br /><br />
-                                Экскурсовод — специалист по проведению экскурсий. Смежные профессии: гид, историк, культуролог,
-                                музейный работник, этнограф. Специалист в данной области должен иметь хорошие знания по истории,
-                                культуре и географии. Ему необходимо знать принципы организации и методики проведения экскурсий,
-                                особенности обустройства выставочных стендов. Кроме того, он должен иметь навык общения с публикой,
-                                грамотную, хорошо поставленную, речь.
-                            </p>
+                            <h2> Benvenuto!</h2>
+                            <p class = "benvenuto-text">Меня зовут Валерия Сизова. Я родилась и выросла в Сибири, однако уже 13 лет живу в Италии. Я полюбила этот волшебный край и уже могу сказать: «Тоскана – моя вторая Родина». Я прекрасно знаю этот регион, и от меня у него нет секретов.</p>
+                            <p class = "benvenuto-text">В мои 50 лет решила сделать то, к чему давно тянулась душа. Я не первый год веду здоровый образ жизни и на личном опыте выработала свою систему оздоровления и омоложения организма. За это время я открыла по-настоящему благотворные и целебные места Италии и готова щедро раскрыть их для моих (дорогих) гостей.</p>
+                            <p class = "benvenuto-text">Мне нравится создавать праздник. Я люблю людей, люблю новые открытия, люблю жизнь. Так сложилось, что в моей трудовой деятельности праздник всегда рядом, а идея красоты всегда меня вдохновляла. Убеждена, что самая ПРАВИЛЬНАЯ красота – это хорошее здоровье.</p>
+                            <p class = "benvenuto-text">Я нахожу прелесть в каждом дне и радуюсь, когда рядом со мной близкие по духу люди. Увлекательные истории, непосредственное общение с харизматичными итальянцами, потайные места и проверенные лично мной ресторанчики. Красоты тосканских пейзажей и улочки аутентичных городов, о которых не знают путеводители.</p>
+                        </div>
+{#                        <div class="span12" style="">#}
+
+{#                        </div>#}
+                        <div class="overlap"></div>
+                        <div class="bg_round">
+                            <h2>Личные достижения</h2>
+                            <ul>
+                                <li>Мама двоих очаровательных детей и бабушка одной очаровательной внучки (умилительной)</li>
+                                <li>Директор по развитию ювелирной марки «Nomination» в Новосибирске</li>
+                                <li>Ведущая программы «Вечер с BODY Line» на телеканале …………..</li>
+                                <li>Создатель музыкальных сказок-конкурсов для детей «Анфиса»</li>
+                                <li>Имела собственный фитнес-клуб «Body line»</li>
+                                <li>Владелица успешного бизнеса в Италии</li>
+                                <li>Психолог по образованию</li>
+                                <li>Фитнес-тренер</li>
+                            </ul>
+                            <button type="button" class="btn btn-default">Да, я хочу в Италию!</button>
                         </div>
                     </div>
                 </div>
             </div>
         {% endblock benvenuto %}
-        {% block advantage %}
-            <div id="advantage" class="advantage">
+
+        {% block personal_achievements %}
+            <div id="personal_achievements" class="personal_achievements">
                 <div class="container">
                     <div class="row">
                         <div class="span12">
-                            <h4>Преимущества нашей прогаммы</h4>
+{#                            <h2>Личные достижения</h2>#}
                         </div>
-                        <div class = "span12">
-                            <div class = "row">
-                                <div class = "span4">
-                                    <div class = "advantage-icon">
-                                        <i class="fa fa-university"></i>
-                                    </div>
-                                    <div class= "advantage-content">
-                                        <p class= "advantage-title">заголовок</p>
-                                        <p class= "advantage-text">
-                                            Специалист в данной области должен иметь хорошие знания по истории, культуре
-                                            и географии.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class = "span4">
-                                    <div class = "advantage-icon">
-                                        <i class="fa fa-camera-retro"></i>
-                                    </div>
-                                    <div class= "advantage-content">
-                                        <p class= "advantage-title">заголовок</p>
-                                        <p class= "advantage-text">
-                                            Специалист в данной области должен иметь хорошие знания по истории, культуре
-                                            и географии.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class = "span4">
-                                    <div class = "advantage-icon">
-                                        <i class="fa fa-pied-piper-alt"></i>
-                                    </div>
-                                    <div class= "advantage-content">
-                                        <p class= "advantage-title">заголовок</p>
-                                        <p class= "advantage-text">
-                                            Специалист в данной области должен иметь хорошие знания по истории, культуре
-                                            и географии.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class = "row">
-                                <div class = "span4">
-                                    <div class = "advantage-icon">
-                                        <i class="fa fa-coffee"></i>
-                                    </div>
-                                    <div class= "advantage-content">
-                                        <p class= "advantage-title">заголовок</p>
-                                        <p class= "advantage-text">
-                                            Специалист в данной области должен иметь хорошие знания по истории, культуре
-                                            и географии.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class = "span4">
-                                    <div class = "advantage-icon">
-                                        <i class="fa fa-car"></i>
-                                    </div>
-                                    <div class= "advantage-content">
-                                        <p class= "advantage-title">заголовок</p>
-                                        <p class= "advantage-text">
-                                            Специалист в данной области должен иметь хорошие знания по истории, культуре
-                                            и географии.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class = "span4">
-                                    <div class = "advantage-icon">
-                                        <i class="fa fa-clock-o"></i>
-                                    </div>
-                                    <div class= "advantage-content">
-                                        <p class= "advantage-title">заголовок</p>
-                                        <p class= "advantage-text">
-                                            Специалист в данной области должен иметь хорошие знания по истории, культуре
-                                            и географии.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
+{#                        <div class="bg_round"></div>#}
+                        <div class="span12">
                         </div>
                     </div>
                 </div>
             </div>
-        {% endblock advantage %}
-        {% block why %}
-            <div id="why" class="why">
-                <div class="container">
-                    <div class="row">
-                        <div class="span12">
-                            <h4>почему со мной и почему целебный</h4>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="span6">
-                            Городской гид приглашает Вас присоединиться к сообществу тех, кто готов сказать скуке
-                            твердое НЕТ! И однозначное ДА полной, насыщенной жизни: мероприятиям, событиям, интересным
-                            местам – всем тем возможностям, которые каждый день открывает наш перспективный, развивающийся
-                            город. Хотите прочувствовать ритм городской жизни: от спокойного и размеренного до бурного
-                            и экстатичного! В Томске есть все для того, чтобы отлично провести время в соответствии
-                            именно с вашими личными вкусами и предпочтениями.<br /><br />
-                            Городской гид приглашает Вас присоединиться к сообществу тех, кто готов сказать скуке
-                            твердое НЕТ! И однозначное ДА полной, насыщенной жизни: мероприятиям, событиям, интересным
-                            местам – всем тем возможностям, которые каждый день открывает наш перспективный, развивающийся
-                            город. Хотите прочувствовать ритм городской жизни: от спокойного и размеренного до бурного
-                            и экстатичного! В Томске есть все для того, чтобы отлично провести время в соответствии
-                            именно с вашими личными вкусами и предпочтениями.<br /><br />
-                        </div>
-                        <div class="span6">
-                            Городской гид приглашает Вас присоединиться к сообществу тех, кто готов сказать скуке
-                            твердое НЕТ! И однозначное ДА полной, насыщенной жизни: мероприятиям, событиям, интересным
-                            местам – всем тем возможностям, которые каждый день открывает наш перспективный, развивающийся
-                            город. Хотите прочувствовать ритм городской жизни: от спокойного и размеренного до бурного
-                            и экстатичного! В Томске есть все для того, чтобы отлично провести время в соответствии
-                            именно с вашими личными вкусами и предпочтениями.<br /><br />
-                            Городской гид приглашает Вас присоединиться к сообществу тех, кто готов сказать скуке
-                            твердое НЕТ! И однозначное ДА полной, насыщенной жизни: мероприятиям, событиям, интересным
-                            местам – всем тем возможностям, которые каждый день открывает наш перспективный, развивающийся
-                            город. Хотите прочувствовать ритм городской жизни: от спокойного и размеренного до бурного
-                            и экстатичного! В Томске есть все для того, чтобы отлично провести время в соответствии
-                            именно с вашими личными вкусами и предпочтениями.<br /><br />
-                        </div>
-                    </div>
-                </div>
-            </div>
-        {% endblock why %}
-        {% block route %}
-            <div id="route" class="route">
-                <div class="container">
-                    <div class="row">
-                        <div class="span12">
-                            <h4>отличный маршрут по личному рейтингу</h4>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="span4">
-                            <div class = "route-1">
-                                <div><h3>Кулинарный маршрут</h3></div>
-                                <div class = "route-img">
-                                    <img src = "{% static 'theme/img/css/route-img/piza.jpg' %}" />
-                                </div>
-                                <div class = "route-text">
-                                    Вас присоединиться к сообществу тех, кто готов сказать скуке
-                                    твердое НЕТ! И однозначное ДА полной, насыщенной жизни: мероприятиям, событиям, интересным
-                                    местам – всем тем возможностям, которые каждый день открывает наш перспективный, развивающийся
-                                    город. Хотите прочувствовать?
-                                </div>
-                                <div class = "route-button">
-                                    Читать
-                                </div>
-                            </div>
-                        </div>
-                        <div class="span4">
-                            <div class = "route-2">
-                                <div><h3>Оздоровительный</h3></div>
-                                <div class = "route-img">
-                                    <img src = "{% static 'theme/img/css/route-img/spa.jpg' %}" />
-                                </div>
-                                <div class = "route-text">
-                                    Вас присоединиться к сообществу тех, кто готов сказать скуке
-                                    твердое НЕТ! И однозначное ДА полной, насыщенной жизни: мероприятиям, событиям, интересным
-                                    местам – всем тем возможностям, которые каждый день открывает наш перспективный, развивающийся
-                                    город. Хотите прочувствовать?
-                                </div>
-                                <div class = "route-button">
-                                    Читать
-                                </div>
-                            </div>
-                        </div>
-                        <div class="span4">
-                            <div class = "route-3">
-                                <div><h3>Исторический</h3></div>
-                                <div class = "route-img">
-                                    <img src = "{% static 'theme/img/css/route-img/city.jpg' %}" />
-                                </div>
-                                <div class = "route-text">
-                                    Вас присоединиться к сообществу тех, кто готов сказать скуке
-                                    твердое НЕТ! И однозначное ДА полной, насыщенной жизни: мероприятиям, событиям, интересным
-                                    местам – всем тем возможностям, которые каждый день открывает наш перспективный, развивающийся
-                                    город. Хотите прочувствовать?
-                                </div>
-                                <div class = "route-button">
-                                    Читать
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class = "row">
-                        <div class = "span12">
-                            <div class = "route_bottom">
-                                <div class = "route_bottom_text">
-                                    Городской гид приглашает Вас присоединиться к сообществу тех, кто готов сказать скуке
-                                    твердое НЕТ! И однозначное ДА полной, насыщенной жизни: мероприятиям, событиям, интересным
-                                    местам – всем тем возможностям, которые каждый день открывает наш перспективный, развивающийся
-                                    город. Хотите прочувствовать ритм городской жизни: от спокойного и размеренного до бурного
-                                    и экстатичного! В Томске есть все для того, чтобы отлично провести время в соответствии
-                                    именно с вашими личными вкусами и предпочтениями.
-                                </div>
-                                <div class = "route_bottom_button">
-                                    <a href = "#">Читать</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        {% endblock route %}
+        {% endblock personal_achievements %}
+
         {% block  footer %}
             <div id="footer" class="footer">
                 <div class="container">
                     <div class="row">
-                        <div class = "span6">
+                        <div class="span2"></div>
+                        <div class = "span8">
                             <div class = "css_footer-title">
                                 ценнее денег
                             </div>
@@ -395,297 +344,10 @@
                                 всегда рядом с Вами. Заботливое внимание и дружеское отношение в этом путешествии Вам гарантированны.
                             </div>
                         </div>
-                        <div class = "span6 css_form_consultation">
-                            <form>
-                                <p>сделайте заказ и получите<br />консльтацию бесплатно</p>
-                                <input type = "text"><br />
-                                <input type = "text"><br />
-                                <input type = "submit" value="отправить" class = "form_consultation_submit">
-                            </form>
-                        </div>
                     </div>
                 </div>
             </div>
         {% endblock footer %}
-
-
-
-<!--
-
-        {% block bottom_content %}
-            <div class="bottom_content home_bottom">
-                <div class="container">
-                    <div class="row">
-                        <div class="span12">
-                            <div class="row">
-                                <div class="span12">
-                                    <div class="row">
-                                        <div class="span10">
-                                            <h2>Впереди Ваших конкурентов</h2>
-                                        </div>
-                                        <div class="span2">
-                                            <a href="#myModal" class="link blue" data-toggle="modal">Заказать сайт</a>
-                                        </div>
-
-
-                                        <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                            <div class="modal-header">
-                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                                <span><h3 id="myModalLabel" class="">Отправить заявку</h3></span><span><input id="status" class="hidden" value="" type="text"></span>
-                                            </div>
-                                            <form action="." method="post" id="my_form">
-                                                <div class="modal-body">
-                                                    {% csrf_token %}
-                                                    {{ form.as_p }}
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <div class="loading hidden">
-                                                        <img src="{% static 'theme/img/335.gif' %}" alt=""/>
-                                                    </div>
-                                                    <input id="id_submit" value="Отправить" type="button" onclick="send_form();">
-                                                    <button id="id_submit" class="red" data-dismiss="modal" aria-hidden="true">Отменить</button>
-                                                </div>
-                                            </form>
-                                        </div>
-
-                                    </div>
-                                </div>
-
-{#                                эффект#}
-                                <section class="cbp-so-section">
-                                    <article class="cbp-so-side cbp-so-side-left">
-                                        <div class="span6">
-                                            <div class="row">
-                                                <div class="span1">
-                                                    <img width="70" src="{% static 'theme/img/first2.png' %}" alt=""/>
-                                                </div>
-                                                <div class="span5">
-                                                    <h4>Ваши клиенты прийдут к Вам сами</h4>
-                                                    <p>{% flatblock 'main_seo_1' %}</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </article>
-                                    <figure class="cbp-so-side cbp-so-side-right">
-                                        <div class="span6">
-                                            <div class="row">
-                                                <div class="span1">
-                                                    <img width="70" src="{% static 'theme/img/click3.png' %}" alt=""/>
-                                                </div>
-                                                <div class="span5">
-                                                    <h4>Анализ поведения пользователей</h4>
-                                                    <p>{% flatblock 'main_seo_2' %}</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </figure>
-                                </section>
-                                <section class="cbp-so-section">
-                                    <article class="cbp-so-side cbp-so-side-left">
-                                        <div class="span6">
-                                            <div class="row">
-                                                <div class="span1">
-                                                    <img width="70" src="{% static 'theme/img/monik2.png' %}" alt=""/>
-                                                </div>
-                                                <div class="span5">
-                                                    <h4>Идете впереди Ваших конкурентов</h4>
-                                                    <p>{% flatblock 'main_seo_3' %}</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </article>
-                                    <figure class="cbp-so-side cbp-so-side-right">
-                                        <div class="span6">
-                                            <div class="row">
-                                                <div class="span1">
-                                                    <img width="70" src="{% static 'theme/img/target_seo.png' %}" alt=""/>
-                                                </div>
-                                                <div class="span5">
-                                                    <h4>Главное достижение - достижение цели</h4>
-                                                    <p>{% flatblock 'main_seo_4' %}</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </figure>
-                                </section>
-{#                                конец эффекту#}
-
-                                <div class="span12">
-                                    <h2>Наши клиенты в России</h2>
-                                </div>
-
-                                <div class="span3 offset1 resp_list">
-                                    <h4>Более 200 сайтов</h4>
-                                    <p><i class="icon-ok icon-black"></i> Москва и Московская область</p>
-                                    <p><i class="icon-ok icon-black"></i> Томск и Томская область</p>
-                                    <p><i class="icon-ok icon-black"></i> Сургут</p>
-                                    <p><i class="icon-ok icon-black"></i> Казань</p>
-                                    <p><i class="icon-ok icon-black"></i> Тула</p>
-                                    <p><i class="icon-ok icon-black"></i> Самара</p>
-                                    <p><i class="icon-ok icon-black"></i> Кавказ</p>
-                                </div>
-                                <div class="span3 resp_list">
-                                    <h4>Более 20 направлений</h4>
-                                    <p><i class="icon-ok icon-black"></i> Дизайн</p>
-                                    <p><i class="icon-ok icon-black"></i> Красота</p>
-                                    <p><i class="icon-ok icon-black"></i> Ремонт</p>
-                                    <p><i class="icon-ok icon-black"></i> Медицина</p>
-                                    <p><i class="icon-ok icon-black"></i> Промышленность</p>
-                                    <p><i class="icon-ok icon-black"></i> Интернет - магазины</p>
-                                    <p><i class="icon-ok icon-black"></i> Благотворительные фонды</p>
-                                </div>
-
-{#                                <div class="span5 map">#}
-{#                                    <img class="lazy" data-original="{% static 'theme/img/map.png' %}" alt=""/>#}
-{#                                </div>#}
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        {% endblock %}-->
-<!--
-        {% block img_second %}
-            <div class="img_second">
-{#                <img class="lazy" data-original="{% static 'theme/img/dynamic_bg_02.jpg' %}" alt=""/>#}
-                <img  src="{% static 'theme/img/table.jpg' %}" alt=""/>
-            </div>
-        {% endblock %}-->
-
-        <!--middle content-->
-    <!--    {% block second_content %}
-        <div class="middle_content">
-            <div class="container">
-                <div class="row">
-                    <div class="span12">
-                        {% block content %}
-                            <div class="row apps">
-                                <div class="span12">
-                                    <h4>Мобильное приложение на широкую ногу</h4>
-                                </div>
-                                <div class="span8">
-                                    <div class="row apps_text">
-
-                                        <section class="cbp-so-section">
-                                            <article class="cbp-so-side cbp-so-side-left">
-                                                <div class="span8">
-                                                    <div class="row">
-                                                        <div class="span1">
-                                                            <img width="40" src="{% static 'theme/img/target.png' %}" alt=""/>
-                                                        </div>
-                                                        <div class="span7">
-                                                            <h5>Определение бизнесс цели</h5>
-                                                            <p>Бизнес-цели проекта определяются конкретными результатами, которых необходимо достичь при его реализации. Результатом может быть позиционирование бренда, привлечение новых сотрудников, создание дополнительного канала продаж и т.д. </p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </article>
-                                        </section>
-
-                                        <section class="cbp-so-section">
-                                            <article class="cbp-so-side cbp-so-side-left">
-                                                <div class="span8">
-                                                    <div class="row">
-                                                        <div class="span1">
-                                                            <img width="40" src="{% static 'theme/img/koleso.png' %}" alt=""/>
-                                                        </div>
-                                                        <div class="span7">
-                                                            <h5>Создание мобильного приложения</h5>
-                                                            <p>Мы можем реализовать все, даже самые безумные идеи с помощью подходящих технологий и изящных интегрированных решений. Интересуют детали? Напишите нам,  мы любим персональный подход и с удовольствием обсудим конкретно вашу бизнес-задачу, а не какой-то абстрактный кейс.</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </article>
-                                        </section>
-
-                                        <section class="cbp-so-section">
-                                            <article class="cbp-so-side cbp-so-side-left">
-                                                <div class="span8">
-                                                    <div class="row">
-                                                        <div class="span1">
-                                                            <img width="40" src="{% static 'theme/img/smile.png' %}" alt=""/>
-                                                        </div>
-                                                        <div class="span7">
-                                                            <h5>Тестирование и сопровождение</h5>
-                                                            <p>Статистика показывает, что пользователи iOS больше покупают платные версии приложений и приобретают что-то внутри приложений через in-app-purchase. Из 100% всех доходов через мобильные приложения 74% приходится на iOS и около 20% на Android. Это значит, что пользователи iOS потратили на платные приложения и внутренние покупки (in-app-purchase) почти в 3,5 раза больше денег, чем пользователи Adnroid.</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </article>
-                                        </section>
-
-                                        <section class="cbp-so-section">
-                                            <article class="cbp-so-side cbp-so-side-left">
-                                                <div class="span8">
-                                                    <div class="row">
-                                                        <div class="span1">
-                                                            <img width="40" src="{% static 'theme/img/globe.png' %}" alt=""/>
-                                                        </div>
-                                                        <div class="span7">
-                                                            <h5>Продвижение мобильного приложения</h5>
-                                                            <p>Подборка приложений в топах — это один из основных каналов, из которого пользователь узнает о новых приложениях. Когда достаточно большое количество человек скачивает ваше приложение, вы попадаете в топ. Чем дольше приложение находится в топе, тем больше у вас скачиваний.</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </article>
-                                        </section>
-
-                                    </div>
-                                </div>
-                                <section class="cbp-so-section">
-                                    <article class="cbp-so-side cbp-so-side-top">
-                                        <div class="span4 app_image">
-                                            <img width="300" class="lazy" src="{% static 'theme/img/app_mini.jpg' %}" alt=""/>
-                                        </div>
-                                    </article>
-                                </section>
-                            </div>
-                        {% endblock %}
-                    </div>
-                </div>
-            </div>
-        </div>
-        {% endblock %}-->
-
-        <!--footer--><!--
-        {% block footer1 %}
-            <div class="footer">
-                <div class="container">
-                    <div class="row">
-                        <div class="span12">
-                            <div class="row grams">
-                                {% block grams %}
-                                    <div class="span6">
-                                        <h6>Благодарности</h6>
-                                        <div id="links">
-                                            {% for gram in grams %}
-                                                <a href="/media/{{ gram.image }}" title="{{ gram.name }}">
-                                                    {% thumbnail gram.image "130x170" crop="center" as im %}
-                                                        <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
-                                                    {% endthumbnail %}
-                                                </a>
-                                            {% endfor %}
-                                        </div>
-                                    </div>
-                                {% endblock %}
-                                {% block destinations %}
-                                    <div class="span6">
-                                        <h6>Ценности</h6>
-                                        <p>Компания Forward всегда идет настречу некомерческим организациям, мы верим, что в наше время все вместе, объединившись, мы сможем быть ответом на нужды людей</p>
-                                        <h6>Наши направления:</h6>
-                                        <span>Создание сайтов</span>
-                                        <span>Продвижение сайтов</span>
-                                        <span>Создание мобильных приложений</span>
-                                    </div>
-                                {% endblock %}
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        {% endblock %}-->
 
 <!-- The Gallery as lightbox dialog, should be a child element of the document body -->
 <div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls">

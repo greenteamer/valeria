@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from feedback.forms import ContactForm
+from feedback.forms import ContactForm, MiniForm
 from blog.models import *
 from grammars.models import *
 from django.core.mail import send_mail

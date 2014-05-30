@@ -33,6 +33,10 @@ var Dajaxice = {
             Dajaxice.call('examples.send_form', 'POST', callback_function, argv, custom_settings);
         },
 
+        send_mini_form: function(callback_function, argv, custom_settings) {
+            Dajaxice.call('examples.send_form', 'POST', callback_function, argv, custom_settings);
+        },
+
         args_example: function(callback_function, argv, custom_settings) {
             Dajaxice.call('examples.args_example', 'POST', callback_function, argv, custom_settings);
         },
