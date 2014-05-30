@@ -8,3 +8,11 @@ class ContactForm(forms.Form):
     phone = forms.CharField(label=u'Ваш телефон (обязательно)', max_length=255)
     sender = forms.EmailField(label=u'Ваша почта', required=False)
     message = forms.CharField(label=u'Сообщение', required=False, max_length=500, widget=forms.Textarea(attrs={'rows':5, 'cols':50}))
+
+class MiniForm(forms.Form):
+    error_css_class = 'error'
+    required_css_class = 'required'
+    phone = forms.CharField(label=u'Ваш телефон (обязательно)', max_length=255, required=True, widget=forms.TextInput(attrs={'placeholder': 'Ваш телефон'}))
+    sender = forms.CharField(label=u'Ваше Имя', required=False, widget=forms.TextInput(attrs={'placeholder': 'Как к Вам обращаться'}))
+
+

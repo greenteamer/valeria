@@ -5,7 +5,7 @@ from review.models import *
 from portfolio.models import *
 from grammars.models import *
 
-from feedback.forms import ContactForm
+from feedback.forms import ContactForm, MiniForm
 from django.core.mail import send_mail
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
@@ -48,9 +48,9 @@ dajaxice_autodiscover()
 
 def mainpage(request):
     if request.method == 'POST':
-        form = ContactForm(request.POST)
-        subject = u'7works заявка от %s' % request.POST['subject']
-        message = u'Сообщение: %s \n %s \n телефон: %s \n почта: %s' % (request.POST['message'], request.POST['subject'], request.POST['phone'], request.POST['sender'])
+        form = MiniForm(request.POST)
+        subject = u'Valeria заявка от %s' % request.POST['sender']
+        message = u'Телефон: %s \n Имя: %s' % (request.POST['phone'], request.POST['sender'])
         if form.is_valid():
             send_mail(subject, message, 'teamer777@gmail.com', ['forward.70@yandex.ru'], fail_silently=False)
             return HttpResponseRedirect('/')
@@ -68,7 +68,7 @@ def mainpage(request):
                 'portfolios' : portfolios,
             })
     else:
-        form = ContactForm()
+        form = MiniForm()
         posts = Post.objects.all()
         grams = Gram.objects.all()
         reviews = Review.objects.all()
