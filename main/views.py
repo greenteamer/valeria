@@ -5,6 +5,9 @@ from review.models import *
 from portfolio.models import *
 from grammars.models import *
 
+# test PATH
+from forward.settings import PROJECT_PATH
+
 from feedback.forms import ContactForm, MiniForm
 from django.core.mail import send_mail
 from django.shortcuts import render
@@ -68,12 +71,14 @@ def mainpage(request):
                 'portfolios' : portfolios,
             })
     else:
+        path = PROJECT_PATH
         form = MiniForm()
         posts = Post.objects.all()
         grams = Gram.objects.all()
         reviews = Review.objects.all()
         portfolios = Portfolio.objects.filter(main_choice='main')
     return render(request, 'base.html', {
+        'path': path,
         'form': form,
         'posts' : posts,
         'grams': grams,
