@@ -6,7 +6,7 @@ from portfolio.models import *
 from grammars.models import *
 
 # test PATH
-from forward.settings import PROJECT_PATH
+from forward.settings import PROJECT_PATH, STATIC_ROOT
 
 from feedback.forms import ContactForm, MiniForm
 from django.core.mail import send_mail
@@ -72,6 +72,7 @@ def mainpage(request):
             })
     else:
         path = PROJECT_PATH
+        static = STATIC_ROOT
         form = MiniForm()
         posts = Post.objects.all()
         grams = Gram.objects.all()
@@ -79,6 +80,7 @@ def mainpage(request):
         portfolios = Portfolio.objects.filter(main_choice='main')
     return render(request, 'base.html', {
         'path': path,
+        'static': static,
         'form': form,
         'posts' : posts,
         'grams': grams,
