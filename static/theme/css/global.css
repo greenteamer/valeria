@@ -573,9 +573,8 @@ form #status {
     margin-bottom: 60px;
 }
 .how_it_will_be p {
-    font-size: 14px;
-    color: #808080;
-    text-transform: uppercase;
+    font-size: 18px;
+    color: #585858;
 }
 .how_it_will_be .fa {
     font-size: 20px;
@@ -696,6 +695,10 @@ img.img_absolute {
     list-style-type: none;
     font-size: 19px;
     line-height: 25px;
+    margin-bottom: 6px;
+}
+.bg_round ul li .fa-check {
+    font-size: 10px!important;
 }
 .bg_round ul {
     padding:0 30px;
