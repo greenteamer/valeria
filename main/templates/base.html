@@ -205,7 +205,7 @@
                     <div class="row">
                         <div class="span6">
                             <div class="row">
-                                <div class="span6">
+                                <div class="span6 left_text">
                                     <p style="font-weight: bold;">Что если Вы не только отправитесь в путешествие мечты, посмотрите на истинную Италию глазами коренных итальянцев, но и подарите здоровье своему организму?</p>
                                     <p>Сможете без стрессовых ситуаций привить себе полезные привычки, научиться вкусно готовить традиционную итальянскую еду. Ведь поддерживать себя в форме, быть здоровым и находиться в полной гармонии с самим собой можно по-настоящему легко.</p>
                                     <p>А во всем этом Вам помогут высококвалифицированные специалисты: врач-фитотерапевт Мария Попкова, шеф-повар Paula Catabriggia, профессиональный танцор и тренер по гирокинезису Alessandro Pucci, выпускники Пизанской Академии Эстетики и фитнес-тренеры.</p>
@@ -345,20 +345,103 @@
             </div>
         {% endblock %}
 
+        {% block photogid %}
+            <div id="photogid" class="photogid">
+                <div class="container">
+                    <div class="row">
+                        <div class="span5">
+                            <h3>Только представьте</h3>
+                            <p>Только представьте, Вы наслаждаетесь всеми прелестями Италии, как это делают настоящие итальянцы, знакомитесь с ее культурой, каждый день проводите на берегу моря, посещаете целебные термы и питаетесь свежими морепродуктами, только-только выловленными из моря и экологически чистыми овощами и фруктами от местных фермеров.</p>
+                            <p>Берете уроки кулинарного мастерства от нашего шеф-повара Паулы Катабриджи в старинном замке и путешествуете по винным дорогам Кьянти, знакомясь с процессом создания одних из лучших вин мира. </p>
+                            <p>И все это в одном флаконе! Маленькая сказка-мечта, способная стать явью.</p>
+                        </div>
+                        <div class="span7" style="position:relative;">
+                            <img class="img_absolute" src="{% static 'theme/img/css/backgr_blocks/shut.png' %}" alt=""/>
+                            <div class="row">
+                                <div class="span2"></div>
+                                <div class="span3 photo_p">
+                                    <h2>Фотогид</h2>
+                                    <p>Персональный фоторепортаж на протяжении всего пребывания в Италии. Вам больше не придется фотографировать друг друга или просить об этой услуге прохожих. Объектив нашей цифровой камеры запечатлит каждый драгоценный момент Вашего путешествия.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endblock photogid %}
+
         {% block personal_achievements %}
             <div id="personal_achievements" class="personal_achievements">
                 <div class="container">
                     <div class="row">
-                        <div class="span12">
-{#                            <h2>Личные достижения</h2>#}
-                        </div>
-{#                        <div class="bg_round"></div>#}
-                        <div class="span12">
+                        <div class="review_absolute">
+                            <img class="img_absolute" src="{% static 'theme/img/css/backgr_blocks/iphone2.png' %}" alt=""/>
+                            <div class="reviews">
+                                <h2>Отзывы</h2>
+                                <div class="review_item">
+                                    <div class="p_pseudo">
+                                        <p><span class="name">Елена Николаевна</span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                    </div>
+                                    <div class="date">Доставлено 08.04.2014</div>
+                                </div>
+                                <div class="review_item review_item2">
+                                    <div class="p_pseudo">
+                                        <p><span class="name">Валерий Петрович</span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
+                                    </div>
+                                    <div class="date">Доставлено 14.10.2014</div>
+                                </div>
+                                <div class="review_item">
+                                    <div class="p_pseudo">
+                                        <p><span class="name">Далина Виниаминовна</span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                    </div>
+                                    <div class="date">Доставлено 08.04.2014</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         {% endblock personal_achievements %}
+
+        {% block tours %}
+            <div class="tours" id="tours">
+                <div class="container">
+                    <div class="row">
+                        <div class="span12">
+                            <div class="row">
+                                <div class="span12">
+                                    <h2>Туры</h2>
+                                </div>
+                                <div class="span4 offer">
+                                    <div class="offer_content">
+                                        <h3>Целебный тур</h3>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                        <div class="price">43 600</div>
+                                        <button type="button" class="btn btn-default">Отправить заявку</button>
+                                    </div>
+                                </div>
+                                <div class="span4 offer offer_center">
+                                    <div class="offer_content">
+                                        <h3>Целебный тур</h3>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                        <div class="price">43 600</div>
+                                        <button type="button" class="btn btn-default">Отправить заявку</button>
+                                    </div>
+                                </div>
+                                <div class="span4 offer">
+                                    <div class="offer_content">
+                                        <h3>Целебный тур</h3>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                        <div class="price">43 600</div>
+                                        <button type="button" class="btn btn-default">Отправить заявку</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endblock tours %}
 
         {% block  footer %}
             <div id="footer" class="footer">
@@ -367,15 +450,18 @@
                         <div class="span2"></div>
                         <div class = "span8">
                             <div class = "css_footer-title">
-                                ценнее денег
+                                создание сайтов
                             </div>
-                            <div class = "css_footer-text">
-                                Следует отметить одну особенность Италии: чтобы получить действительно высокий сервис,
-                                необходимы знание итальянского, а также хорошее понимание нравов и обычаев, характерных
-                                для этой местности. И порой, даже большие деньги - еще не гарантия отличного качества, и
-                                чтобы получить тот самый уровень обслуживания, какой получают сами итальянцы - необходим
-                                личный контакт и знакомства. И здесь Вы можете смело довериться мне. Я и мои друзья будем
-                                всегда рядом с Вами. Заботливое внимание и дружеское отношение в этом путешествии Вам гарантированны.
+{#                            <div class = "css_footer-text">#}
+{#                                Следует отметить одну особенность Италии: чтобы получить действительно высокий сервис,#}
+{#                                необходимы знание итальянского, а также хорошее понимание нравов и обычаев, характерных#}
+{#                                для этой местности. И порой, даже большие деньги - еще не гарантия отличного качества, и#}
+{#                                чтобы получить тот самый уровень обслуживания, какой получают сами итальянцы - необходим#}
+{#                                личный контакт и знакомства. И здесь Вы можете смело довериться мне. Я и мои друзья будем#}
+{#                                всегда рядом с Вами. Заботливое внимание и дружеское отношение в этом путешествии Вам гарантированны.#}
+{#                            </div>#}
+                            <div class = "css_footer-text" style="text-align: center;">
+                                <a style="color: #fff; text-align: center; font-size: 30px; text-transform: uppercase;" href="http://forward70.ru">www.forward70.ru</a>
                             </div>
                         </div>
                     </div>
