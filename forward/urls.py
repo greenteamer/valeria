@@ -23,6 +23,7 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^ckeditor/', include('ckeditor.urls')),
     url(r'^flatblocks/', include("flatblocks.urls")),
+    url(r'^review/', include("review.urls")),
 
 )
 

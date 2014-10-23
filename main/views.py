@@ -4,6 +4,7 @@ from blog.models import Post
 from review.models import *
 from portfolio.models import *
 from grammars.models import *
+from review.models import *
 
 # test PATH
 from forward.settings import PROJECT_PATH, STATIC_ROOT
@@ -145,6 +146,17 @@ class MobileView(TemplateView):
         # context['games'] = Game.objects.all()
         # context['supernumeraries'] = Supernumerary.objects.all()
         return context
+
+
+class ReviewDetailView(DetailView):
+    template_name = 'review.html'
+    model = Review
+
+    def get_context_data(self, **kwargs):
+        context = super(ReviewDetailView, self).get_context_data(**kwargs)
+        context['review_gallery'] = ReviewGallery.objects.filter(review=self.object)
+        return context
+
 
 # class ContactView(TemplateView):
 #     template_name = 'contact.html'

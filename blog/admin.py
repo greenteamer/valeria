@@ -12,8 +12,15 @@ class FolioAdmin(admin.ModelAdmin):
     # fields = ['name','company','image','text']
     inlines = [ImageInline]
 
+class ReviewGalleryAdmin(admin.StackedInline):
+    model = ReviewGallery
 
-admin.site.register(Review)
+class ReviewAdmin(admin.ModelAdmin):
+    model = Review
+    inlines = [ReviewGalleryAdmin,]
+    prepopulated_fields = {'slug':('name',)}
+
+admin.site.register(Review, ReviewAdmin)
 admin.site.register(Post)
 
 admin.site.register(Portfolio, FolioAdmin)

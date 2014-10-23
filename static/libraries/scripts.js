@@ -1,38 +1,38 @@
 $(document).ready(function() {
     $(".fancybox").fancybox();
 
-    $("#popup").fancybox({
+//    $("#popup").fancybox({
 //        'cyclic'            : true,
-        'autoScale'     	: false,
-        'transitionIn'		: 'none',
-        'transitionOut'		: 'none',
-        'type'				: 'iframe'
-    });
+//        'autoScale'     	: false,
+//        'transitionIn'		: 'none',
+//        'transitionOut'		: 'none',
+//        'type'				: 'iframe'
+//    });
 
 //    $("#popup").fancybox.resize();
 
-    $('a#hide_show').click(function (e) {
-        $('.hide_form').toggleClass('active');
-        e.preventDefault();
-    });
+//    $('a#hide_show').click(function (e) {
+//        $('.hide_form').toggleClass('active');
+//        e.preventDefault();
+//    });
 
 //    делаем активный пункт меню
-    $('ul.my_nav a').each(function () {
-        var location = window.location.href;
-        var link = this.href;
-        if(location == link) {
-            $(this).addClass('active');
-        }
-    });
+//    $('ul.my_nav a').each(function () {
+//        var location = window.location.href;
+//        var link = this.href;
+//        if(location == link) {
+//            $(this).addClass('active');
+//        }
+//    });
 
 //    отложенная загрузка картинок
-    $("img.lazy").lazyload({
-        threshold : 200
-    });
+//    $("img.lazy").lazyload({
+//        threshold : 200
+//    });
 
-    function hide_modal() {
-        $('#myModal').modal('hide');
-    }
+//    function hide_modal() {
+//        $('#myModal').modal('hide');
+//    }
 
 
 //    скролл
@@ -50,7 +50,7 @@ $(document).ready(function() {
 });
 
 //загрузка портфолио только после полной загрузки фото
-function loadPage() {
-    document.getElementById('portfolio_detail').style.left = '0';
-}
+//function loadPage() {
+//    document.getElementById('portfolio_detail').style.left = '0';
+//}
 

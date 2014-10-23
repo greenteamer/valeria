@@ -18,18 +18,22 @@
         <link href="{% static 'bootstrap/css/bootstrap-responsive.css' %}" rel="stylesheet">
         <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
+        <link href="{% static 'mightySlider/src/css/mightyslider.css' %}" rel="stylesheet">
+
         <!--[if lt IE 9]>
         <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
         <script type="text/javascript" src="{% static 'libraries/jquery-2.0.3.min.js' %}"></script>
-
         <script src="{% static 'bootstrap/js/bootstrap.min.js' %}" type="text/javascript"></script>
-        <script src="{% static 'libraries/jquery.lazyload.min.js' %}" type="text/javascript"></script>
+{#        <script src="{% static 'libraries/jquery.lazyload.min.js' %}" type="text/javascript"></script>#}
 
 {#        <script type="text/javascript" src="{% static 'libraries/calendar/jquery-ui.custom.min.js' %}"></script>#}
-{#        <link rel="stylesheet" href="{% static 'libraries/fancybox/source/jquery.fancybox.css' %}" type="text/css" media="screen" />#}
-{#        <script type="text/javascript" src="{% static 'libraries/fancybox/source/jquery.fancybox.pack.js' %}"></script>#}
-        <script type="text/javascript" src="{% static 'libraries/scripts.js' %}"></script>
+
+        {% block fancybox %}
+            <link rel="stylesheet" href="{% static 'libraries/fancybox/source/jquery.fancybox.css' %}" type="text/css" media="screen" />
+            <script type="text/javascript" src="{% static 'libraries/fancybox/source/jquery.fancybox.pack.js' %}"></script>
+            <script type="text/javascript" src="{% static 'libraries/scripts.js' %}"></script>
+        {% endblock %}
 
         <link rel="stylesheet" type="text/css" href="{% static 'theme/effect/css/demo.css' %}" />
 		<link rel="stylesheet" type="text/css" href="{% static 'theme/effect/css/component.css' %}" />
@@ -67,6 +71,35 @@
         </script>
         {% dajaxice_js_import %}
 
+{#        fancybox#}
+{#        <link rel="stylesheet" href="{% static 'libraries/fancybox/source/jquery.fancybox.css' %}" type="text/css" media="screen" />#}
+{#        <script type="text/javascript" src="{% static 'libraries/fancybox/source/jquery.fancybox.js' %}"></script>#}
+{#        <script type="text/javascript">#}
+{#            $(document).ready(function() {#}
+{#                $(".fancybox").fancybox();#}
+{##}
+{#                $("#popup").fancybox({#}
+{#                    'padding'           : 0,#}
+{#                    'width'             : '650px',#}
+{#                    'height'            : '700px',#}
+{#                    'autoScale'     	: false,#}
+{#                    'transitionIn'		: 'none',#}
+{#                    'transitionOut'		: 'none',#}
+{#                    'type'				: 'iframe'#}
+{#	            });#}
+{##}
+{#                $('a#hide_show').click(function (e) {#}
+{#                    $('.hide_form').toggleClass('active');#}
+{#                    e.preventDefault();#}
+{#                });#}
+{##}
+{#                $('a#hide_show').click(function (e) {#}
+{#                    $('#hide_show').toggleClass('active');#}
+{#                    e.preventDefault();#}
+{#                });#}
+{#            });#}
+{#        </script>#}
+
     </head>
     <body>
 
@@ -76,7 +109,7 @@
                     <div class="row">
                         <div class="span5">
                             <a href="/"> <img class = "css_logo" src="{% static 'theme/img/css/logo.png' %}" alt=""/> </a>
-                            <div class="description">Целебное путешествие по Италии с Валерией Сизовой</div>
+                            <div class="description">В Италию с Валерией Сизовой</div>
                         </div>
                         <div class="span7">
                             <div class = "css-mini-menu">
@@ -120,8 +153,7 @@
                         <div class="span12">
                             <div class="header_title">
                                 <h2>
-                                    Что если Вы не только отправитесь в путешествие мечты, посмотрите на истинную Италию глазами коренных итальянцев,
-                                    но и подарите здоровье своему организму?
+                                    Отправиться в Тоскану: увидеть сердце Италии глазами коренных итальянцев и подарить себе здоровье!
                                 </h2>
                             </div>
                         </div>
@@ -130,10 +162,11 @@
                                 <div class="span1"></div>
                                 <div class="span10">
                                     <h4 class = "">
-                                        10 лучших целебных мест планеты<br />
-                                        12 ресторанов, где зародилась Итальянская кухня<br />
-{#                                        Омоложение кожи за 3 сеанса в термальных источниках Токсаны<br />#}
-                                        Омоложение кожи за 3 сеанса в термальных источниках Тосканы<br />
+                                        - Самые красивые места Тосканы<br />
+                                        - Самые известные музеи и концертные залы Тосканы<br />
+                                        - Древнейшие целебные источники Тосканы<br />
+                                        - Лучшие рестораны Тосканы<br />
+                                        - Самые выгодные магазины, бутики и аутлеты Тосканы<br />
                                     </h4>
                                 </div>
                             </div>
@@ -170,27 +203,77 @@
                 <div class="container">
                     <div class="row">
                         <div class="span12">
-                            <h2>Целебное путешествие по Италии с Валерией Сизовой</h2>
+                            <h2>Путешествие в Италию с Валерией Сизовой</h2>
                         </div>
                         <div class="span12">
                             <div class="row">
-                                <div class="span4">
-                                    <h3>Каким оно будет?</h3>
-                                    <p><i class="fa fa-check-circle"></i> Духовное эзотерическое путешествие</p>
-                                    <p><i class="fa fa-check-circle"></i> Совмещение отдыха в Италии с оздоровлением организма</p>
-                                    <p><i class="fa fa-check-circle"></i> Комплексный отдых: оздоровление, кулинария, шоппинг</p>
+                                <div class="span12">
+                                    <div class="row">
+                                        <div class="span4">
+                                            <div class="img_center">
+                                                <img src="{% static 'theme/img/css/advantage-icon/kalizei.png' %}" alt=""/>
+                                            </div>
+                                            <h3>Знакомимся с культурой страны</h3>
+                                            <p><i class="fa fa-check-circle"></i>Рим, Флоренция, Пиза, Ливорно и др.</p>
+                                            <p><i class="fa fa-check-circle"></i>6 самобытных городов Тосканы</p>
+                                            <p><i class="fa fa-check-circle"></i>Древние места и средневековые замки</p>
+                                            <p><i class="fa fa-check-circle"></i>Проводим время в кругу коренных итальянцев</p>
+                                            <p><i class="fa fa-check-circle"></i>Уроки итальянского (по желанию)</p>
+                                        </div>
+                                        <div class="span4">
+                                            <div class="img_center">
+                                                <img src="{% static 'theme/img/css/advantage-icon/allincluded.jpg' %}" alt=""/>
+                                            </div>
+                                            <h3>Всё включено</h3>
+                                            <p><i class="fa fa-check-circle"></i>Трансфер</p>
+                                            <p><i class="fa fa-check-circle"></i>Проживание</p>
+                                            <p><i class="fa fa-check-circle"></i>Переводчик</p>
+                                            <p><i class="fa fa-check-circle"></i>Экскурсии</p>
+                                        </div>
+                                        <div class="span4">
+                                            <div class="img_center">
+                                                <img src="{% static 'theme/img/css/advantage-icon/celebnie.png' %}" alt=""/>
+                                            </div>
+                                            <h3>Посещаем целебные места региона</h3>
+                                            <p><i class="fa fa-check-circle"></i>Древнейший грот Grotta Giusti</p>
+                                            <p><i class="fa fa-check-circle"></i>Горячий термальный источник Calidario</p>
+                                            <p><i class="fa fa-check-circle"></i>Термальные воды Sasso Pisano</p>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="span4">
-                                    <h3>Куда поедете?</h3>
-                                    <p>Вы приезжаете в самое сердце Италии – Тоскану, с ее чистейшими водами Мареммы, целебными термальными источниками, ресторанами, где зародилась традиционная итальянская кухня, самобытный городками и живописнейшими пейзажами.</p>
-                                </div>
-                                <div class="span4">
-                                    <h3>Чем займетесь?</h3>
-                                    <p><i class="fa fa-check-circle"></i> Ежедневная активность на морском и сосновом воздухе</p>
-                                    <p><i class="fa fa-check-circle"></i> Введение в Вашу жизнь полезных привычек с профессионалами</p>
-                                    <p><i class="fa fa-check-circle"></i> Основы здорового питания, способного обновить Ваш организм</p>
-                                    <p style="font-weight: 600;"><i class="fa fa-check-circle"></i> Вы научитесь готовить вкусные, а главное – полезные итальянские блюда</p>
-                                    <p><i class="fa fa-check-circle"></i> Шоппинг-прогулки по лучшим аутлетам страны.</p>
+                                <div class="span12">
+                                    <div class="row">
+                                        <div class="span4">
+                                            <div class="img_center">
+                                                <img src="{% static 'theme/img/css/advantage-icon/ioga.png' %}" alt=""/>
+                                            </div>
+                                            <h3>С пользой для здоровья </h3>
+                                            <p><i class="fa fa-check-circle"></i>Завтраки коктейлями BIO из фруктов по сезону и пророщенных зерен</p>
+                                            <p><i class="fa fa-check-circle"></i>Тибетский комплекс упражнений</p>
+                                            <p><i class="fa fa-check-circle"></i>Дыхательные практики в сосновой и дубовой рощах</p>
+                                            <p><i class="fa fa-check-circle"></i>Гирокинезис с профессиональным танцором Алессандро Пуччи</p>
+                                        </div>
+                                        <div class="span4">
+                                            <div class="img_center">
+                                                <img src="{% static 'theme/img/css/advantage-icon/kulinar.png' %}" alt=""/>
+                                            </div>
+                                            <h3>Учимся кулинарии</h3>
+                                            <p><i class="fa fa-check-circle"></i>Готовим итальянские блюда вместе с итальянскими шеф-поварами </p>
+                                            <p><i class="fa fa-check-circle"></i>Выбираем эко-продукты на рынках и фермах</p>
+                                            <p><i class="fa fa-check-circle"></i>Посещаем виноградники и агротуризмы</p>
+                                            <p><i class="fa fa-check-circle"></i>Знакомимся с процессом создания вина</p>
+                                        </div>
+                                        <div class="span4">
+                                            <div class="img_center">
+                                                <img src="{% static 'theme/img/css/advantage-icon/shoping.png' %}" alt=""/>
+                                            </div>
+                                            <h3>Шопинг</h3>
+                                            <p><i class="fa fa-check-circle"></i>Выгодные периоды распродаж</p>
+                                            <p><i class="fa fa-check-circle"></i>Поездка в аутлет Barberino</p>
+                                            <p><i class="fa fa-check-circle"></i>Магазины с «хитрыми» ценами</p>
+                                            <p><i class="fa fa-check-circle"></i>Прогулки по бутикам</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -199,54 +282,45 @@
             </div>
         {% endblock %}
 
-        {% block where_to_go %}
-            <div class="where_to_go">
-                <div class="container">
-                    <div class="row">
-                        <div class="span6">
-                            <div class="row">
-                                <div class="span6 left_text">
-                                    <p style="font-weight: bold;">Что если Вы не только отправитесь в путешествие мечты, посмотрите на истинную Италию глазами коренных итальянцев, но и подарите здоровье своему организму?</p>
-                                    <p>Сможете без стрессовых ситуаций привить себе полезные привычки, научиться вкусно готовить традиционную итальянскую еду. Ведь поддерживать себя в форме, быть здоровым и находиться в полной гармонии с самим собой можно по-настоящему легко.</p>
-                                    <p>А во всем этом Вам помогут высококвалифицированные специалисты: врач-фитотерапевт Мария Попкова, шеф-повар Paula Catabriggia, профессиональный танцор и тренер по гирокинезису Alessandro Pucci, выпускники Пизанской Академии Эстетики и фитнес-тренеры.</p>
-                                    <p style="font-weight: bold;">Поэтому, почему бы Вам не превратить все это в увлекательный и полезный отдых и создать новый стиль счастливой и здоровой жизни. Жизни, </p>
-                                    <p>где Вы более радостны, здоровы, молоды и энергичны. Отлично звучит, не так ли?</p>
-                                </div>
-                                <div class="span6"></div>
-{#                                <div class="span2">#}
-{#                                    <img src="{% static 'theme/img/css/route-img/toskana3.jpg' %}" alt=""/>#}
+{#        {% block where_to_go %}#}
+{#            <div class="where_to_go">#}
+{#                <div class="container">#}
+{#                    <div class="row">#}
+{#                        <div class="span6">#}
+{#                            <div class="row">#}
+{#                                <div class="span6 left_text">#}
+{#                                    <p style="font-weight: bold;">Что если Вы не только отправитесь в путешествие мечты, посмотрите на истинную Италию глазами коренных итальянцев, но и подарите здоровье своему организму?</p>#}
+{#                                    <p>Сможете без стрессовых ситуаций привить себе полезные привычки, научиться вкусно готовить традиционную итальянскую еду. Ведь поддерживать себя в форме, быть здоровым и находиться в полной гармонии с самим собой можно по-настоящему легко.</p>#}
+{#                                    <p>А во всем этом Вам помогут высококвалифицированные специалисты: врач-фитотерапевт Мария Попкова, шеф-повар Paula Catabriggia, профессиональный танцор и тренер по гирокинезису Alessandro Pucci, выпускники Пизанской Академии Эстетики и фитнес-тренеры.</p>#}
+{#                                    <p style="font-weight: bold;">Поэтому, почему бы Вам не превратить все это в увлекательный и полезный отдых и создать новый стиль счастливой и здоровой жизни. Жизни, </p>#}
+{#                                    <p>где Вы более радостны, здоровы, молоды и энергичны. Отлично звучит, не так ли?</p>#}
 {#                                </div>#}
-{#                                <div class="span2">#}
-{#                                    <img src="{% static 'theme/img/css/route-img/toskana1.png' %}" alt=""/>#}
+{#                                <div class="span6"></div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                        <div class="span6" style="position:relative;">#}
+{#                            <img class="img_absolute" src="{% static 'theme/img/css/backgr_blocks/road4.png' %}" alt=""/>#}
+{#                            <div class="row">#}
+{#                                <div class="span1"></div>#}
+{#                                <div class="span4 right_p">#}
+{#                                    <h2>Что посетите?</h2>#}
+{#                                    <p><i class="fa fa-check-circle"></i> натуральная паровая баня GROTTA GIUSTI;</p>#}
+{#                                    <p><i class="fa fa-check-circle"></i> 6 самобытных тосканских городков;</p>#}
+{#                                    <p><i class="fa fa-check-circle"></i> Центр талассотерапии TOMBOLO;</p>#}
+{#                                    <p><i class="fa fa-check-circle"></i> Природные горячие источники <br/> Calidario Terme Etrusche;</p>#}
+{#                                    <p><i class="fa fa-check-circle"></i> Эко-фермы и винодельни;</p>#}
+{#                                    <p><i class="fa fa-check-circle"></i> Флоренция, Пиза, Рим;</p>#}
+{#                                    <p><i class="fa fa-check-circle"></i> 12 ресторанов, где зародилась традиционная итальянская кухня;</p>#}
+{#                                    <p><i class="fa fa-check-circle"></i> старинный замок Castello di Magona герцога Леопольда II;</p>#}
+{#                                    <p><i class="fa fa-check-circle"></i> чистейшее Средиземное море.</p>#}
 {#                                </div>#}
-{#                                <div class="span2">#}
-{#                                    <img src="{% static 'theme/img/css/route-img/toskana2.jpg' %}" alt=""/>#}
-{#                                </div>#}
-                            </div>
-                        </div>
-                        <div class="span6" style="position:relative;">
-                            <img class="img_absolute" src="{% static 'theme/img/css/backgr_blocks/road4.png' %}" alt=""/>
-                            <div class="row">
-                                <div class="span1"></div>
-                                <div class="span4 right_p">
-                                    <h2>Что посетите?</h2>
-                                    <p><i class="fa fa-check-circle"></i> натуральная паровая баня GROTTA GIUSTI;</p>
-                                    <p><i class="fa fa-check-circle"></i> 6 самобытных тосканских городков;</p>
-                                    <p><i class="fa fa-check-circle"></i> Центр талассотерапии TOMBOLO;</p>
-                                    <p><i class="fa fa-check-circle"></i> Природные горячие источники <br/> Calidario Terme Etrusche;</p>
-                                    <p><i class="fa fa-check-circle"></i> Эко-фермы и винодельни;</p>
-                                    <p><i class="fa fa-check-circle"></i> Флоренция, Пиза, Рим;</p>
-                                    <p><i class="fa fa-check-circle"></i> 12 ресторанов, где зародилась традиционная итальянская кухня;</p>
-                                    <p><i class="fa fa-check-circle"></i> старинный замок Castello di Magona герцога Леопольда II;</p>
-                                    <p><i class="fa fa-check-circle"></i> чистейшее Средиземное море.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        {% endblock %}
+{#                            </div>#}
+{#                        </div>#}
+{##}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#        {% endblock %}#}
 
         {% block benvenuto %}
             <div id="benvenuto" class="css_benvenuto">
@@ -257,29 +331,30 @@
                         </div>
                         <div class="span8">
                             <h2> Benvenuto!</h2>
-                            <p class = "benvenuto-text">Меня зовут Валерия Сизова. Я родилась и выросла в Сибири, однако уже 13 лет живу в Италии. Я полюбила этот волшебный край и уже могу сказать: «Тоскана – моя вторая Родина». Я прекрасно знаю этот регион, и от меня у него нет секретов.</p>
-                            <p class = "benvenuto-text">В мои 50 лет решила сделать то, к чему давно тянулась душа. Я не первый год веду здоровый образ жизни и на личном опыте выработала свою систему оздоровления и омоложения организма. За это время я открыла по-настоящему благотворные и целебные места Италии и готова щедро раскрыть их для моих (дорогих) гостей.</p>
-                            <p class = "benvenuto-text">Мне нравится создавать праздник. Я люблю людей, люблю новые открытия, люблю жизнь. Так сложилось, что в моей трудовой деятельности праздник всегда рядом, а идея красоты всегда меня вдохновляла. Убеждена, что самая ПРАВИЛЬНАЯ красота – это хорошее здоровье.</p>
-                            <p class = "benvenuto-text">Я нахожу прелесть в каждом дне и радуюсь, когда рядом со мной близкие по духу люди. Увлекательные истории, непосредственное общение с харизматичными итальянцами, потайные места и проверенные лично мной ресторанчики. Красоты тосканских пейзажей и улочки аутентичных городов, о которых не знают путеводители.</p>
+                            <p class = "benvenuto-text">Меня зовут Валерия Сизова. Я родилась и выросла в Сибири, но уже 15лет живу в Италии, в Тоскане. Я искренне полюбила этот волшебный край и поэтому могу сказать: «Тоскана – это моя вторая Родина». Я свободно говорю по-итальянски, знакома с местными традициями, хорошо вожу машину, поэтому прекрасно знаю этот регион. И у него от меня нет секретов!</p>
+                            <p class = "benvenuto-text">В мои 50 лет решила сделать то, к чему давно тянулась душа: подготовить и осуществить проект «Путешествие в Тоскану» для моих соотечественников. Когда-то, оказавшись в Тоскане и  являясь приверженцем здорового образа жизни, я сразу поняла – Тоскана , это по- настоящему благодатный край.  Внимательно наблюдая и изучая окружающее ( в поисках оздоровления и омоложения ) я открыла для себя места, арсеналом которых пользовались еще древние целители .       и сегодня я готова щедро поделиться этими открытиями с моими гостями из России.</p>
+                            <p class = "benvenuto-text">Я люблю людей, жизнь и красоту во всех её проявлениях. Поэтому мне нравится создавать красивые праздники и для себя, и для других.  Убеждена, что самая ПРАВИЛЬНАЯ красота – это душевное и физическое здоровье человека. </p>
+                            <p class = "benvenuto-text">Чтобы поддерживать такую красоту, нужны не только специальные упражнения и целебные процедуры, но и как можно больше позитивных впечатлений. Их я получаю, когда любуюсь тосканскими пейзажами; брожу по улочкам аутентичных городов; посещаю любимые ресторанчики и общаюсь с харизматичными итальянцами… Всё это ждет и вас, когда вы приедете ко мне в Тоскану!</p>
+                            <p class = "benvenuto-text">До скорой встречи: Валерия</p>
                         </div>
 {#                        <div class="span12" style="">#}
 
 {#                        </div>#}
                         <div class="overlap"></div>
                         <div class="bg_round">
-                            <h2>Личные достижения</h2>
+                            <h2>О себе:</h2>
                             <ul>
-                                <li><i class="fa fa-check"></i> Директор по развитию ювелирной марк и «Nomination» в Новосибирске</li>
-                                <li><i class="fa fa-check"></i> Ведущая программы «Вечер с BODY Line» на телеканале …………..</li>
-                                <li><i class="fa fa-check"></i> Создатель музыкальных сказок-конкурсов для детей «Анфиса»</li>
+                                <li><i class="fa fa-check"></i> Психолог по образованию</li>
+                                <li><i class="fa fa-check"></i> Свободно владею итальянским языком</li>
+                                <li><i class="fa fa-check"></i> 10-летний стаж водителя класса А по итальянским дорогам</li>
                                 <li><i class="fa fa-check"></i> Мама двоих детей и бабушка одной очаровательной внучки</li>
 {#                                <li><i class="fa fa-check-circle"></i> Мама двоих очаровательных детей и бабушка одной очаровательной внучки (умилительной)</li>#}
-                                <li><i class="fa fa-check"></i> Имела собственный фитнес-клуб «Body line»</li>
-                                <li><i class="fa fa-check"></i> Владелица успешного бизнеса в Италии</li>
-                                <li><i class="fa fa-check"></i> Психолог по образованию</li>
-                                <li><i class="fa fa-check"></i> Фитнес-тренер</li>
+{#                                <li><i class="fa fa-check"></i> Имела собственный фитнес-клуб «Body line»</li>#}
+{#                                <li><i class="fa fa-check"></i> Владелица успешного бизнеса в Италии</li>#}
+{#                                <li><i class="fa fa-check"></i> Психолог по образованию</li>#}
+{#                                <li><i class="fa fa-check"></i> Фитнес-тренер</li>#}
                             </ul>
-                            <button type="button" class="btn btn-default">Да, я хочу в Италию!</button>
+{#                            <button type="button" class="btn btn-default">Да, я хочу в Италию!</button>#}
                         </div>
                     </div>
                 </div>
@@ -292,7 +367,7 @@
                     <div class="row">
 {#                        <h2>Для кого это путешествие?</h2>#}
                         <div class="span8">
-                            <h2>Для единомышленников и людей, готовых изменить себя, подарив своему организму здоровье и молодость.</h2>
+                            <h2>Для людей, готовых сделать свой выбор, подарив себе праздник, здоровье и молодость!</h2>
                         </div>
                     </div>
                 </div>
@@ -304,66 +379,123 @@
                 <div class="container">
                     <div class="row">
                         <div class="span6" style="position:relative;">
-                            <img class="img_absolute" src="{% static 'theme/img/css/backgr_blocks/food.png' %}" alt=""/>
+                            <img class="img_absolute" src="{% static 'theme/img/css/backgr_blocks/shut.png' %}" alt=""/>
                             <div class="row">
                                 <div class="span1"></div>
                                 <div class="span4">
-                                    <h2>В реализации проекта участвуют <strong>только</strong> квалифицированные специалисты</h2>
+                                    <h2>Фотогид</h2>
+                                    <p class="gid_text">Персональный фоторепортаж на протяжении всего пребывания в Италии. Вам больше не придется фотографировать друг друга или просить об этой услуге прохожих. Объектив нашей цифровой камеры запечатлит каждый драгоценный момент Вашего путешествия.</p>
                                 </div>
                             </div>
                         </div>
                         <div class="span6">
-                            <h3>Ваши проводники к здоровью</h3>
-                            <p>И, конечно же, очень важный акцент этого путешествия, то, чем я особенно горжусь – это высококвалифицированные специалисты в своем сегменте. </p>
-                            <p>Всех их объединяет не только профессионализм, но и особое восприятие мира. Все они талантливы, оптимистичны и успешны. Они – мои друзья. Это моя команда. </p>
-                            <p>Вместе нам легко обеспечить Вам эффективность и комфорт путешествия.</p>
+                            <h3>Что включено:</h3>
+                            <p>-	Проживание в замке/агротуризме/вилле/отеле (одноместные и двухместные номера)</p>
+                            <p>-	Трансфер на комфортабельном авто/миниавтобусе</p>
+                            <p>-	Постоянное сопровождение и переводчик</p>
+                            <p>-	Экскурсии</p>
+                            <p>-	Утренние завтраки коктейлями BIO</p>
+                            <p>-	Гимнастика и дыхательные практики на берегу моря </p>
+                            <p>-	Занятия гирокинезисом </p>
+                            <p>-	2 кулинарных мастер-класса</p>
+                            <p>-	Посещение винодельни с дегустацией вин и сыров</p>
+                            <p>-	Посещение термальных вод Calidario, Sasso Pisano и древнейшего гротта</p>
+                            <p>-	Морская прогулка по Ливорно</p>
                         </div>
                     </div>
                 </div>
             </div>
         {% endblock %}
 
-        {% block what_if %}
-            <div class="what_if">
+        {% block tours %}
+            <div class="tours" id="tours">
                 <div class="container">
                     <div class="row">
-                        <h2>Приглашаю Вас в Целебную Италию!</h2>
-{#                        <div class="span3"></div>#}
-                        <div class="span12" style="margin-top: 40px; text-align: justify;">
-                            <p>Главная цель Целебного путешествия – помочь Вам очистить и омолодить Ваш организм в гармоничной атмосфере солнечной Италии. Я не случайно использую слово «Целебный», что означает: действующий исцеляюще, способствующий сохранению здоровья, живительный.</p>
-                            <p>Практика, а теперь и наука, показывают, что природное, живое питание, а также правильная физическая активность, без всякой медицины, способны излечить и обновить Ваш организм. Еще академик Павлов писал: «Организм – саморегулирующаяся и самовосстанавливающаяся система». Он сам себя вылечит. Но для этого ему необходимы условия, естественные для его нормального функционирования, как то предусмотрено Природой.</p>
-                            <p>Это путешествие – не только возможность окунуться в самобытный мир настоящей Италии с ее гастрономическими изысками, эко-фермами и богатой культурой, а совместить путешествие с оздоровлением и обновлением себя.</p>
-                            <p>У меня очень большой опыт в организации поездок по Италии, интересных и увлекательных мероприятий: ………………………………..</p>
-                            <p>Однажды я задумалась: а почему бы не поделиться этими богатствами и ресурсами со своими соотечественниками, помочь людям …………………………..(X)</p>
-                            <p>Так и были созданы эти путешествия новой осознанности. Идея которых – побуждать и давать инструменты к яркой, полной гармонии и здоровья жизни.</p>
-                        </div>
-                        <div class="span12" style="text-align: center">
-                            <button type="button" class="btn btn-default">Да, я хочу в Италию!</button>
+                        <div class="span12">
+                            <div class="row">
+                                <div class="span12">
+                                    <h2>Стоимость путешествий:</h2>
+                                </div>
+                                <div class="span4 offer">
+                                    <div class="offer_content">
+                                        <h3>Персональное</h3>
+                                        <p>Если Вы хотите отправиться в путешествие одни, в паре или компанией до 4-х человек со своим индивидуальным маршрутом и перемещением на легковом автомобиле, мы создадим путешествие специально для Вас!</p>
+                                        <div class="price">2800 евро</div>
+                                        <button type="button" class="btn btn-default">Отправить заявку</button>
+                                    </div>
+                                </div>
+                                <div class="span4 offer offer_center">
+                                    <div class="offer_content">
+                                        <h3>Основное - с 27 сентября по 4 октября 2014</h3>
+                                        <p>Насыщенное и интереснейшее приключение в небольшой группе единомышленников по оптимальной цене!</p>
+                                        <div class="price">... </div>
+                                        <button type="button" class="btn btn-default">Отправить заявку</button>
+                                    </div>
+                                </div>
+                                <div class="span4 offer">
+                                    <div class="offer_content">
+                                        <h3>Максимальное (премиум-класса)</h3>
+                                        <p>Исключительный уровень комфорта, передвижение на автомобилях люкс-класса, катание на яхтах и даже вертолете!</p>
+                                        <div class="price">.... </div>
+                                        <button type="button" class="btn btn-default">Отправить заявку</button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        {% endblock %}
+        {% endblock tours %}
+
+{#        {% block what_if %}#}
+{#            <div class="what_if">#}
+{#                <div class="container">#}
+{#                    <div class="row">#}
+{#                        <h2>Приглашаю Вас в Целебную Италию!</h2>#}
+{#                        <div class="span12" style="margin-top: 40px; text-align: justify;">#}
+{#                            <p>Главная цель Целебного путешествия – помочь Вам очистить и омолодить Ваш организм в гармоничной атмосфере солнечной Италии. Я не случайно использую слово «Целебный», что означает: действующий исцеляюще, способствующий сохранению здоровья, живительный.</p>#}
+{#                            <p>Практика, а теперь и наука, показывают, что природное, живое питание, а также правильная физическая активность, без всякой медицины, способны излечить и обновить Ваш организм. Еще академик Павлов писал: «Организм – саморегулирующаяся и самовосстанавливающаяся система». Он сам себя вылечит. Но для этого ему необходимы условия, естественные для его нормального функционирования, как то предусмотрено Природой.</p>#}
+{#                            <p>Это путешествие – не только возможность окунуться в самобытный мир настоящей Италии с ее гастрономическими изысками, эко-фермами и богатой культурой, а совместить путешествие с оздоровлением и обновлением себя.</p>#}
+{#                            <p>У меня очень большой опыт в организации поездок по Италии, интересных и увлекательных мероприятий: ………………………………..</p>#}
+{#                            <p>Однажды я задумалась: а почему бы не поделиться этими богатствами и ресурсами со своими соотечественниками, помочь людям …………………………..(X)</p>#}
+{#                            <p>Так и были созданы эти путешествия новой осознанности. Идея которых – побуждать и давать инструменты к яркой, полной гармонии и здоровья жизни.</p>#}
+{#                        </div>#}
+{#                        <div class="span12" style="text-align: center">#}
+{#                            <button type="button" class="btn btn-default">Да, я хочу в Италию!</button>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#        {% endblock %}#}
 
         {% block photogid %}
             <div id="photogid" class="photogid">
                 <div class="container">
                     <div class="row">
-                        <div class="span5">
-                            <h3>Только представьте</h3>
-                            <p>Только представьте, Вы наслаждаетесь всеми прелестями Италии, как это делают настоящие итальянцы, знакомитесь с ее культурой, каждый день проводите на берегу моря, посещаете целебные термы и питаетесь свежими морепродуктами, только-только выловленными из моря и экологически чистыми овощами и фруктами от местных фермеров.</p>
-                            <p>Берете уроки кулинарного мастерства от нашего шеф-повара Паулы Катабриджи в старинном замке и путешествуете по винным дорогам Кьянти, знакомясь с процессом создания одних из лучших вин мира. </p>
-                            <p>И все это в одном флаконе! Маленькая сказка-мечта, способная стать явью.</p>
+                        <h2>Это путешествие для Вас, если:</h2>
+                        <div class="span6">
+                            <img src="{% static 'theme/img/css/advantage-icon/glass.png' %}" alt=""/>
+                            <p>Вы хотите увидеть настоящую Италию глазами коренных итальянцев.</p>
+                            <img src="{% static 'theme/img/css/advantage-icon/zdorovie.png' %}" alt=""/>
+                            <p>Ведете или давно хотите начать здоровый образ жизни, но не всегда хватает времени или терпения.</p>
+                            <img src="{% static 'theme/img/css/advantage-icon/food.png' %}" alt=""/>
+                            <p>Хотите научиться готовить вкусные, а главное – полезные итальянские блюда</p>
+                            <img src="{% static 'theme/img/css/advantage-icon/inyan.png' %}" alt=""/>
+                            <p>Вы любите себя и стремитесь к гармонии во всех сферах.</p>
+                            <img src="{% static 'theme/img/css/advantage-icon/sun.png' %}" alt=""/>
+                            <p>Вы выбираете здоровые и экологически чистые продукты.</p>
                         </div>
-                        <div class="span7" style="position:relative;">
-                            <img class="img_absolute" src="{% static 'theme/img/css/backgr_blocks/shut.png' %}" alt=""/>
-                            <div class="row">
-                                <div class="span2"></div>
-                                <div class="span3 photo_p">
-                                    <h2>Фотогид</h2>
-                                    <p>Персональный фоторепортаж на протяжении всего пребывания в Италии. Вам больше не придется фотографировать друг друга или просить об этой услуге прохожих. Объектив нашей цифровой камеры запечатлит каждый драгоценный момент Вашего путешествия.</p>
-                                </div>
-                            </div>
+                        <div class="span6">
+                            <img src="{% static 'theme/img/css/advantage-icon/brand.png' %}" alt=""/>
+                            <p>Доверяете итальянским брендам в сфере здоровья и красоты.</p>
+                            <img src="{% static 'theme/img/css/advantage-icon/vine.png' %}" alt=""/>
+                            <p>Вы любите хорошие вина и хотели бы разбираться в них еще лучше.</p>
+                            <img src="{% static 'theme/img/css/advantage-icon/piza.png' %}" alt=""/>
+                            <p>Вам интересны культура и история Италии.</p>
+                            <img src="{% static 'theme/img/css/advantage-icon/shop.png' %}" alt=""/>
+                            <p>Желаете отправиться на итальянский шопинг в самые выгодные места с «хитрыми» ценами.</p>
+                            <img src="{% static 'theme/img/css/advantage-icon/clock.png' %}" alt=""/>
+                            <p>Цените свое время и хотите получить многогранный и полезный отдых.</p>
                         </div>
                     </div>
                 </div>
@@ -374,74 +506,55 @@
             <div id="personal_achievements" class="personal_achievements">
                 <div class="container">
                     <div class="row">
-                        <div class="review_absolute">
-                            <img class="img_absolute" src="{% static 'theme/img/css/backgr_blocks/iphone2.png' %}" alt=""/>
-                            <div class="reviews">
-                                <h2>Отзывы</h2>
-                                <div class="review_item">
-                                    <div class="p_pseudo">
-                                        <p><span class="name">Елена Николаевна</span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                    </div>
-                                    <div class="date">Доставлено 08.04.2014</div>
-                                </div>
-                                <div class="review_item review_item2">
-                                    <div class="p_pseudo">
-                                        <p><span class="name">Валерий Петрович</span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
-                                    </div>
-                                    <div class="date">Доставлено 14.10.2014</div>
-                                </div>
-                                <div class="review_item">
-                                    <div class="p_pseudo">
-                                        <p><span class="name">Далина Виниаминовна</span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                    </div>
-                                    <div class="date">Доставлено 08.04.2014</div>
+
+{#                        <div class="featurette">#}
+{#                            <div class="controls marginbottom">#}
+{#                                <a class="button2" id="modern_prev"><i class="fa fa-angle-left"></i>Назад</a>#}
+{#                                <span class="divider"></span>#}
+{#                                <a class="button2" id="modern_next">Вперед<i class="fa fa-angle-right"></i></a>#}
+{#                            </div>#}
+{#                        </div>#}
+
+                        <div class="span8">
+                            <div class="mightySlider mightyslider_windows8_skin" id="modern">   <!-- PARENT -->
+                                <div class="frame review_manual">   <!-- FRAME -->
+                                    <ul class="slide_element">   <!-- SLIDEELEMENT -->
+                                        {% for review in reviews %}
+                                            <li class="{% if review == reviews|first %}first{% endif %}">
+                                                <div class="review_item">
+                                                    <img src="/media/{{ review.image }}">
+                                                    <p class="review_name">{{ review.name }}</p>
+                                                    <p class="review_company">{{ review.company }}</p>
+                                                    <p>{{ review.text|truncatewords:"43"|safe }}</p>
+{#                                                    <button type="button" class="btn btn-default right">Подробнее</button>#}
+                                                    <a href="{{ review.get_absolute_url }}">подробнее</a>
+                                                </div>
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
                                 </div>
                             </div>
+
+{#                            <div class="featurette">#}
+{#                                <div class="controls marginbottom">#}
+{#                                    <a class="button2" id="modern_prev"><i class="fa fa-angle-left"></i>Назад</a>#}
+{#                                    <span class="divider"></span>#}
+{#                                    <a class="button2" id="modern_next">Вперед<i class="fa fa-angle-right"></i></a>#}
+{#                                </div>#}
+{#                            </div>#}
                         </div>
+
+                        <div class="span4">
+                            <div class="last_slogan">
+                                <h2>Всё, что Вы когда-либо хотели от путешествия с пользой для здоровья!</h2>
+                                <button type="button" class="btn btn-default">Да, я хочу в Италию!</button>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
         {% endblock personal_achievements %}
-
-        {% block tours %}
-            <div class="tours" id="tours">
-                <div class="container">
-                    <div class="row">
-                        <div class="span12">
-                            <div class="row">
-                                <div class="span12">
-                                    <h2>Туры</h2>
-                                </div>
-                                <div class="span4 offer">
-                                    <div class="offer_content">
-                                        <h3>Целебный тур</h3>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                        <div class="price">43 600</div>
-                                        <button type="button" class="btn btn-default">Отправить заявку</button>
-                                    </div>
-                                </div>
-                                <div class="span4 offer offer_center">
-                                    <div class="offer_content">
-                                        <h3>Целебный тур</h3>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                        <div class="price">43 600</div>
-                                        <button type="button" class="btn btn-default">Отправить заявку</button>
-                                    </div>
-                                </div>
-                                <div class="span4 offer">
-                                    <div class="offer_content">
-                                        <h3>Целебный тур</h3>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                        <div class="price">43 600</div>
-                                        <button type="button" class="btn btn-default">Отправить заявку</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        {% endblock tours %}
 
         {% block  footer %}
             <div id="footer" class="footer">
@@ -488,6 +601,87 @@
     </div>
 </div>
 
+    {% block mighty_js %}
+
+                        <!-- mightySlider requires jQuery 1.7+  -->
+        <!-- If you already have jQuery on your page, you shouldn't include it second time. -->
+{#        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>#}
+        <script type="text/javascript" src="{% static 'libraries/fancybox/lib/jquery-1.9.0.min.js' %}"></script>
+        <!-- Uses the built in easing capabilities added In jQuery 1.1 to offer multiple easing options -->
+        <script type="text/javascript" src="http://mightyslider.com/assets/js/jquery.easing-1.3.pack.js"></script>
+        <!-- Mobile touch events for jQuery -->
+        <script type="text/javascript" src="http://mightyslider.com/assets/js/jquery.mobile.just-touch.js"></script>
+        <!-- Main slider JS script file -->
+        <script type="text/javascript" src={% static 'mightyslider/src/js/mightyslider.min.js' %}></script>
+
+        <script>
+            jQuery(document).ready(function($) {
+
+            		var $win = $(window),
+				isTouch = !!('ontouchstart' in window),
+				clickEvent = isTouch ? 'tap' : 'click';
+
+
+
+        		// Modern Example
+                (function(){
+                    function calculator(width){
+                        var percent = '50%';
+                        if (width <= 768) {
+                            percent = '100%';
+                        }
+                        else {
+                            percent = '50%';
+                        }
+                        return percent;
+                    };
+
+                    var $carousel = $('#modern'),
+                    $frame = $('.frame', $carousel);
+                    $frame.mightySlider({
+                        speed: 500,
+                        autoScale: 1,
+                        viewport: 'fill',
+                        startAt: 0,
+
+                        // Navigation options
+                        navigation: {
+                            navigationType: 'basic',
+                            horizontal: 1,
+                            activateOn: clickEvent,
+                            slideSize: calculator($win.width())
+                        },
+
+                        cycling: {
+                            cycleBy:       'slides', // Enable automatic cycling by 'slides' or 'pages'.
+                            pauseTime:     5000, // Delay between cycles in milliseconds.
+                            pauseOnHover:  0,    // Pause cycling when mouse hovers over the FRAME.
+                            startPaused:   0     // Whether to start in paused sate.
+                          },
+
+                        // Buttons options
+                        buttons: {
+                            prevPage: $('#modern_prev'),
+                            nextPage: $('#modern_next')
+                        }
+                    });
+
+                    var API = $frame.data().mightySlider;
+
+                    $win.resize(function(){
+                        API.set({
+                            navigation: {
+                                slideSize: calculator($win.width())
+                            }
+                        });
+                    });
+                })();
+		    // End of Modern Example
+            });
+        </script>
+
+    {% endblock %}
+
 {#<script>#}
 {#    try{for(var lastpass_iter=0; lastpass_iter < document.forms.length; lastpass_iter++){ var lastpass_f = document.forms[lastpass_iter]; if(typeof(lastpass_f.lpsubmitorig2)=="undefined"){ lastpass_f.lpsubmitorig2 = lastpass_f.submit; lastpass_f.submit = function(){ var form=this; var customEvent = document.createEvent("Event"); customEvent.initEvent("lpCustomEvent", true, true); var d = document.getElementById("hiddenlpsubmitdiv"); if (d) {for(var i = 0; i < document.forms.length; i++){ if(document.forms[i]==form){ d.innerText=i; } } d.dispatchEvent(customEvent); }form.lpsubmitorig2(); } } }}catch(e){}#}
 {#</script>#}
@@ -499,44 +693,6 @@
 
 <script src="{% static 'libraries/last.js' %}"></script>
 
-
-{#google#}
-<script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-    ga('create', 'UA-49598727-1', 'forward70.ru');
-    ga('send', 'pageview');
-</script>
-
-<!-- Yandex.Metrika counter -->
-<script type="text/javascript">
-(function (d, w, c) {
-    (w[c] = w[c] || []).push(function() {
-        try {
-            w.yaCounter11675299 = new Ya.Metrika({id:11675299,
-                    webvisor:true,
-                    clickmap:true,
-                    trackLinks:true,
-                    accurateTrackBounce:true});
-        } catch(e) { }
-    });
-
-    var n = d.getElementsByTagName("script")[0],
-        s = d.createElement("script"),
-        f = function () { n.parentNode.insertBefore(s, n); };
-    s.type = "text/javascript";
-    s.async = true;
-    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
-
-    if (w.opera == "[object Opera]") {
-        d.addEventListener("DOMContentLoaded", f, false);
-    } else { f(); }
-})(document, window, "yandex_metrika_callbacks");
-</script>
-<noscript><div><img src="//mc.yandex.ru/watch/11675299" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika counter -->
 
     </body>
 </html>
