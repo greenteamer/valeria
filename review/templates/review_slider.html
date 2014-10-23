@@ -1,40 +1,40 @@
-<div class="slider_review">
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-
+{#<div class="slider_review">#}
+{#    <div id="myCarousel" class="carousel slide" data-ride="carousel">#}
+{##}
     {#    <ol class="carousel-indicators">#}
     {#        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>#}
     {#        <li data-target="#myCarousel" data-slide-to="1"></li>#}
     {#        <li data-target="#myCarousel" data-slide-to="2"></li>#}
     {#    </ol>#}
-
-        <div class="carousel-inner">
-            {% for review in reviews %}
-                {% if review.review_in_main %}
-                    <div class="item {% if review == reviews|first %}active{% endif %}">
-                        <div class="container">
-                            <div class="main_review">
-                                <img width="100" src="/media/{{ review.image }}" alt="" align="left" hspace="10"/>
-                                <div class="popover right">
-                                    <div class="arrow"></div>
-                                    <h3 class="popover-title">{{ review.name }}</h3>
-                                    <div class="popover-content">{{ review.text|removetags:"img"|truncatewords:"50"|safe }}</div>
-                                </div>
-                            </div>
+{##}
+{#        <div class="carousel-inner">#}
+{#            {% for review in reviews %}#}
+{#                {% if review.review_in_main %}#}
+{#                    <div class="item {% if review == reviews|first %}active{% endif %}">#}
+{#                        <div class="container">#}
+{#                            <div class="main_review">#}
+{#                                <img width="100" src="/media/{{ review.image }}" alt="" align="left" hspace="10"/>#}
+{#                                <div class="popover right">#}
+{#                                    <div class="arrow"></div>#}
+{#                                    <h3 class="popover-title">{{ review.name }}</h3>#}
+{#                                    <div class="popover-content">{{ review.text|removetags:"img"|truncatewords:"50"|safe }}</div>#}
+{#                                </div>#}
+{#                            </div>#}
     {#                        <div class="carousel-caption">#}
     {#                            <h4>{{ review.name }}</h4>#}
     {#                            <p>{{ review.text|removetags:"img"|truncatewords:"20"|safe }}</p>#}
     {#                        </div>#}
-                        </div>
-                    </div>
-                {% endif %}
-            {% endfor %}
-        </div>
-
-        <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
-        <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
-
-    </div>
-</div>
+{#                        </div>#}
+{#                    </div>#}
+{#                {% endif %}#}
+{#            {% endfor %}#}
+{#        </div>#}
+{##}
+{#        <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>#}
+{#        <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>#}
+{##}
+{#    </div>#}
+{#</div>#}
 
 {#{% for review in reviews %}#}
 {#    {% if review.review_in_main %}#}
