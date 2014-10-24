@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load thumbnail %}
+{% load staticfiles %}
+{% load flatblock_tags %}
+
+
+{% block first_content %}
+    <div class="review_content">
+        <div class="container">
+            <div class="row">
+                <div class="span12">
+                    <img src="/media/{{ review.image }}">
+                    <div class="name">{{ review.name }}</div>
+                    <div class="text">{{ review.text|truncatewords:"43"|safe }}</div>
+                    {% for image in review_gallery %}
+{#                        <div class="span2">#}
+                            <a class="fancybox" rel="gallery2" href="/{{ image.url_self }}">
+                                <img src="/{{ image.url_self }}" alt="">
+                            </a>
+{#                        </div>#}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block how_it_will_be %}
+{% endblock %}
+
+{% block benvenuto %}
+{% endblock %}
+
+{% block for_whom %}
+{% endblock %}
+
+{% block what_will_do %}
+{% endblock %}
+
+{% block tours %}
+{% endblock %}
+
+{% block photogid %}
+{% endblock %}
+
+{% block personal_achievements %}
+{% endblock %}
+
+{% block mighty_js %}
+{% endblock %}
+
+
+
+
+
